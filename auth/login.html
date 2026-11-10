@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        navy: {
+                            900: '#071626',
+                            950: '#030B14',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .rexora-bg {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 60%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 50% 70%, #F0F9FF 0px, transparent 70%);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+    </style>
+</head>
+
+<body
+    class="rexora-bg text-slate-800 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen flex items-center justify-center p-4 sm:p-6">
+
+    <!-- ==================== LOGIN CONTAINER ==================== -->
+    <div class="w-full max-w-md">
+
+        <!-- Top Brand Logo -->
+        <div class="text-center mb-8">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 group">
+                <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-8 w-auto object-contain"
+                    onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                <span class="text-2xl font-black tracking-tight text-navy-950">REX<span
+                        class="text-brand-500">ORA</span></span>
+            </a>
+            <p class="text-xs text-slate-500 mt-2 font-medium">Access your digital earning dashboard</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="glass-card rounded-3xl p-7 sm:p-9 shadow-xl shadow-slate-200/50">
+            <div class="mb-6">
+                <h2 class="text-xl sm:text-2xl font-black text-navy-950 tracking-tight">Sign In</h2>
+                <p class="text-[11px] text-slate-500 mt-1 font-medium">
+                    Don't have an account?
+                    <a href="register.html" class="text-brand-600 font-bold hover:underline ml-1">Create Account</a>
+                </p>
+            </div>
+
+            <form id="loginForm" class="space-y-4" novalidate>
+
+                <!-- Username or Email -->
+                <div>
+                    <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                        Username or Email Address
+                    </label>
+                    <input type="text" id="loginIdentifier" name="identifier"
+                        placeholder="e.g. samuel24 or user@gmail.com"
+                        class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                    <p id="err-identifier" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <div class="flex items-center justify-between mb-1">
+                        <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+                            Password
+                        </label>
+                        <a href="forgot-password.html" class="text-[10px] font-bold text-brand-600 hover:underline">
+                            Forgot Password?
+                        </a>
+                    </div>
+                    <div class="relative">
+                        <input type="password" id="loginPassword" name="password" placeholder="••••••••"
+                            class="w-full pl-3.5 pr-10 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                        <button type="button" onclick="togglePasswordVisibility()"
+                            class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 text-xs font-bold">
+                            👁
+                        </button>
+                    </div>
+                    <p id="err-password" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                </div>
+
+                <!-- Remember Me Checkbox -->
+                <div class="pt-1">
+                    <label class="flex items-center gap-2 cursor-pointer select-none">
+                        <input type="checkbox" id="rememberMe"
+                            class="w-4 h-4 rounded text-brand-500 border-slate-300 accent-brand-500 cursor-pointer" />
+                        <span class="text-[11px] text-slate-600 font-medium">Keep me signed in</span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                    <button type="submit" id="loginSubmitBtn"
+                        class="w-full py-3.5 px-6 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 transition-all">
+                        Sign In to Dashboard
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Bottom Footer Note -->
+        <div class="mt-8 text-center text-[11px] text-slate-400">
+            &copy; 2026 REXORA Ecosystem. All rights reserved.
+        </div>
+
+    </div>
+
+    <!-- ==================== PURE JS VALIDATION & LOGIN LOGIC ==================== -->
+    <script>
+        function togglePasswordVisibility() {
+            const passField = document.getElementById('loginPassword');
+            passField.type = passField.type === 'password' ? 'text' : 'password';
+        }
+
+        const form = document.getElementById('loginForm');
+        const identifierInput = document.getElementById('loginIdentifier');
+        const passwordInput = document.getElementById('loginPassword');
+
+        function showError(input, errorId, message) {
+            const errEl = document.getElementById(errorId);
+            input.classList.remove('border-slate-200');
+            input.classList.add('border-rose-400', 'bg-rose-50/20');
+            errEl.textContent = message;
+            errEl.classList.remove('hidden');
+        }
+
+        function clearError(input, errorId) {
+            const errEl = document.getElementById(errorId);
+            input.classList.remove('border-rose-400', 'bg-rose-50/20');
+            input.classList.add('border-slate-200');
+            errEl.textContent = '';
+            errEl.classList.add('hidden');
+        }
+
+        function checkIdentifier() {
+            const val = identifierInput.value.trim();
+            if (val === '') {
+                showError(identifierInput, 'err-identifier', 'Username or email address is required.');
+                return false;
+            }
+            clearError(identifierInput, 'err-identifier');
+            return true;
+        }
+
+        function checkPassword() {
+            const val = passwordInput.value;
+            if (val === '') {
+                showError(passwordInput, 'err-password', 'Password is required.');
+                return false;
+            }
+            clearError(passwordInput, 'err-password');
+            return true;
+        }
+
+        identifierInput.addEventListener('input', checkIdentifier);
+        passwordInput.addEventListener('input', checkPassword);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const isIdValid = checkIdentifier();
+            const isPassValid = checkPassword();
+
+            if (!isIdValid || !isPassValid) {
+                return;
+            }
+
+            const submitBtn = document.getElementById('loginSubmitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Verifying...";
+
+            // Check for user state in localStorage or proceed to lock gating
+            const storedUser = localStorage.getItem('rexora_user');
+            let targetUrl = '../dashboard/activation-lock.html';
+
+            if (storedUser) {
+                try {
+                    const parsed = JSON.parse(storedUser);
+                    if (parsed.isUnlocked === true || (parsed.referralCount && parsed.referralCount >= 2)) {
+                        targetUrl = '../dashboard/index.html';
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+            }
+
+            setTimeout(() => {
+                window.location.href = targetUrl;
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>

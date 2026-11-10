@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REXORA | New Era of Digital Opportunities</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            300: '#7DD3FC',
+                            400: '#38BDF8',
+                            500: '#0EA5E9', // Core Sky Blue
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        navy: {
+                            900: '#071626',
+                            950: '#030B14',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Translucent pill bar effect matching reference */
+        .capsule-nav {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(224, 242, 254, 0.8);
+            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.12);
+        }
+
+        /* Background light aura gradient */
+        .rexora-bg {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 65%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 50% 60%, #F0F9FF 0px, transparent 70%);
+            background-attachment: fixed;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+    </style>
+</head>
+
+<body class="rexora-bg text-slate-800 antialiased font-sans selection:bg-brand-500 selection:text-white">
+
+    <!-- ==================== FLOATING PILL NAVBAR ==================== -->
+    <div class="fixed top-4 sm:top-6 inset-x-0 z-50 px-4 sm:px-6">
+        <header
+            class="max-w-5xl mx-auto capsule-nav rounded-full px-4 sm:px-6 py-2.5 sm:py-3 transition-all duration-300">
+            <div class="flex items-center justify-between">
+
+                <!-- Left: Logo Image + Brand Name -->
+                <a href="#hero" class="flex items-center gap-2.5 pl-1">
+                    <img src="assets/images/logo/logo.png" alt="REXORA Logo" class="h-7 sm:h-8 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-lg sm:text-xl font-extrabold tracking-tight text-navy-950">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <!-- Center: Desktop Links -->
+                <nav
+                    class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-semibold uppercase tracking-wider text-slate-600">
+                    <a href="#hero" class="hover:text-brand-600 transition-colors">Home</a>
+                    <a href="#features" class="hover:text-brand-600 transition-colors">Ecosystem</a>
+                    <a href="#plans" class="hover:text-brand-600 transition-colors">Plans</a>
+                    <a href="#affiliate" class="hover:text-brand-600 transition-colors">Affiliate</a>
+                    <a href="#faq" class="hover:text-brand-600 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Right: Actions Pill -->
+                <div class="hidden sm:flex items-center gap-2">
+                    <a href="auth/login.html"
+                        class="text-xs font-bold text-slate-700 hover:text-brand-600 px-4 py-2 transition-colors">
+                        Log In
+                    </a>
+                    <a href="auth/register.html"
+                        class="text-xs font-bold bg-brand-500 hover:bg-brand-600 text-white px-5 py-2.5 rounded-full shadow-md shadow-brand-500/25 transition-all transform hover:-translate-y-0.5">
+                        Create Account
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-600 hover:text-navy-900 focus:outline-none">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown -->
+            <div id="mobileMenu" class="hidden md:hidden pt-4 pb-2 border-t border-slate-100 mt-3 space-y-3 px-2">
+                <a href="#hero" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Home</a>
+                <a href="#features"
+                    class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Ecosystem</a>
+                <a href="#plans" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Plans</a>
+                <a href="#affiliate"
+                    class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">Affiliate</a>
+                <a href="#faq" class="block text-sm font-semibold text-slate-700 hover:text-brand-600 py-1">FAQ</a>
+                <div class="pt-3 border-t border-slate-100 flex gap-2">
+                    <a href="auth/login.html"
+                        class="flex-1 text-center py-2 text-xs font-bold border border-slate-200 rounded-full">Log
+                        In</a>
+                    <a href="auth/register.html"
+                        class="flex-1 text-center py-2 text-xs font-bold bg-brand-500 text-white rounded-full">Sign
+                        Up</a>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="pt-36 sm:pt-44 pb-20 sm:pb-28 text-center px-4">
+        <div class="max-w-4xl mx-auto">
+
+            <!-- Big Impact Typography -->
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-navy-950 tracking-tight leading-[1.12]">
+                Explore the new era of <br class="hidden sm:inline" />
+                <span class="bg-gradient-to-r from-brand-500 to-sky-600 bg-clip-text text-transparent">digital
+                    opportunities.</span>
+            </h1>
+
+            <p class="mt-6 text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Your time online holds real value. Engage in structured micro-roles, product reviews, daily streak bonus
+                vaults, and earn direct, withdrawable dollars.
+            </p>
+
+            <!-- Pill Button matching reference style -->
+            <div class="mt-8 flex justify-center">
+                <a href="auth/register.html"
+                    class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-sm sm:text-base shadow-xl shadow-brand-500/25 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 transition-all">
+                    <span>Create Free Account</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- 3 Glass Stats Cards (styled after bottom cards in reference) -->
+            <div class="mt-14 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto text-left">
+
+                <div class="glass-card rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="flex items-center gap-2 text-brand-600 text-xs font-bold uppercase tracking-wider mb-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        Remote-Job (Pro)
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-navy-950">$10+ <span
+                            class="text-xs font-medium text-slate-500">/task</span></div>
+                    <p class="text-xs text-slate-500 mt-1">Exclusive high-yield tasks</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                    <div
+                        class="flex items-center gap-2 text-indigo-600 text-xs font-bold uppercase tracking-wider mb-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        Streaks Vault
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-navy-950">$20+ <span
+                            class="text-xs font-medium text-slate-500">/pool</span></div>
+                    <p class="text-xs text-slate-500 mt-1">Consistency bonus pool</p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                    <div
+                        class="flex items-center gap-2 text-emerald-600 text-xs font-bold uppercase tracking-wider mb-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                        </svg>
+                        Social Reviews
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-navy-950">$2.00+ <span
+                            class="text-xs font-medium text-slate-500">/review</span></div>
+                    <p class="text-xs text-slate-500 mt-1">Review products & earn</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 1: SLIDESHOW CAROUSEL (ECOSYSTEM MODULES) ==================== -->
+    <section id="features" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
+                <div>
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Ecosystem Engine</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold text-navy-950 tracking-tight mt-1">Explore 5 Digital
+                        Earning Streams</h2>
+                </div>
+                <!-- Slideshow Controls -->
+                <div class="flex items-center gap-2 mt-4 md:mt-0">
+                    <button id="slidePrevBtn"
+                        class="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 transition-colors shadow-sm">
+                        ←
+                    </button>
+                    <button id="slideNextBtn"
+                        class="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-600 transition-colors shadow-sm">
+                        →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="overflow-hidden">
+                <div id="carouselTrack" class="flex gap-6 transition-transform duration-500 ease-out">
+
+                    <!-- Card 1: Remote Job (PRO) -->
+                    <div
+                        class="min-w-[280px] sm:min-w-[340px] flex-shrink-0 glass-card rounded-3xl p-6 sm:p-7 relative border border-brand-200">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-indigo-100 text-indigo-700 mb-4">
+                            PRO Only Exclusive
+                        </span>
+                        <div class="text-2xl font-bold text-navy-950">Remote Jobs</div>
+                        <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+                            Complete freelance assignments, tech tasks, and digital categorization jobs starting from
+                            $10 and up.
+                        </p>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Yield</span>
+                            <span class="text-sm font-bold text-brand-600">$10 - $45 / job</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Social Review -->
+                    <div
+                        class="min-w-[280px] sm:min-w-[340px] flex-shrink-0 glass-card rounded-3xl p-6 sm:p-7 relative">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-brand-100 text-brand-700 mb-4">
+                            Starter & Pro
+                        </span>
+                        <div class="text-2xl font-bold text-navy-950">Social Reviews</div>
+                        <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+                            Test products, submit verified feedback, and get rewarded in withdrawable USD.
+                        </p>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Yield</span>
+                            <span class="text-sm font-bold text-brand-600">$2+ Pro / Standard</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Surveys -->
+                    <div
+                        class="min-w-[280px] sm:min-w-[340px] flex-shrink-0 glass-card rounded-3xl p-6 sm:p-7 relative">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-brand-100 text-brand-700 mb-4">
+                            Starter & Pro
+                        </span>
+                        <div class="text-2xl font-bold text-navy-950">Paid Surveys</div>
+                        <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+                            Quick market opinions and verified demographic research forms available daily.
+                        </p>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Yield</span>
+                            <span class="text-sm font-bold text-brand-600">$1+ per survey</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Streaks -->
+                    <div
+                        class="min-w-[280px] sm:min-w-[340px] flex-shrink-0 glass-card rounded-3xl p-6 sm:p-7 relative">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-amber-100 text-amber-800 mb-4">
+                            Daily Bonus
+                        </span>
+                        <div class="text-2xl font-bold text-navy-950">Daily Streaks</div>
+                        <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+                            Build engagement streaks. Unlock progressive prize pool vaults of $20 and above.
+                        </p>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Yield</span>
+                            <span class="text-sm font-bold text-amber-600">$20+ Pool</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Read & Earn -->
+                    <div
+                        class="min-w-[280px] sm:min-w-[340px] flex-shrink-0 glass-card rounded-3xl p-6 sm:p-7 relative">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase bg-emerald-100 text-emerald-800 mb-4">
+                            Information & Earn
+                        </span>
+                        <div class="text-2xl font-bold text-navy-950">Read & Earn</div>
+                        <p class="text-slate-600 text-xs mt-2 leading-relaxed">
+                            Read curated digital articles, innovations, and news summaries to claim credits.
+                        </p>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Yield</span>
+                            <span class="text-sm font-bold text-brand-600">$1+ per read</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PLANS SECTION ==================== -->
+    <section id="plans" class="py-20 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Select Membership</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-950 tracking-tight mt-1">Starter vs Pro Access
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+
+                <!-- STARTER PLAN -->
+                <div class="glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <span
+                            class="px-3.5 py-1 rounded-full text-[11px] font-bold uppercase bg-slate-100 text-slate-700">Starter
+                            Plan</span>
+                        <div class="mt-6 flex items-baseline gap-2">
+                            <span class="text-4xl sm:text-5xl font-black text-navy-950">$2.00</span>
+                            <span class="text-sm font-semibold text-slate-500">/ ₦1,500</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2">Essential micro task suite.</p>
+
+                        <ul class="mt-8 space-y-3.5 text-xs sm:text-sm text-slate-600">
+                            <li class="flex items-center gap-3">
+                                <span class="text-emerald-500 font-bold">✓</span> Social Reviews (Standard)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-emerald-500 font-bold">✓</span> Daily Surveys
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-emerald-500 font-bold">✓</span> Streaks System
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-emerald-500 font-bold">✓</span> Read & Earn Articles
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-400">
+                                <span class="text-slate-300">✕</span> <span class="line-through">Remote-Jobs ($10+
+                                    yield)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-slate-100">
+                        <a href="auth/register.html?plan=starter"
+                            class="block w-full py-3.5 rounded-full text-center text-xs font-bold bg-slate-100 hover:bg-slate-200 text-navy-950 transition-colors">
+                            Choose Starter ($2 / ₦1,500)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PRO PLAN -->
+                <div
+                    class="glass-card rounded-3xl p-8 sm:p-10 flex flex-col justify-between border-2 border-brand-500 relative shadow-xl shadow-brand-500/10">
+                    <div
+                        class="absolute -top-3 right-8 bg-brand-500 text-white text-[10px] font-black uppercase px-3.5 py-1 rounded-full tracking-wider shadow">
+                        Recommended
+                    </div>
+
+                    <div>
+                        <span
+                            class="px-3.5 py-1 rounded-full text-[11px] font-bold uppercase bg-brand-100 text-brand-700">PRO
+                            Plan</span>
+                        <div class="mt-6 flex items-baseline gap-2">
+                            <span class="text-4xl sm:text-5xl font-black text-navy-950">$3.00</span>
+                            <span class="text-sm font-semibold text-slate-500">/ ₦3,000</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-2">Unrestricted high-yield ecosystem privileges.</p>
+
+                        <ul class="mt-8 space-y-3.5 text-xs sm:text-sm text-slate-700 font-medium">
+                            <li class="flex items-center gap-3">
+                                <span
+                                    class="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold">★</span>
+                                <span><strong>Remote-Jobs ($10+ up):</strong> Strictly Pro exclusive</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-brand-500 font-bold">✓</span> Social Reviews ($2+ rates)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-brand-500 font-bold">✓</span> Premium Surveys ($1+ rates)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-brand-500 font-bold">✓</span> Daily Streaks ($20+ bonus vault)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-brand-500 font-bold">✓</span> Read & Earn ($1+ articles)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-slate-100">
+                        <a href="auth/register.html?plan=pro"
+                            class="block w-full py-3.5 rounded-full text-center text-xs font-bold bg-brand-500 hover:bg-brand-600 text-white shadow-lg shadow-brand-500/25 transition-all">
+                            Choose Pro ($3 / ₦3,000)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== AFFILIATE SYSTEM & 2-PERSON GATING ==================== -->
+    <section id="affiliate" class="py-20 px-4">
+        <div class="max-w-5xl mx-auto glass-card rounded-3xl p-8 sm:p-12 border border-brand-100">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Access Protocol &
+                        Affiliate</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 mt-1">
+                        2 Paid Referrals Required for Dashboard Access
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                        To ensure an active and high-quality community, your earning dashboard unlocks once <strong>2
+                            persons</strong> register and pay for their plan via your link.
+                    </p>
+
+                    <div class="mt-6 space-y-3 text-xs sm:text-sm">
+                        <div
+                            class="p-3.5 rounded-2xl bg-white border border-slate-200 flex justify-between items-center">
+                            <span>Starter Referral (₦1,500)</span>
+                            <span class="font-bold text-brand-600">₦750 Commission</span>
+                        </div>
+                        <div
+                            class="p-3.5 rounded-2xl bg-white border border-slate-200 flex justify-between items-center">
+                            <span>Pro Referral (₦3,000)</span>
+                            <span class="font-bold text-indigo-600">₦1,500 Commission</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-800 text-xs">
+                            <strong>Weekend Withdrawal:</strong> Affiliate earnings are paid out directly every weekend.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commission Calculator -->
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="text-sm font-bold text-navy-950 uppercase tracking-wider mb-4">Earnings Calculator</h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-slate-600 mb-1">
+                                <span>Starter Referrals: <span id="calcStarterNum"
+                                        class="text-brand-600 font-bold">2</span></span>
+                                <span>₦750 each</span>
+                            </div>
+                            <input id="sliderStarter" type="range" min="0" max="40" value="2"
+                                class="w-full h-1.5 bg-slate-200 rounded-lg accent-brand-500 cursor-pointer">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold text-slate-600 mb-1">
+                                <span>Pro Referrals: <span id="calcProNum"
+                                        class="text-indigo-600 font-bold">2</span></span>
+                                <span>₦1,500 each</span>
+                            </div>
+                            <input id="sliderPro" type="range" min="0" max="40" value="2"
+                                class="w-full h-1.5 bg-slate-200 rounded-lg accent-indigo-600 cursor-pointer">
+                        </div>
+
+                        <div
+                            class="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between mt-4">
+                            <div>
+                                <span class="text-[10px] text-slate-400 font-semibold uppercase">Weekend Payout</span>
+                                <div id="calcTotalNGN" class="text-xl font-black text-navy-950">₦4,500</div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[10px] text-slate-400 font-semibold uppercase">Dollar Value</span>
+                                <div id="calcTotalUSD" class="text-sm font-bold text-emerald-600">~$4.50</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECTION 2: SLIDESHOW TESTIMONIAL / ACTIVITY ==================== -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Community Verification</span>
+            <h2 class="text-2xl font-extrabold text-navy-950 mt-1 mb-8">Recent Milestone Achievements</h2>
+
+            <!-- Slideshow Container -->
+            <div
+                class="relative glass-card rounded-3xl p-8 sm:p-10 border border-slate-200 min-h-[170px] flex items-center justify-center">
+
+                <!-- Slide Item 1 -->
+                <div class="testi-slide block space-y-2">
+                    <p class="text-sm sm:text-base font-medium text-slate-700 italic">
+                        "Completed 2 Remote Jobs on the Pro Plan and received my payout directly. Unlocking the
+                        2-referral gate took less than 24 hours."
+                    </p>
+                    <div class="text-xs font-bold text-navy-950 pt-2">— Marcus K. (Lagos) • Earned $28.00</div>
+                </div>
+
+                <!-- Slide Item 2 -->
+                <div class="testi-slide hidden space-y-2">
+                    <p class="text-sm sm:text-base font-medium text-slate-700 italic">
+                        "Streaks consistency really works. Hit Day 7 and unlocked the bonus pool alongside regular
+                        survey reviews."
+                    </p>
+                    <div class="text-xs font-bold text-navy-950 pt-2">— Stephanie A. • Earned $22.50</div>
+                </div>
+
+                <!-- Slide Item 3 -->
+                <div class="testi-slide hidden space-y-2">
+                    <p class="text-sm sm:text-base font-medium text-slate-700 italic">
+                        "Affiliate commission sent promptly on Sunday morning. ₦1,500 per Pro upgrade adds up rapidly."
+                    </p>
+                    <div class="text-xs font-bold text-navy-950 pt-2">— Daniel O. • Affiliate Payout ₦18,000</div>
+                </div>
+
+            </div>
+
+            <!-- Slideshow Dots -->
+            <div class="flex justify-center gap-2 mt-4" id="testiDots">
+                <span onclick="setTestiSlide(0)" class="w-2.5 h-2.5 rounded-full bg-brand-500 cursor-pointer"></span>
+                <span onclick="setTestiSlide(1)" class="w-2.5 h-2.5 rounded-full bg-slate-300 cursor-pointer"></span>
+                <span onclick="setTestiSlide(2)" class="w-2.5 h-2.5 rounded-full bg-slate-300 cursor-pointer"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ ACCORDION ==================== -->
+    <section id="faq" class="py-20 px-4">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold text-brand-600 uppercase tracking-widest">Answers</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-navy-950 mt-1">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="space-y-3">
+                <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaq(1)">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-sm text-navy-950">Why do I need 2 paid referrals to unlock my tasks?
+                        </h4>
+                        <span id="faq-icon-1" class="text-slate-400 font-bold">+</span>
+                    </div>
+                    <p id="faq-text-1" class="hidden text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                        The 2-referral verification system confirms active user status and maintains sustainable task
+                        compensation across all tiers.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaq(2)">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-sm text-navy-950">Can I access Remote Jobs on the Starter Plan?</h4>
+                        <span id="faq-icon-2" class="text-slate-400 font-bold">+</span>
+                    </div>
+                    <p id="faq-text-2" class="hidden text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                        No. High-paying Remote Jobs ($10+) are strictly reserved for Pro Plan members ($3 / ₦3,000).
+                        Starter Plan users have full access to Reviews, Surveys, Streaks, and Read & Earn.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-2xl p-5 cursor-pointer" onclick="toggleFaq(3)">
+                    <div class="flex items-center justify-between">
+                        <h4 class="font-bold text-sm text-navy-950">When are affiliate withdrawals processed?</h4>
+                        <span id="faq-icon-3" class="text-slate-400 font-bold">+</span>
+                    </div>
+                    <p id="faq-text-3" class="hidden text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+                        Affiliate commission requests are processed every weekend (Friday evening through Sunday
+                        midnight).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="py-12 border-t border-slate-200/80 text-center text-xs text-slate-500">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <img src="assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
+                    onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';" />
+                <span class="font-bold text-navy-950">REXORA</span>
+            </div>
+            <div>
+                &copy; 2026 REXORA Ecosystem. All rights reserved.
+            </div>
+            <div class="flex gap-4">
+                <a href="#hero" class="hover:text-brand-600">Home</a>
+                <a href="#plans" class="hover:text-brand-600">Plans</a>
+                <a href="#affiliate" class="hover:text-brand-600">Affiliate</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 2. Ecosystem Horizontal Slideshow Carousel
+        const track = document.getElementById('carouselTrack');
+        const nextBtn = document.getElementById('slideNextBtn');
+        const prevBtn = document.getElementById('slidePrevBtn');
+        let currentIndex = 0;
+        const cardWidth = 320; // approximate scroll distance
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = Math.min(currentIndex + 1, 2);
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        });
+
+        // 3. Testimonial Slideshow (Auto slide)
+        let testiIdx = 0;
+        const slides = document.querySelectorAll('.testi-slide');
+        const dots = document.querySelectorAll('#testiDots span');
+
+        function showTestiSlide(idx) {
+            slides.forEach((s, i) => {
+                s.classList.toggle('hidden', i !== idx);
+                s.classList.toggle('block', i === idx);
+            });
+            dots.forEach((d, i) => {
+                d.className = i === idx ? 'w-2.5 h-2.5 rounded-full bg-brand-500 cursor-pointer' : 'w-2.5 h-2.5 rounded-full bg-slate-300 cursor-pointer';
+            });
+        }
+
+        function setTestiSlide(idx) {
+            testiIdx = idx;
+            showTestiSlide(testiIdx);
+        }
+
+        setInterval(() => {
+            testiIdx = (testiIdx + 1) % slides.length;
+            showTestiSlide(testiIdx);
+        }, 4500);
+
+        // 4. Commission Calculator
+        const sliderStarter = document.getElementById('sliderStarter');
+        const sliderPro = document.getElementById('sliderPro');
+        const calcStarterNum = document.getElementById('calcStarterNum');
+        const calcProNum = document.getElementById('calcProNum');
+        const calcTotalNGN = document.getElementById('calcTotalNGN');
+        const calcTotalUSD = document.getElementById('calcTotalUSD');
+
+        function updateCommission() {
+            const s = parseInt(sliderStarter.value, 10);
+            const p = parseInt(sliderPro.value, 10);
+            calcStarterNum.textContent = s;
+            calcProNum.textContent = p;
+
+            const totalNGN = (s * 750) + (p * 1500);
+            const totalUSD = ((s * 0.75) + (p * 1.50)).toFixed(2);
+
+            calcTotalNGN.textContent = `₦${totalNGN.toLocaleString()}`;
+            calcTotalUSD.textContent = `~$${totalUSD}`;
+        }
+
+        sliderStarter.addEventListener('input', updateCommission);
+        sliderPro.addEventListener('input', updateCommission);
+        updateCommission();
+
+        // 5. FAQ Accordion Toggle
+        function toggleFaq(num) {
+            const text = document.getElementById(`faq-text-${num}`);
+            const icon = document.getElementById(`faq-icon-${num}`);
+            const isHidden = text.classList.contains('hidden');
+            text.classList.toggle('hidden');
+            icon.textContent = isHidden ? '−' : '+';
+        }
+    </script>
+</body>
+
+</html>

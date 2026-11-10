@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        navy: {
+                            900: '#071626',
+                            950: '#030B14',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Ambient Light Glow for the Branding Side */
+        .brand-side-bg {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 20% 15%, #BAE6FD 0px, transparent 50%),
+                radial-gradient(at 80% 85%, #E0F2FE 0px, transparent 60%),
+                radial-gradient(at 50% 50%, #F0F9FF 0px, transparent 70%);
+        }
+
+        /* Subtle Glass Card Effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-800 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen">
+
+    <div class="min-h-screen flex flex-col lg:flex-row">
+
+        <!-- ==================== LEFT SIDE: BRANDING & VALUE PANEL (50%) ==================== -->
+        <div
+            class="lg:w-1/2 brand-side-bg p-8 sm:p-12 lg:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-slate-200/80">
+
+            <!-- Top Brand Anchor -->
+            <div>
+                <a href="../index.html" class="inline-flex items-center gap-2.5 group">
+                    <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-7 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-xl font-extrabold tracking-tight text-navy-950">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <!-- Headline & Subtext -->
+                <div class="mt-12 sm:mt-16 max-w-lg">
+                    <span
+                        class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-brand-100 text-brand-700 mb-4">
+                        New Era of Digital Opportunities
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-navy-950 tracking-tight leading-[1.15]">
+                        Turn daily consistency into direct rewards.
+                    </h1>
+                    <p class="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                        Join thousands of active users building income across structured digital assignments,
+                        high-frequency reviews, and guaranteed weekend commissions.
+                    </p>
+                </div>
+
+                <!-- 3 Feature Highlights with tiny bold styling -->
+                <div class="mt-8 space-y-3.5 max-w-md">
+                    <div class="p-3.5 rounded-2xl glass-card flex items-center gap-3.5 shadow-sm">
+                        <div
+                            class="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold shrink-0">
+                            ★
+                        </div>
+                        <div>
+                            <p class="text-[11px] font-extrabold text-navy-950 uppercase tracking-wide">Remote Jobs
+                                ($10+ up)</p>
+                            <p class="text-[10px] text-slate-500 font-medium">Verified technical gigs strictly
+                                accessible to Pro members.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl glass-card flex items-center gap-3.5 shadow-sm">
+                        <div
+                            class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-xs font-bold shrink-0">
+                            ⚡
+                        </div>
+                        <div>
+                            <p class="text-[11px] font-extrabold text-navy-950 uppercase tracking-wide">Daily Streaks
+                                Vault</p>
+                            <p class="text-[10px] text-slate-500 font-medium">Compounding rewards pool reaching $20+ for
+                                active participants.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 rounded-2xl glass-card flex items-center gap-3.5 shadow-sm">
+                        <div
+                            class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold shrink-0">
+                            50%
+                        </div>
+                        <div>
+                            <p class="text-[11px] font-extrabold text-navy-950 uppercase tracking-wide">Instant
+                                Affiliate Commissions</p>
+                            <p class="text-[10px] text-slate-500 font-medium">Earn ₦750 on Starter and ₦1,500 on Pro
+                                with automatic weekend payouts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Floating Badge -->
+            <div
+                class="mt-12 pt-6 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-500 font-semibold">
+                <span class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Weekend Payout Settlement Ready
+                </span>
+                <span>USD Core Accounting</span>
+            </div>
+        </div>
+
+        <!-- ==================== RIGHT SIDE: REGISTRATION FORM CANVAS (50%) ==================== -->
+        <div class="lg:w-1/2 p-6 sm:p-12 lg:p-16 flex items-center justify-center bg-white overflow-y-auto">
+            <div class="w-full max-w-lg py-4">
+
+                <!-- Header & Nav back link -->
+                <div class="mb-8">
+                    <h2 class="text-2xl sm:text-3xl font-black text-navy-950 tracking-tight">Create your account</h2>
+                    <p class="text-xs text-slate-500 mt-1 font-medium">
+                        Already have an account?
+                        <a href="login.html" class="text-brand-600 font-bold hover:underline ml-1">Sign In</a>
+                    </p>
+                </div>
+
+                <form id="registrationForm" class="space-y-4" novalidate>
+
+                    <!-- Full Name -->
+                    <div>
+                        <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                            Full Legal Name
+                        </label>
+                        <input type="text" id="fullnameInput" name="fullname" placeholder="e.g. Samuel Adekunle"
+                            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                        <p id="err-fullname" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                    </div>
+
+                    <!-- Grid: Username & Email -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label
+                                class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                                Username
+                            </label>
+                            <div class="relative">
+                                <span
+                                    class="absolute inset-y-0 left-0 pl-3 flex items-center text-xs font-bold text-slate-400">@</span>
+                                <input type="text" id="usernameInput" name="username" placeholder="samuel24"
+                                    class="w-full pl-7 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                            </div>
+                            <p id="err-username" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                        </div>
+
+                        <div>
+                            <label
+                                class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                                Email Address
+                            </label>
+                            <input type="text" id="emailInput" name="email" placeholder="samuel@gmail.com"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                            <p id="err-email" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                        </div>
+                    </div>
+
+                    <!-- Grid: Country & Phone/WhatsApp -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label
+                                class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                                Country
+                            </label>
+                            <select id="countrySelect" name="country"
+                                class="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 bg-white focus:outline-none transition-all">
+                                <option value="NG" data-code="+234" selected>Nigeria (+234)</option>
+                                <option value="GH" data-code="+233">Ghana (+233)</option>
+                                <option value="KE" data-code="+254">Kenya (+254)</option>
+                                <option value="ZA" data-code="+27">South Africa (+27)</option>
+                                <option value="US" data-code="+1">United States (+1)</option>
+                                <option value="GB" data-code="+44">United Kingdom (+44)</option>
+                                <option value="OTHER" data-code="+">Other Country</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label
+                                class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                                WhatsApp / Phone Number
+                            </label>
+                            <div class="relative">
+                                <span id="dialCodeHint"
+                                    class="absolute inset-y-0 left-0 pl-3 flex items-center text-xs font-bold text-slate-400">+234</span>
+                                <input type="text" id="phoneInput" name="phone" placeholder="801 234 5678"
+                                    class="w-full pl-14 pr-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                            </div>
+                            <p id="err-phone" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                        </div>
+                    </div>
+
+                    <!-- Plan Selection Cards -->
+                    <div class="pt-2">
+                        <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1.5">
+                            Select Membership Tier
+                        </label>
+                        <div class="grid grid-cols-2 gap-3">
+
+                            <div id="starterCard" onclick="selectPlan('starter')"
+                                class="p-3.5 rounded-2xl border-2 border-slate-200 hover:border-brand-300 bg-white cursor-pointer transition-all flex flex-col justify-between">
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-600">Starter</span>
+                                    <div id="starterRadio" class="w-3.5 h-3.5 rounded-full border-2 border-slate-300">
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="text-base font-black text-navy-950">$2.00</div>
+                                    <div class="text-[10px] font-bold text-slate-500">₦1,500 One-time</div>
+                                    <p class="text-[9px] text-slate-400 mt-1">Reviews, Surveys, Streaks & Read</p>
+                                </div>
+                            </div>
+
+                            <div id="proCard" onclick="selectPlan('pro')"
+                                class="p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/20 cursor-pointer transition-all flex flex-col justify-between relative">
+                                <div
+                                    class="absolute -top-2.5 right-2 bg-brand-500 text-white text-[8px] font-black uppercase px-2 py-0.5 rounded-full tracking-wider shadow">
+                                    Top Pick
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-brand-100 text-brand-700">PRO
+                                        Tier</span>
+                                    <div id="proRadio"
+                                        class="w-3.5 h-3.5 rounded-full border-4 border-brand-500 bg-white"></div>
+                                </div>
+                                <div class="mt-3">
+                                    <div class="text-base font-black text-navy-950">$3.00</div>
+                                    <div class="text-[10px] font-bold text-brand-600">₦3,000 One-time</div>
+                                    <p class="text-[9px] text-indigo-700 font-bold mt-1">★ Includes Remote Jobs ($10+)
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Referral Code Input -->
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+                                Sponsor / Referral Code
+                            </label>
+                            <span id="refNotice" class="text-[9px] font-bold text-brand-600">Required for 2-referral
+                                activation</span>
+                        </div>
+                        <input type="text" id="refInput" name="referral" placeholder="e.g. REX-9482 or Sponsor Username"
+                            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 uppercase tracking-wider focus:outline-none transition-all" />
+                        <p id="err-referral" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                    </div>
+
+                    <!-- Grid: Password & Confirm Password -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label
+                                class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                                Password
+                            </label>
+                            <div class="relative">
+                                <input type="password" id="passInput" name="password" placeholder="Min. 8 characters"
+                                    class="w-full pl-3.5 pr-10 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                                <button type="button" onclick="togglePass('passInput')"
+                                    class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 text-xs font-bold">
+                                    👁
+                                </button>
+                            </div>
+                            <p id="err-password" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                        </div>
+
+                        <div>
+                            <label
+                                class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                                Confirm Password
+                            </label>
+                            <div class="relative">
+                                <input type="password" id="confirmPassInput" name="confirm_password"
+                                    placeholder="Re-enter password"
+                                    class="w-full pl-3.5 pr-10 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                                <button type="button" onclick="togglePass('confirmPassInput')"
+                                    class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 text-xs font-bold">
+                                    👁
+                                </button>
+                            </div>
+                            <p id="err-confirm-password" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox: 2-Referral Gate Agreement -->
+                    <div class="pt-2">
+                        <label class="flex items-start gap-2.5 cursor-pointer select-none">
+                            <input type="checkbox" id="termsCheckbox"
+                                class="mt-0.5 w-4 h-4 rounded text-brand-500 focus:ring-0 border-slate-300 accent-brand-500 cursor-pointer" />
+                            <span class="text-[11px] text-slate-600 leading-snug">
+                                I accept the Terms & Conditions and understand that
+                                <strong class="text-navy-950 font-extrabold">2 paid member referrals</strong>
+                                are required before my task dashboard and earnings unlock.
+                            </span>
+                        </label>
+                        <p id="err-terms" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                    </div>
+
+                    <!-- Submit Action -->
+                    <div class="pt-4">
+                        <button type="submit" id="submitBtn"
+                            class="w-full py-3.5 px-6 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 transform hover:-translate-y-0.5 transition-all">
+                            Proceed to Activation — ₦3,000 ($3.00)
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ==================== JAVASCRIPT CONTROLLERS ==================== -->
+   <script>
+    let currentPlan = 'pro';
+
+    // 1. Dynamic Plan Switching
+    function selectPlan(plan) {
+        currentPlan = plan;
+        const starterCard = document.getElementById('starterCard');
+        const proCard = document.getElementById('proCard');
+        const starterRadio = document.getElementById('starterRadio');
+        const proRadio = document.getElementById('proRadio');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (plan === 'starter') {
+            starterCard.className = "p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/20 cursor-pointer transition-all flex flex-col justify-between";
+            starterRadio.className = "w-3.5 h-3.5 rounded-full border-4 border-brand-500 bg-white";
+            proCard.className = "p-3.5 rounded-2xl border-2 border-slate-200 hover:border-brand-300 bg-white cursor-pointer transition-all flex flex-col justify-between relative";
+            proRadio.className = "w-3.5 h-3.5 rounded-full border-2 border-slate-300";
+            submitBtn.textContent = "Proceed to Activation — ₦1,500 ($2.00)";
+        } else {
+            proCard.className = "p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/20 cursor-pointer transition-all flex flex-col justify-between relative";
+            proRadio.className = "w-3.5 h-3.5 rounded-full border-4 border-brand-500 bg-white";
+            starterCard.className = "p-3.5 rounded-2xl border-2 border-slate-200 hover:border-brand-300 bg-white cursor-pointer transition-all flex flex-col justify-between";
+            starterRadio.className = "w-3.5 h-3.5 rounded-full border-2 border-slate-300";
+            submitBtn.textContent = "Proceed to Activation — ₦3,000 ($3.00)";
+        }
+    }
+
+    // 2. Read URL Parameters
+    window.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Auto-select plan from URL
+        const planParam = urlParams.get('plan');
+        if (planParam === 'starter') selectPlan('starter');
+        else selectPlan('pro');
+
+        // Auto-fill referral from URL
+        const refParam = urlParams.get('ref');
+        if (refParam) {
+            const refInput = document.getElementById('refInput');
+            refInput.value = refParam.trim();
+            refInput.readOnly = true;
+            refInput.classList.add('bg-slate-50', 'text-brand-600', 'cursor-not-allowed');
+            document.getElementById('refNotice').textContent = `✓ Referred by @${refParam}`;
+        }
+    });
+
+    // 3. Country / Dialing Code Synchronizer
+    const countrySelect = document.getElementById('countrySelect');
+    const dialCodeHint = document.getElementById('dialCodeHint');
+    countrySelect.addEventListener('change', (e) => {
+        const selected = e.target.options[e.target.selectedIndex];
+        dialCodeHint.textContent = selected.getAttribute('data-code');
+    });
+
+    // 4. Password Visibility Toggle
+    function togglePass(inputId) {
+        const input = document.getElementById(inputId);
+        input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    // ==================== PURE JAVASCRIPT VALIDATION ==================== //
+
+    const form = document.getElementById('registrationForm');
+    const fields = {
+        fullname: document.getElementById('fullnameInput'),
+        username: document.getElementById('usernameInput'),
+        email: document.getElementById('emailInput'),
+        phone: document.getElementById('phoneInput'),
+        referral: document.getElementById('refInput'),
+        password: document.getElementById('passInput'),
+        confirmPassword: document.getElementById('confirmPassInput'),
+        terms: document.getElementById('termsCheckbox'),
+    };
+
+    // Helper to show custom error styles
+    function showFieldError(input, errorId, message) {
+        const errEl = document.getElementById(errorId);
+        if (input && input.type !== 'checkbox') {
+            input.classList.remove('border-slate-200');
+            input.classList.add('border-rose-400', 'bg-rose-50/20');
+        }
+        errEl.textContent = message;
+        errEl.classList.remove('hidden');
+    }
+
+    // Helper to clear error styles
+    function clearFieldError(input, errorId) {
+        const errEl = document.getElementById(errorId);
+        if (input && input.type !== 'checkbox') {
+            input.classList.remove('border-rose-400', 'bg-rose-50/20');
+            input.classList.add('border-slate-200');
+        }
+        errEl.textContent = '';
+        errEl.classList.add('hidden');
+    }
+
+    // Individual Validation Rules
+    function checkFullName() {
+        const val = fields.fullname.value.trim();
+        if (val === '') {
+            showFieldError(fields.fullname, 'err-fullname', 'Full legal name is required.');
+            return false;
+        }
+        if (val.split(/\s+/).length < 2) {
+            showFieldError(fields.fullname, 'err-fullname', 'Please provide both your first and last name.');
+            return false;
+        }
+        clearFieldError(fields.fullname, 'err-fullname');
+        return true;
+    }
+
+    function checkUsername() {
+        const val = fields.username.value.trim();
+        const usernamePattern = /^[a-zA-Z0-9_]{3,20}$/;
+        if (val === '') {
+            showFieldError(fields.username, 'err-username', 'Username cannot be blank.');
+            return false;
+        }
+        if (!usernamePattern.test(val)) {
+            showFieldError(fields.username, 'err-username', 'Must be 3-20 characters (letters, numbers, underscores only).');
+            return false;
+        }
+        clearFieldError(fields.username, 'err-username');
+        return true;
+    }
+
+    function checkEmail() {
+        const val = fields.email.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (val === '') {
+            showFieldError(fields.email, 'err-email', 'Email address is required.');
+            return false;
+        }
+        if (!emailPattern.test(val)) {
+            showFieldError(fields.email, 'err-email', 'Please provide a valid email format.');
+            return false;
+        }
+        clearFieldError(fields.email, 'err-email');
+        return true;
+    }
+
+    function checkPhone() {
+        const val = fields.phone.value.replace(/[\s-]/g, '');
+        const phonePattern = /^[0-9]{7,15}$/;
+        if (val === '') {
+            showFieldError(fields.phone, 'err-phone', 'Phone / WhatsApp number is required.');
+            return false;
+        }
+        if (!phonePattern.test(val)) {
+            showFieldError(fields.phone, 'err-phone', 'Please enter a valid phone number (digits only).');
+            return false;
+        }
+        clearFieldError(fields.phone, 'err-phone');
+        return true;
+    }
+
+    function checkReferral() {
+        const val = fields.referral.value.trim();
+        if (val === '') {
+            showFieldError(fields.referral, 'err-referral', 'Sponsor / referral username is required.');
+            return false;
+        }
+        clearFieldError(fields.referral, 'err-referral');
+        return true;
+    }
+
+    function checkPassword() {
+        const val = fields.password.value;
+        if (val === '') {
+            showFieldError(fields.password, 'err-password', 'Password is required.');
+            return false;
+        }
+        if (val.length < 8) {
+            showFieldError(fields.password, 'err-password', 'Password must be at least 8 characters long.');
+            return false;
+        }
+        clearFieldError(fields.password, 'err-password');
+        return true;
+    }
+
+    function checkConfirmPassword() {
+        const p1 = fields.password.value;
+        const p2 = fields.confirmPassword.value;
+        if (p2 === '') {
+            showFieldError(fields.confirmPassword, 'err-confirm-password', 'Please confirm your password.');
+            return false;
+        }
+        if (p1 !== p2) {
+            showFieldError(fields.confirmPassword, 'err-confirm-password', 'Passwords do not match.');
+            return false;
+        }
+        clearFieldError(fields.confirmPassword, 'err-confirm-password');
+        return true;
+    }
+
+    function checkTerms() {
+        if (!fields.terms.checked) {
+            showFieldError(fields.terms, 'err-terms', 'You must acknowledge the 2-referral rule and accept terms.');
+            return false;
+        }
+        clearFieldError(fields.terms, 'err-terms');
+        return true;
+    }
+
+    // Real-time error clearing when user types or blurs
+    fields.fullname.addEventListener('input', checkFullName);
+    fields.username.addEventListener('input', checkUsername);
+    fields.email.addEventListener('input', checkEmail);
+    fields.phone.addEventListener('input', checkPhone);
+    fields.referral.addEventListener('input', checkReferral);
+    fields.password.addEventListener('input', () => {
+        checkPassword();
+        if (fields.confirmPassword.value !== '') checkConfirmPassword();
+    });
+    fields.confirmPassword.addEventListener('input', checkConfirmPassword);
+    fields.terms.addEventListener('change', checkTerms);
+
+    // Form Submit Handler
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        // Run every validation check
+        const isNameOk = checkFullName();
+        const isUserOk = checkUsername();
+        const isEmailOk = checkEmail();
+        const isPhoneOk = checkPhone();
+        const isRefOk = checkReferral();
+        const isPassOk = checkPassword();
+        const isConfirmOk = checkConfirmPassword();
+        const isTermsOk = checkTerms();
+
+        const isAllValid = isNameOk && isUserOk && isEmailOk && isPhoneOk && isRefOk && isPassOk && isConfirmOk && isTermsOk;
+
+        if (!isAllValid) {
+            // Find the first visible error and smoothly scroll to it
+            const firstError = document.querySelector('p[id^="err-"]:not(.hidden)');
+            if (firstError) {
+                firstError.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            return;
+        }
+
+        // Save session payload to localStorage
+        const registrationData = {
+            fullName: fields.fullname.value.trim(),
+            username: fields.username.value.trim(),
+            email: fields.email.value.trim(),
+            country: countrySelect.value,
+            phone: `${dialCodeHint.textContent} ${fields.phone.value.trim()}`,
+            plan: currentPlan,
+            referralBy: fields.referral.value.trim(),
+            referralCount: 0,
+            isUnlocked: false
+        };
+
+        localStorage.setItem('rexora_user', JSON.stringify(registrationData));
+
+        // Button loading state
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Creating Account...";
+
+        // Smooth redirect
+        setTimeout(() => {
+            window.location.href = `../dashboard/activation-lock.html?plan=${currentPlan}`;
+        }, 600);
+    });
+</script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+rexora-frontend/
+│
+├── index.html                      # All-in-one Landing Page (Hero, #about, #features, #plans, #contact)
+│
+├── auth/                           # Authentication Screens
+│   ├── login.html                  # User / Admin Sign In
+│   ├── register.html               # Registration (captures ref code)
+│   └── forgot-password.html        # Password Recovery
+│
+├── dashboard/                     # User Portal
+│   ├── index.html                  # Main Task Hub (Earnings, Overview)
+│   ├── activation-lock.html        # 2-Referral Mandatory Verification Screen
+│   ├── remote-jobs.html            # Pro Plan Exclusive ($10+)
+│   ├── social-reviews.html         # Review & Earn ($2+ Pro / Standard Starter)
+│   ├── surveys.html                # Surveys ($1+)
+│   ├── streaks.html                # Daily Streaks Pool ($20+)
+│   ├── read-to-earn.html           # Articles & Reading Tasks
+│   ├── referrals.html              # Affiliate link, invited friends, 50% cuts
+│   ├── wallet.html                 # Dollar earnings, NGN conversion, payout history
+│   └── settings.html               # Profile & security settings
+│
+├── admin/                          # Administrative Portal
+│   ├── index.html                  # System Analytics, Member Stats, Revenue
+│   ├── users.html                  # Manage Users, Plan Upgrades, Referral Status
+│   ├── task-management.html        # Upload Remote Jobs, Surveys, Articles
+│   ├── payout-approvals.html       # Weekend Affiliate Payout Review & Approvals
+│   └── platform-settings.html      # Plan pricing & system toggle
+│
+├── assets/                         # Static Assets
+│   ├── images/
+│   │   ├── logo/
+│   │   │   └── rexora-logo.png
+│   │   ├── illustrations/
+│   │   └── avatars/
+│   └── icons/
+│
+├── src/                            # Tailwind Input
+│   └── input.css                   # Custom styles, @tailwind directives
+│
+├── dist/                           # Compiled CSS
+│   └── output.css
+│
+├── js/                             # JavaScript Files
+│   ├── landing.js                  # Smooth scroll, mobile menu, FAQ accordion
+│   ├── auth-guard.js               # Route & session protection
+│   ├── dashboard.js                # Stats, task interaction, gating logic
+│   └── admin.js                    # Admin actions & payout controls
+│
+├── tailwind.config.js
+└── package.json
