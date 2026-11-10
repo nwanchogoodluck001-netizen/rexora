@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Engagement Hub | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        darkblue: {
+                            800: '#0F243A',
+                            850: '#0C1E31',
+                            900: '#0B192C',
+                            950: '#071626',
+                            border: '#1E354F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        body.light-theme {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 55%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        html.dark body {
+            background-color: #071626;
+            background-image:
+                radial-gradient(at 50% 0%, #0F243A 0px, transparent 65%),
+                radial-gradient(at 90% 20%, #0C1E31 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+
+<body
+    class="light-theme text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen pb-24 lg:pb-12">
+
+    <div class="flex min-h-screen">
+
+        <!-- ==================== SIDEBAR (DESKTOP) ==================== -->
+        <aside
+            class="hidden lg:flex flex-col justify-between w-64 bg-white/80 dark:bg-darkblue-900/90 border-r border-slate-200/80 dark:border-darkblue-border fixed inset-y-0 left-0 z-40 p-5 glass-panel">
+            <div>
+                <a href="../index.html" class="flex items-center gap-2.5 px-2 py-2">
+                    <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-7 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <nav class="mt-8 space-y-1.5">
+                    <a href="index.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Overview
+                    </a>
+
+                    <a href="remote-jobs.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Remote-Jobs
+                        </span>
+                        <span
+                            class="text-[9px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 font-black px-1.5 py-0.5 rounded uppercase">Pro</span>
+                    </a>
+
+                    <!-- ACTIVE LINK: SOCIAL ENGAGEMENT -->
+                    <a href="social-engagment.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-brand-500 text-white font-extrabold text-xs tracking-wide shadow-md shadow-brand-500/20">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                        Social Engagement
+                    </a>
+
+                    <a href="surveys.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        Surveys
+                    </a>
+
+                    <a href="streaks.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Daily Streaks
+                        </span>
+                        <span
+                            class="text-[9px] bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 font-black px-1.5 py-0.5 rounded uppercase">2
+                            Ref</span>
+                    </a>
+
+                    <a href="read-to-earn.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Read to Earn
+                    </a>
+
+                    <a href="referrals.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Referrals
+                    </a>
+
+                    <a href="wallet.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                        Wallet
+                    </a>
+
+                    <a href="payout.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Withdrawals
+                    </a>
+
+                    <a href="support.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Support
+                    </a>
+                </nav>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200/80 dark:border-darkblue-border space-y-1">
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MOBILE SLIDE DRAWER ==================== -->
+        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden lg:hidden">
+            <div
+                class="w-64 max-w-[80%] bg-white dark:bg-darkblue-900 h-full p-6 flex flex-col justify-between shadow-2xl">
+                <div>
+                    <div
+                        class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-darkblue-border">
+                        <div class="flex items-center gap-2">
+                            <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
+                                onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';">
+                            <span class="font-black text-slate-900 dark:text-white">REX<span
+                                    class="text-brand-500">ORA</span></span>
+                        </div>
+                        <button onclick="toggleMobileDrawer()" class="text-slate-400 font-black text-lg p-1">✕</button>
+                    </div>
+
+                    <nav class="mt-6 space-y-1.5 overflow-y-auto max-h-[calc(100vh-220px)]">
+                        <a href="index.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Overview</a>
+                        <a href="remote-jobs.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Remote-Jobs</a>
+                        <a href="social-engagment.html"
+                            class="block px-3 py-2 rounded-xl bg-brand-500 text-white font-extrabold text-xs">Social
+                            Engagement</a>
+                        <a href="surveys.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Surveys</a>
+                        <a href="streaks.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Daily
+                            Streaks</a>
+                        <a href="read-to-earn.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Read
+                            to Earn</a>
+                        <a href="referrals.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Referrals</a>
+                        <a href="wallet.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Wallet</a>
+                        <a href="payout.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Withdrawals</a>
+                        <a href="support.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Support</a>
+                        <a href="settings.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Settings</a>
+                    </nav>
+                </div>
+
+                <button onclick="handleLogout()"
+                    class="w-full py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-500 font-extrabold text-xs">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+        <main class="flex-1 lg:pl-64 flex flex-col">
+
+            <!-- TOP NAVIGATION BAR -->
+            <header
+                class="sticky top-0 z-30 bg-white/70 dark:bg-darkblue-900/80 border-b border-slate-200/80 dark:border-darkblue-border px-4 sm:px-8 py-3.5 glass-panel flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleMobileDrawer()"
+                        class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <div>
+                        <h2
+                            class="text-sm sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-wider">
+                            Social Engagement</h2>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2.5 sm:gap-4">
+                    <a href="top-earners.html"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300 text-xs font-black shadow-sm hover:scale-105 transition-transform">
+                        🏆 Top Earners
+                    </a>
+
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 hover:text-brand-500 transition-colors">
+                        <span id="themeIcon" class="text-sm font-black">🌙</span>
+                    </button>
+
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-darkblue-border">
+                        <div
+                            class="w-8 h-8 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-md">
+                            G
+                        </div>
+                        <span class="text-xs font-black text-slate-800 dark:text-white hidden sm:inline">Guzy</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- BODY CONTENT -->
+            <div class="p-4 sm:p-8 max-w-7xl mx-auto w-full space-y-6">
+
+                <!-- 1. HERO ENGAGEMENT REWARD BANNER (Adapted from Reference) -->
+                <div
+                    class="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-brand-600 via-brand-500 to-sky-600 text-white shadow-xl shadow-brand-500/15 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-2 relative z-10">
+                        <span
+                            class="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-white/20 text-white">
+                            Instant Verified Task Drops
+                        </span>
+                        <div class="text-3xl sm:text-4xl font-black tracking-tight" id="heroRateText">
+                            +$2.00 / Task
+                        </div>
+                        <p class="text-xs sm:text-sm font-bold text-brand-100 max-w-lg leading-relaxed">
+                            Reward per eligible engagement action, subject to task rules and screenshot proof review.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-1 text-[11px] font-black text-brand-100">
+                            <span class="flex items-center gap-1.5">✓ Fast Admin Review</span>
+                            <span class="flex items-center gap-1.5">✓ Clear Instructions</span>
+                            <span class="flex items-center gap-1.5">✓ No 2-Referral Gate Required</span>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 shrink-0 flex flex-col items-start md:items-end gap-2">
+                        <button onclick="toggleCurrency()"
+                            class="px-4 py-2 rounded-2xl bg-white text-brand-600 hover:bg-brand-50 text-xs font-black uppercase tracking-wider shadow-md transition-all">
+                            <span id="curToggleBtnText">Swap to ₦ Naira</span>
+                        </button>
+                        <span class="text-[11px] font-bold text-brand-100">Starter: Standard Rates | Pro: $2.00+
+                            Boost</span>
+                    </div>
+                </div>
+
+                <!-- 2. MAIN 2-COLUMN SECTION: AVAILABLE TASKS + INSTRUCTIONS & SUBMISSIONS -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+
+                    <!-- LEFT 2 COLS: AVAILABLE TASKS LIST & FILTER TABS -->
+                    <div class="lg:col-span-2 space-y-5">
+
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                                <h3
+                                    class="text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-brand-500"></span>
+                                    Available Tasks
+                                </h3>
+                                <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                                    Choose a social action, execute, and submit your completion screenshot.
+                                </p>
+                            </div>
+
+                            <span
+                                class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300 self-start sm:self-auto">
+                                Live Tasks
+                            </span>
+                        </div>
+
+                        <!-- Platform Filter Tabs (Telegram, WhatsApp, Facebook, Instagram, YouTube, X) -->
+                        <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none"
+                            id="platformFilterPills">
+                            <button onclick="filterPlatform('All')"
+                                class="plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-brand-500 text-white shadow-md shadow-brand-500/20 whitespace-nowrap">
+                                All Tasks
+                            </button>
+                            <button onclick="filterPlatform('WhatsApp')"
+                                class="plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border hover:border-brand-500 whitespace-nowrap">
+                                WhatsApp
+                            </button>
+                            <button onclick="filterPlatform('Telegram')"
+                                class="plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border hover:border-brand-500 whitespace-nowrap">
+                                Telegram
+                            </button>
+                            <button onclick="filterPlatform('Instagram')"
+                                class="plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border hover:border-brand-500 whitespace-nowrap">
+                                Instagram
+                            </button>
+                            <button onclick="filterPlatform('Facebook')"
+                                class="plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border hover:border-brand-500 whitespace-nowrap">
+                                Facebook
+                            </button>
+                            <button onclick="filterPlatform('YouTube')"
+                                class="plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border hover:border-brand-500 whitespace-nowrap">
+                                YouTube
+                            </button>
+                            <button onclick="filterPlatform('X')"
+                                class="plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border hover:border-brand-500 whitespace-nowrap">
+                                X (Twitter)
+                            </button>
+                        </div>
+
+                        <!-- Task Search Bar -->
+                        <div class="relative">
+                            <input type="text" id="taskSearchInput" oninput="handleSearch()"
+                                placeholder="Search engagement tasks by title or platform..."
+                                class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white dark:bg-darkblue-900 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 transition-all shadow-sm" />
+                            <span
+                                class="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 text-sm font-bold">🔍</span>
+                        </div>
+
+                        <!-- DYNAMIC TASK CARDS CONTAINER -->
+                        <div id="tasksContainer" class="space-y-4">
+                            <!-- Rendered via JS -->
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT 1 COL: STEP INSTRUCTIONS & SUBMISSIONS TRACKER -->
+                    <div class="space-y-6">
+
+                        <!-- 6-Step Instructions Checklist (Directly from Reference) -->
+                        <div
+                            class="p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4">
+                            <h4
+                                class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                                <span>📋</span> How It Works
+                            </h4>
+
+                            <div class="space-y-3 text-xs font-bold text-slate-600 dark:text-slate-300">
+                                <div class="flex items-start gap-3">
+                                    <span
+                                        class="w-5 h-5 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 flex items-center justify-center text-[10px] font-black shrink-0">1</span>
+                                    <span>Choose a task and read all its instructions and rewards.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span
+                                        class="w-5 h-5 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 flex items-center justify-center text-[10px] font-black shrink-0">2</span>
+                                    <span>Click <strong class="text-navy-900 dark:text-white">Do Task</strong> to visit
+                                        the specified group, page, or post.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span
+                                        class="w-5 h-5 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 flex items-center justify-center text-[10px] font-black shrink-0">3</span>
+                                    <span>Complete the required action (e.g., join group, follow, like,
+                                        subscribe).</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span
+                                        class="w-5 h-5 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 flex items-center justify-center text-[10px] font-black shrink-0">4</span>
+                                    <span>Take a clear screenshot showing proof of completion.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span
+                                        class="w-5 h-5 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 flex items-center justify-center text-[10px] font-black shrink-0">5</span>
+                                    <span>Return here, click <strong class="text-brand-500">Upload Proof</strong>, and
+                                        select your screenshot.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span
+                                        class="w-5 h-5 rounded-lg bg-brand-100 dark:bg-brand-950 text-brand-600 flex items-center justify-center text-[10px] font-black shrink-0">6</span>
+                                    <span>The admin reviews your submission, and your reward is credited upon
+                                        approval.</span>
+                                </div>
+                            </div>
+
+                            <div
+                                class="pt-3 border-t border-slate-100 dark:border-darkblue-border text-[11px] font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                All proofs are verified automatically or via admin.
+                            </div>
+                        </div>
+
+                        <!-- "My Submissions" Tracker Card (Zero Demo: Defaults to clean Empty State) -->
+                        <div
+                            class="p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm">
+                            <div
+                                class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+                                <h4
+                                    class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
+                                    <span>⏱</span> My Submissions
+                                </h4>
+                                <span id="submissionCountBadge"
+                                    class="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 dark:bg-darkblue-800 dark:text-slate-300">
+                                    0 Submissions
+                                </span>
+                            </div>
+                            <p class="text-[11px] font-bold text-slate-400 mt-2">
+                                Keep track of the social task proofs you submit.
+                            </p>
+
+                            <!-- Dynamic Submissions Feed -->
+                            <div id="submissionsContainer" class="mt-4">
+                                <!-- Empty State (Default 00.00) -->
+                                <div id="emptySubmissionsView" class="py-10 text-center flex flex-col items-center">
+                                    <div
+                                        class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-darkblue-800 text-slate-400 flex items-center justify-center text-xl mb-3">
+                                        🖼️
+                                    </div>
+                                    <h5 class="text-xs font-black text-slate-800 dark:text-white">No submissions yet
+                                    </h5>
+                                    <p class="text-[10px] font-bold text-slate-400 mt-1 max-w-[200px]">
+                                        Your submitted task proofs and approval statuses will appear here.
+                                    </p>
+                                </div>
+
+                                <!-- Submissions List (Hidden when empty) -->
+                                <div id="submissionsList" class="hidden space-y-3"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ==================== FIXED MOBILE BOTTOM NAVBAR ==================== -->
+    <nav
+        class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/90 dark:bg-darkblue-900/90 border-t border-slate-200/80 dark:border-darkblue-border px-3 py-2 glass-panel flex items-center justify-around">
+        <a href="index.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-brand-500 font-black text-[10px]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+        </a>
+        <a href="remote-jobs.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-brand-500 font-black text-[10px]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Jobs
+        </a>
+        <a href="streaks.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-amber-500 font-black text-[10px]">
+            <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Streaks
+        </a>
+        <a href="payout.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-emerald-500 font-black text-[10px]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Payout
+        </a>
+        <button onclick="toggleMobileDrawer()"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 hover:text-brand-500 font-black text-[10px]">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Menu
+        </button>
+    </nav>
+
+    <!-- ==================== UPLOAD PROOF MODAL (SCREENSHOT SUBMISSION) ==================== -->
+    <div id="proofModal"
+        class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-darkblue-900 border border-slate-200 dark:border-darkblue-border rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative max-h-[92vh] overflow-y-auto">
+
+            <button onclick="closeProofModal()"
+                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 dark:hover:text-white font-black text-lg p-1">✕</button>
+
+            <span
+                class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300">
+                Task Proof Verification
+            </span>
+
+            <h3 id="modalTaskTitle" class="text-lg font-black text-slate-900 dark:text-white mt-3">Upload Completion
+                Screenshot</h3>
+            <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-1">Upload a clear screenshot showing you
+                completed this social task.</p>
+
+            <!-- Task Details Box -->
+            <div
+                class="my-4 p-3.5 rounded-2xl bg-slate-50 dark:bg-darkblue-800 border border-slate-100 dark:border-darkblue-border flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-500 dark:text-slate-400">Reward Yield:</span>
+                <span id="modalTaskPayout" class="text-base font-black text-brand-600 dark:text-brand-400">$2.00
+                    (₦2,000)</span>
+            </div>
+
+            <form id="proofForm" class="space-y-4" novalidate>
+
+                <!-- Screenshot Dropzone -->
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1.5">
+                        Attach Screenshot Proof (.PNG, .JPG)
+                    </label>
+                    <div id="proofDropzone" onclick="document.getElementById('proofFileInput').click()"
+                        ondragover="handleProofDragOver(event)" ondragleave="handleProofDragLeave(event)"
+                        ondrop="handleProofDrop(event)"
+                        class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-brand-500 rounded-2xl p-6 text-center cursor-pointer transition-all bg-slate-50/50 dark:bg-darkblue-850/50 group">
+                        <input type="file" id="proofFileInput" accept="image/png, image/jpeg, image/jpg" class="hidden"
+                            onchange="handleProofSelect(event)" />
+
+                        <!-- Default Dropzone Visual -->
+                        <div id="proofDropDefault">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-500 flex items-center justify-center text-xl mx-auto mb-2 group-hover:scale-105 transition-transform">
+                                📸
+                            </div>
+                            <p class="text-xs font-black text-slate-800 dark:text-white">Click to select screenshot or
+                                drag & drop</p>
+                            <p class="text-[10px] font-bold text-slate-400 mt-1">PNG or JPG screenshot showing proof of
+                                completion</p>
+                        </div>
+
+                        <!-- Preview State -->
+                        <div id="proofDropPreview" class="hidden flex flex-col items-center">
+                            <div
+                                class="relative max-h-40 overflow-hidden rounded-xl border border-slate-200 dark:border-darkblue-border mb-2 shadow-sm">
+                                <img id="proofPreviewImg" src="" alt="Proof Preview"
+                                    class="object-cover max-h-40 rounded-xl" />
+                            </div>
+                            <span id="proofFileNameText"
+                                class="text-xs font-black text-brand-600 dark:text-brand-400 truncate max-w-xs"></span>
+                            <button type="button" onclick="removeProofFile(event)"
+                                class="text-[10px] font-bold text-rose-500 hover:underline mt-1">
+                                ✕ Remove / Choose different screenshot
+                            </button>
+                        </div>
+                    </div>
+                    <p id="err-proof-file" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                </div>
+
+                <!-- Social Username Used (e.g. your IG handle or phone number) -->
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                        Your Social Account / Phone / Handle Used
+                    </label>
+                    <input type="text" id="socialHandleInput" placeholder="e.g. @guzy_official or +234 801 234 5678"
+                        class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 transition-all" />
+                    <p id="err-handle" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" id="submitProofBtn"
+                        class="w-full py-3.5 px-6 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-0.5">
+                        Submit Proof for Review
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT CONTROLLERS ==================== -->
+    <script>
+        // 1. Theme Configuration
+        function initTheme() {
+            const savedTheme = localStorage.getItem('rexora_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('themeIcon').textContent = '🌙';
+            }
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('rexora_theme', isDark ? 'dark' : 'light');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+        }
+        initTheme();
+
+        // 2. Mobile Drawer
+        function toggleMobileDrawer() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        // 3. User Plan & Currency State
+        let userPlan = 'pro';
+        const storedUser = localStorage.getItem('rexora_user');
+        if (storedUser) {
+            try {
+                const parsed = JSON.parse(storedUser);
+                if (parsed.plan) userPlan = parsed.plan;
+            } catch (e) { console.error(e); }
+        }
+
+        let activeCurrency = 'USD'; // 'USD' or 'NGN'
+        const rate = 1000;
+
+        function toggleCurrency() {
+            activeCurrency = activeCurrency === 'USD' ? 'NGN' : 'USD';
+            document.getElementById('curToggleBtnText').textContent = activeCurrency === 'USD' ? 'Swap to ₦ Naira' : 'Swap to $ USD';
+
+            const heroVal = userPlan === 'pro' ? 2.00 : 0.75;
+            document.getElementById('heroRateText').textContent = activeCurrency === 'USD'
+                ? `+$${heroVal.toFixed(2)} / Task`
+                : `+₦${(heroVal * rate).toLocaleString()} / Task`;
+
+            renderTasks();
+            renderSubmissions();
+        }
+
+        // 4. Social Engagement Tasks Data List
+        const socialTasks = [
+            {
+                id: 1,
+                platform: "WhatsApp",
+                platformIcon: "💬",
+                badgeBg: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
+                title: "Join Official Tech Community Group",
+                instruction: "Join the WhatsApp group, stay active, and take a screenshot of the group member list showing you are inside.",
+                duration: "About 1 minute",
+                actionUrl: "https://chat.whatsapp.com/",
+                usdPayout: userPlan === 'pro' ? 2.00 : 0.75
+            },
+            {
+                id: 2,
+                platform: "Telegram",
+                platformIcon: "✈️",
+                badgeBg: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
+                title: "Subscribe to REXORA Alerts Channel",
+                instruction: "Join the Telegram announcement channel and capture a screenshot showing you have subscribed.",
+                duration: "About 1 minute",
+                actionUrl: "https://t.me/",
+                usdPayout: userPlan === 'pro' ? 2.50 : 0.80
+            },
+            {
+                id: 3,
+                platform: "Instagram",
+                platformIcon: "📸",
+                badgeBg: "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300",
+                title: "Follow & Like Recent Product Post",
+                instruction: "Follow the business Instagram account, like the pinned product post, and upload screenshot proof of both.",
+                duration: "About 2 minutes",
+                actionUrl: "https://instagram.com/",
+                usdPayout: userPlan === 'pro' ? 2.00 : 0.75
+            },
+            {
+                id: 4,
+                platform: "YouTube",
+                platformIcon: "▶️",
+                badgeBg: "bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300",
+                title: "Subscribe & Turn On Notifications",
+                instruction: "Subscribe to the verified tech channel, turn on all bell notifications, and take a clear screenshot.",
+                duration: "About 2 minutes",
+                actionUrl: "https://youtube.com/",
+                usdPayout: userPlan === 'pro' ? 3.00 : 1.00
+            },
+            {
+                id: 5,
+                platform: "Facebook",
+                platformIcon: "👥",
+                badgeBg: "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300",
+                title: "Like & Follow Business Showcase Page",
+                instruction: "Like the corporate page, follow it, and upload a screenshot displaying the 'Following' status.",
+                duration: "About 2 minutes",
+                actionUrl: "https://facebook.com/",
+                usdPayout: userPlan === 'pro' ? 2.00 : 0.75
+            },
+            {
+                id: 6,
+                platform: "X",
+                platformIcon: "🐦",
+                badgeBg: "bg-slate-100 text-slate-800 dark:bg-darkblue-800 dark:text-slate-200",
+                title: "Repost & Bookmark Web3 Ecosystem Tweet",
+                instruction: "Repost the pinned announcement tweet, bookmark it, and capture your profile timeline screenshot.",
+                duration: "About 1 minute",
+                actionUrl: "https://x.com/",
+                usdPayout: userPlan === 'pro' ? 2.00 : 0.75
+            }
+        ];
+
+        let activeFilter = 'All';
+        let searchQuery = '';
+        let selectedTask = null;
+        let uploadedProofFile = null;
+
+        // 5. Render Tasks
+        function renderTasks() {
+            const container = document.getElementById('tasksContainer');
+            container.innerHTML = '';
+
+            const filtered = socialTasks.filter(t => {
+                const matchesFilter = activeFilter === 'All' || t.platform.toLowerCase() === activeFilter.toLowerCase();
+                const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || t.instruction.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+          <div class="p-8 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border text-center text-slate-400 font-bold text-xs">
+            No engagement tasks matching your criteria.
+          </div>
+        `;
+                return;
+            }
+
+            filtered.forEach(task => {
+                const ngnVal = task.usdPayout * rate;
+                const payoutDisplay = activeCurrency === 'USD'
+                    ? `+$${task.usdPayout.toFixed(2)}`
+                    : `+₦${ngnVal.toLocaleString()}`;
+
+                const card = document.createElement('div');
+                card.className = "p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm hover:border-brand-500 transition-all flex flex-col justify-between";
+                card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+              <span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${task.badgeBg} flex items-center gap-1.5">
+                <span>${task.platformIcon}</span>
+                <span>${task.platform}</span>
+              </span>
+              <span class="text-sm font-black text-emerald-600 dark:text-emerald-400">${payoutDisplay}</span>
+            </div>
+
+            <h4 class="text-base font-black text-slate-900 dark:text-white mt-3">${task.title}</h4>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">${task.instruction}</p>
+
+            <div class="mt-4 flex items-center gap-4 text-[11px] font-bold text-slate-400">
+              <span>⏱ ${task.duration}</span>
+              <span>📸 Screenshot proof required</span>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 dark:border-darkblue-border flex flex-col sm:flex-row gap-3">
+            <a 
+              href="${task.actionUrl}" 
+              target="_blank" 
+              class="flex-1 text-center py-2.5 rounded-xl border-2 border-brand-500 text-brand-600 dark:text-brand-400 hover:bg-brand-50 dark:hover:bg-darkblue-800 text-xs font-black uppercase tracking-wider transition-all"
+            >
+              Do Task
+            </a>
+            <button 
+              onclick="openProofModal(${task.id})" 
+              class="flex-1 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs font-black uppercase tracking-wider shadow-md shadow-brand-500/20 transition-all"
+            >
+              Upload Proof
+            </button>
+          </div>
+        `;
+                container.appendChild(card);
+            });
+        }
+
+        // 6. Platform Filter Handling
+        function filterPlatform(platform) {
+            activeFilter = platform;
+            const pills = document.querySelectorAll('.plat-pill');
+            pills.forEach(p => {
+                if (p.textContent.trim().toLowerCase().includes(platform.toLowerCase()) || (platform === 'All' && p.textContent.trim().includes('All Tasks'))) {
+                    p.className = "plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-brand-500 text-white shadow-md shadow-brand-500/20 whitespace-nowrap";
+                } else {
+                    p.className = "plat-pill px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border hover:border-brand-500 whitespace-nowrap";
+                }
+            });
+            renderTasks();
+        }
+
+        function handleSearch() {
+            searchQuery = document.getElementById('taskSearchInput').value.trim();
+            renderTasks();
+        }
+
+        // 7. My Submissions State (Defaults to 00.00 / Zero Demo)
+        function getStoredSubmissions() {
+            const data = localStorage.getItem('rexora_social_submissions');
+            if (data) {
+                try { return JSON.parse(data); } catch (e) { console.error(e); }
+            }
+            return [];
+        }
+
+        const mySubmissions = getStoredSubmissions();
+
+        function renderSubmissions() {
+            const emptyView = document.getElementById('emptySubmissionsView');
+            const list = document.getElementById('submissionsList');
+            const countBadge = document.getElementById('submissionCountBadge');
+
+            countBadge.textContent = `${mySubmissions.length} Submissions`;
+
+            if (mySubmissions.length === 0) {
+                emptyView.classList.remove('hidden');
+                list.classList.add('hidden');
+                list.innerHTML = '';
+                return;
+            }
+
+            emptyView.classList.add('hidden');
+            list.classList.remove('hidden');
+            list.innerHTML = '';
+
+            mySubmissions.forEach(sub => {
+                const item = document.createElement('div');
+                item.className = "p-3.5 rounded-2xl bg-slate-50 dark:bg-darkblue-800 border border-slate-100 dark:border-darkblue-border flex items-center justify-between";
+
+                const payout = activeCurrency === 'USD'
+                    ? `+$${sub.amountUSD.toFixed(2)}`
+                    : `+₦${(sub.amountUSD * rate).toLocaleString()}`;
+
+                item.innerHTML = `
+          <div>
+            <div class="text-xs font-black text-slate-900 dark:text-white truncate max-w-[180px]">${sub.taskTitle}</div>
+            <span class="text-[10px] font-bold text-slate-400">${sub.date} • ${sub.handle}</span>
+          </div>
+          <div class="text-right">
+            <span class="text-xs font-black text-emerald-600 dark:text-emerald-400">${payout}</span>
+            <div class="text-[9px] font-black uppercase text-amber-500">Under Review</div>
+          </div>
+        `;
+                list.appendChild(item);
+            });
+        }
+
+        // 8. Proof Modal Handlers
+        function openProofModal(taskId) {
+            selectedTask = socialTasks.find(t => t.id === taskId);
+            if (!selectedTask) return;
+
+            document.getElementById('modalTaskTitle').textContent = `Upload Proof: ${selectedTask.title}`;
+            const ngnVal = selectedTask.usdPayout * rate;
+            document.getElementById('modalTaskPayout').textContent = `$${selectedTask.usdPayout.toFixed(2)} (₦${ngnVal.toLocaleString()})`;
+
+            resetProofModal();
+            document.getElementById('proofModal').classList.remove('hidden');
+        }
+
+        function closeProofModal() {
+            document.getElementById('proofModal').classList.add('hidden');
+            resetProofModal();
+        }
+
+        function resetProofModal() {
+            uploadedProofFile = null;
+            document.getElementById('proofFileInput').value = '';
+            document.getElementById('socialHandleInput').value = '';
+            document.getElementById('proofDropDefault').classList.remove('hidden');
+            document.getElementById('proofDropPreview').classList.add('hidden');
+            document.getElementById('proofPreviewImg').src = '';
+            clearProofErrors();
+        }
+
+        function clearProofErrors() {
+            document.getElementById('proofDropzone').classList.remove('border-rose-400', 'bg-rose-50/20');
+            document.getElementById('err-proof-file').classList.add('hidden');
+            document.getElementById('socialHandleInput').classList.remove('border-rose-400', 'bg-rose-50/20');
+            document.getElementById('err-handle').classList.add('hidden');
+        }
+
+        // 9. Screenshot Drag-and-Drop Handlers
+        function handleProofSelect(e) {
+            if (e.target.files && e.target.files[0]) processProofFile(e.target.files[0]);
+        }
+
+        function handleProofDragOver(e) {
+            e.preventDefault();
+            document.getElementById('proofDropzone').classList.add('border-brand-500', 'bg-brand-50/20');
+        }
+
+        function handleProofDragLeave(e) {
+            e.preventDefault();
+            document.getElementById('proofDropzone').classList.remove('border-brand-500', 'bg-brand-50/20');
+        }
+
+        function handleProofDrop(e) {
+            e.preventDefault();
+            document.getElementById('proofDropzone').classList.remove('border-brand-500', 'bg-brand-50/20');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                processProofFile(e.dataTransfer.files[0]);
+            }
+        }
+
+        function processProofFile(file) {
+            if (!file) return;
+            const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+            if (!validTypes.includes(file.type)) {
+                const err = document.getElementById('err-proof-file');
+                err.textContent = "Please upload a valid image screenshot (.PNG, .JPG).";
+                err.classList.remove('hidden');
+                return;
+            }
+
+            uploadedProofFile = file;
+            clearProofErrors();
+
+            const reader = new FileReader();
+            reader.onload = function (evt) {
+                document.getElementById('proofPreviewImg').src = evt.target.result;
+                document.getElementById('proofFileNameText').textContent = `${file.name} (${(file.size / 1024).toFixed(0)} KB)`;
+                document.getElementById('proofDropDefault').classList.add('hidden');
+                document.getElementById('proofDropPreview').classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeProofFile(e) {
+            e.stopPropagation();
+            resetProofModal();
+        }
+
+        // 10. Form Validation & Submission Handler
+        document.getElementById('proofForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearProofErrors();
+
+            let isValid = true;
+
+            if (!uploadedProofFile) {
+                document.getElementById('proofDropzone').classList.add('border-rose-400', 'bg-rose-50/20');
+                const err = document.getElementById('err-proof-file');
+                err.textContent = "Please attach your screenshot proof to proceed.";
+                err.classList.remove('hidden');
+                isValid = false;
+            }
+
+            const handleVal = document.getElementById('socialHandleInput').value.trim();
+            if (handleVal === '') {
+                const hInput = document.getElementById('socialHandleInput');
+                hInput.classList.add('border-rose-400', 'bg-rose-50/20');
+                const err = document.getElementById('err-handle');
+                err.textContent = "Please enter your social username or phone number used.";
+                err.classList.remove('hidden');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            const submitBtn = document.getElementById('submitProofBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting Proof...";
+
+            setTimeout(() => {
+                // Record submission locally
+                const newSubmission = {
+                    id: Date.now(),
+                    taskTitle: selectedTask.title,
+                    platform: selectedTask.platform,
+                    amountUSD: selectedTask.usdPayout,
+                    handle: handleVal,
+                    date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                    status: 'pending'
+                };
+
+                mySubmissions.unshift(newSubmission);
+                localStorage.setItem('rexora_social_submissions', JSON.stringify(mySubmissions));
+
+                alert(`Screenshot proof for "${selectedTask.title}" submitted successfully! Payout of $${selectedTask.usdPayout.toFixed(2)} will credit upon verification.`);
+
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit Proof for Review";
+                closeProofModal();
+                renderSubmissions();
+            }, 1000);
+        });
+
+        // 11. Sign Out Trigger
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out of REXORA?')) {
+                window.location.href = '../auth/login.html';
+            }
+        }
+
+        // Initial Render
+        renderTasks();
+        renderSubmissions();
+    </script>
+</body>
+
+</html>

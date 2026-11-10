@@ -55,3 +55,38 @@ this is not like optinex this is a full system but i will be the one to work on 
 
 
 we will start with the landing page so i want you to use the inform above to generate a good prompt for that and i want you to use this time of navbar in this https://therateboxglobal.top/ , it should have sild show in some section and add other thing that will make it look good and unqiue. generate a good prompt for that 
+
+
+
+
+the dashboard will have side navbar and in small screen it will have side navbar toggle button and also fixed bottom navbar
+it will have light/dark feaure but the dark will be dark blue not pure black
+
+this is the navigation:index.html                  # Main Task Hub (Earnings, Overview)
+│   ├── activation-lock.html        # 2-Referral Mandatory Verification Screen
+│   ├── remote-jobs.html            # Pro Plan Exclusive ($10+)
+│   ├── social-engagment.html         # Review & Earn ($2+ Pro / Standard Starter)
+│   ├── surveys.html                # Surveys ($1+)
+│   ├── streaks.html                # Daily Streaks Pool ($20+)
+│   ├── read-to-earn.html           # Articles & Reading Tasks
+│   ├── referrals.html              # Affiliate link, invited friends, 50% cuts
+│   ├── wallet.html                 # Dollar earnings, NGN conversion, payout history
+    ├──support.html 
+    ├── payout.html                  #this is for withdrawal. it will have Affiliate and non-affiliate withdrawal inside
+│   └── settings.html 
+     ├── logout
+
+at the top add top earners that user can click and go to "top-earners.html
+they should be a pop up like welcome to rexora join our telegram or whatsapp community(two button one for whatsapp one for telegram)
+they should be welcome message and greetings like "good evening, Guzy"
+they will be a card bold card available balance and affiliate balance(this two card will be in slide show)
+the amount on the cards will be in dollar but the user should be able to swap to naria if he or she want.
+
+it should be quick action section
+they should be a place where referral link will be displaying 
+and a small simple table this placing recent transaction
+
+and a section for REXORA convertion rate(this is where the user will see the conversion rate in REXORA and they can input any amount and check the rate in dollar or naria)
+
+
+keep it simple and premium. dont make the fontsize small make it bold, make sure is responsive in small screen

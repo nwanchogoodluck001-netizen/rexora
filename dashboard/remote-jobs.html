@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Remote Jobs Marketplace | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        darkblue: {
+                            800: '#0F243A',
+                            850: '#0C1E31',
+                            900: '#0B192C',
+                            950: '#071626',
+                            border: '#1E354F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        body.light-theme {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 55%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        html.dark body {
+            background-color: #071626;
+            background-image:
+                radial-gradient(at 50% 0%, #0F243A 0px, transparent 65%),
+                radial-gradient(at 90% 20%, #0C1E31 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="light-theme text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen pb-28 lg:pb-12 overflow-x-hidden">
+
+    <div class="flex min-h-screen w-full relative">
+
+        <!-- ==================== SIDEBAR (DESKTOP) ==================== -->
+        <aside
+            class="hidden lg:flex flex-col justify-between w-64 bg-white/80 dark:bg-darkblue-900/90 border-r border-slate-200/80 dark:border-darkblue-border fixed inset-y-0 left-0 z-40 p-5 glass-panel">
+            <div>
+                <a href="../index.html" class="flex items-center gap-2.5 px-2 py-2">
+                    <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-7 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <nav class="mt-8 space-y-1.5">
+                    <a href="index.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Overview
+                    </a>
+
+                    <!-- ACTIVE: REMOTE JOBS -->
+                    <a href="remote-jobs.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-brand-500 text-white font-extrabold text-xs tracking-wide shadow-md shadow-brand-500/20">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Remote-Jobs
+                        </span>
+                        <span
+                            class="text-[9px] bg-white/20 text-white font-black px-1.5 py-0.5 rounded uppercase">Pro</span>
+                    </a>
+
+                    <a href="social-engagment.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                        Social Engagement
+                    </a>
+
+                    <a href="surveys.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        Surveys
+                    </a>
+
+                    <a href="streaks.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-amber-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Daily Streaks
+                        </span>
+                        <span
+                            class="text-[9px] bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 font-black px-1.5 py-0.5 rounded uppercase">2
+                            Ref</span>
+                    </a>
+
+                    <a href="read-to-earn.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Read to Earn
+                    </a>
+
+                    <a href="referrals.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Referrals
+                    </a>
+
+                    <a href="wallet.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                        Wallet
+                    </a>
+
+                    <a href="payout.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Withdrawals
+                    </a>
+
+                    <a href="support.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Support
+                    </a>
+                </nav>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200/80 dark:border-darkblue-border space-y-1">
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MOBILE SLIDE DRAWER ==================== -->
+        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden lg:hidden">
+            <div
+                class="w-64 max-w-[80%] bg-white dark:bg-darkblue-900 h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+                <div>
+                    <div
+                        class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-darkblue-border">
+                        <div class="flex items-center gap-2">
+                            <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
+                                onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';">
+                            <span class="font-black text-slate-900 dark:text-white">REX<span
+                                    class="text-brand-500">ORA</span></span>
+                        </div>
+                        <button onclick="toggleMobileDrawer()" class="text-slate-400 font-black text-lg p-1">✕</button>
+                    </div>
+
+                    <nav class="mt-6 space-y-1.5">
+                        <a href="index.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Overview</a>
+                        <a href="remote-jobs.html"
+                            class="block px-3 py-2 rounded-xl bg-brand-500 text-white font-extrabold text-xs">Remote-Jobs
+                            (Pro)</a>
+                        <a href="social-engagment.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Social
+                            Engagement</a>
+                        <a href="surveys.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Surveys</a>
+                        <a href="streaks.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Daily
+                            Streaks</a>
+                        <a href="read-to-earn.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Read
+                            to Earn</a>
+                        <a href="referrals.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Referrals</a>
+                        <a href="wallet.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Wallet</a>
+                        <a href="payout.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Withdrawals</a>
+                        <a href="support.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Support</a>
+                        <a href="settings.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Settings</a>
+                    </nav>
+                </div>
+
+                <button onclick="handleLogout()"
+                    class="w-full mt-6 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-500 font-extrabold text-xs">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <main class="flex-1 lg:pl-64 flex flex-col min-w-0 w-full">
+
+            <!-- TOP NAVIGATION BAR -->
+            <header
+                class="sticky top-0 z-30 bg-white/70 dark:bg-darkblue-900/80 border-b border-slate-200/80 dark:border-darkblue-border px-4 sm:px-6 lg:px-8 py-3.5 glass-panel flex items-center justify-between min-w-0">
+                <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <button onclick="toggleMobileDrawer()"
+                        class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <h2
+                        class="text-xs sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-wider truncate">
+                        Remote Jobs</h2>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <span
+                        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/40">
+                        📱 Phone Friendly
+                    </span>
+
+                    <a href="top-earners.html"
+                        class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300 text-[10px] sm:text-xs font-black shadow-sm">
+                        🏆 <span class="hidden xs:inline">Top Earners</span>
+                    </a>
+
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 hover:text-brand-500 transition-colors">
+                        <span id="themeIcon" class="text-sm font-black">🌙</span>
+                    </button>
+
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-darkblue-border">
+                        <div
+                            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-md">
+                            G
+                        </div>
+                        <span class="text-xs font-black text-slate-800 dark:text-white hidden md:inline">Guzy</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MARKETPLACE BODY CONTAINER -->
+            <div class="p-3.5 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 min-w-0">
+
+                <!-- PRO LOCK GATE BANNER (Visible only if Starter Plan) -->
+                <div id="starterGateNotice"
+                    class="hidden p-4 sm:p-6 rounded-3xl bg-gradient-to-r from-indigo-900 via-indigo-850 to-darkblue-900 border-2 border-indigo-500/50 text-white shadow-xl relative overflow-hidden">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
+                        <div class="min-w-0">
+                            <span
+                                class="inline-block px-3 py-0.5 rounded-full bg-indigo-500/30 text-indigo-200 text-[10px] font-black uppercase tracking-wider mb-2">
+                                🔒 PRO TIER EXCLUSIVE
+                            </span>
+                            <h3 class="text-lg sm:text-2xl font-black tracking-tight leading-snug">Unlock High-Yield
+                                Contracts ($10 - $50+)</h3>
+                            <p class="text-xs text-indigo-200 mt-1 max-w-xl font-bold">
+                                Your account is on Starter. Upgrade to PRO (₦3,000 / $3.00) to claim and submit verified
+                                remote deliverables.
+                            </p>
+                        </div>
+                        <a href="../auth/activation-checkout.html?plan=pro"
+                            class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-lg text-center shrink-0">
+                            Upgrade (₦3,000)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HEADER & DUAL KPI METRIC CARDS -->
+                <div class="space-y-4 sm:space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 min-w-0">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                                <span
+                                    class="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-brand-600 dark:text-brand-400 truncate">
+                                    Verified Client Contracts
+                                </span>
+                            </div>
+                            <h1
+                                class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-1 leading-tight">
+                                Explore Micro-Jobs & Tasks
+                            </h1>
+                            <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                                Select a category, complete tasks, and submit deliverables directly from your phone.
+                            </p>
+                        </div>
+
+                        <!-- Currency Toggle -->
+                        <button onclick="toggleRemoteEarningsCurrency()"
+                            class="inline-flex items-center justify-between sm:justify-start gap-2 px-3 py-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-700 dark:text-slate-200 text-xs font-black self-stretch sm:self-auto shrink-0 shadow-sm">
+                            <span id="remoteCurLabel">USD ($)</span>
+                            <span class="text-[9px] bg-brand-500 text-white px-2 py-0.5 rounded font-black">Swap
+                                ₦</span>
+                        </button>
+                    </div>
+
+                    <!-- CARDS: STRICTLY 0.00 DEFAULT -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
+
+                        <!-- Card 1: Total -->
+                        <div
+                            class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-wider text-slate-400 truncate">
+                                        Total Remote Earnings
+                                    </span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                                    id="totalRemoteDisplay">
+                                    $0.00
+                                </div>
+                                <p class="text-[10px] sm:text-[11px] font-bold text-emerald-600 dark:text-emerald-400 truncate"
+                                    id="totalRemoteSub">
+                                    ≈ ₦0 (Approved)
+                                </p>
+                            </div>
+
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
+                                ✓
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Pending -->
+                        <div
+                            class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping shrink-0"></span>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-wider text-slate-400 truncate">
+                                        Pending Remote Earnings
+                                    </span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                                    id="pendingRemoteDisplay">
+                                    $0.00
+                                </div>
+                                <p class="text-[10px] sm:text-[11px] font-bold text-amber-600 dark:text-amber-400 truncate"
+                                    id="pendingRemoteSub">
+                                    ≈ ₦0 (Under Review)
+                                </p>
+                            </div>
+
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
+                                ⏱
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- HORIZONTAL FILTER BAR: NO HORIZONTAL BLEED -->
+                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-3.5 px-3.5 sm:mx-0 sm:px-0"
+                    id="categoryFilterContainer">
+                    <button onclick="filterCategory('All')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-brand-500 text-white shadow-md whitespace-nowrap shrink-0">
+                        All Tasks
+                    </button>
+                    <button onclick="filterCategory('Graphic Design')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Graphic Design
+                    </button>
+                    <button onclick="filterCategory('Script Writing')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Script Writing
+                    </button>
+                    <button onclick="filterCategory('Research')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Research
+                    </button>
+                    <button onclick="filterCategory('Data Tasks')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Data Tasks
+                    </button>
+                </div>
+
+                <!-- JOB CARDS GRID: 1 COL (MOBILE), 2 COLS (TABLET), 3 COLS (DESKTOP) -->
+                <div id="jobGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 min-w-0">
+                    <!-- Dynamically populated via JS -->
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ==================== FIXED MOBILE BOTTOM NAVBAR ==================== -->
+    <nav
+        class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-darkblue-900/95 border-t border-slate-200/80 dark:border-darkblue-border px-2 py-2.5 glass-panel flex items-center justify-around">
+        <a href="index.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+        </a>
+        <a href="remote-jobs.html" class="flex flex-col items-center text-brand-500 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Jobs
+        </a>
+        <a href="streaks.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Streaks
+        </a>
+        <a href="payout.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Payout
+        </a>
+        <button onclick="toggleMobileDrawer()"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Menu
+        </button>
+    </nav>
+
+    <!-- ==================== MODAL 1: TASK BRIEF ==================== -->
+    <div id="briefModal"
+        class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
+        <div
+            class="bg-white dark:bg-darkblue-900 border border-slate-200 dark:border-darkblue-border rounded-3xl p-5 sm:p-8 max-w-lg w-full shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBriefModal()"
+                class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white font-black text-lg p-1">✕</button>
+
+            <div class="flex items-center gap-2 flex-wrap pr-6">
+                <span id="briefCategoryBadge"
+                    class="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-brand-100 text-brand-700">Category</span>
+                <span id="briefDeadline" class="text-xs font-bold text-slate-400">⏱ 24h remaining</span>
+            </div>
+
+            <h3 id="briefTitle" class="text-lg sm:text-xl font-black text-slate-900 dark:text-white mt-3 leading-snug">
+                Job Title</h3>
+
+            <div
+                class="my-3 sm:my-4 p-3.5 rounded-2xl bg-slate-50 dark:bg-darkblue-800 border border-slate-100 dark:border-darkblue-border flex items-center justify-between">
+                <div>
+                    <span class="text-[10px] font-black uppercase text-slate-400">Client Payout</span>
+                    <div id="briefPayout" class="text-base sm:text-lg font-black text-brand-600 dark:text-brand-400">
+                        $25.00</div>
+                </div>
+                <span
+                    class="text-[10px] sm:text-xs font-black text-emerald-600 bg-emerald-100 dark:bg-emerald-950 px-2.5 py-1 rounded-full">Escrow
+                    Funded</span>
+            </div>
+
+            <div class="space-y-3 text-xs font-bold text-slate-600 dark:text-slate-300 leading-relaxed">
+                <h4 class="text-[11px] font-black uppercase tracking-wider text-slate-400">Task Objective &
+                    Instructions:</h4>
+                <p id="briefObjective" class="font-medium text-slate-600 dark:text-slate-300">Objective details...</p>
+
+                <h4 class="text-[11px] font-black uppercase tracking-wider text-slate-400 pt-1">Deliverable
+                    Requirements:</h4>
+                <ul class="list-disc pl-4 space-y-1 text-slate-500 dark:text-slate-400 font-medium">
+                    <li>Must be original and complete according to the brief.</li>
+                    <li>High-resolution format (.PNG, .JPG).</li>
+                    <li>Funds are released to your balance upon verification.</li>
+                </ul>
+            </div>
+
+            <div
+                class="mt-5 pt-4 border-t border-slate-100 dark:border-darkblue-border flex flex-col sm:flex-row gap-2.5">
+                <button onclick="openSubmitModalFromBrief()"
+                    class="w-full sm:flex-1 py-3 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-md">
+                    Proceed to Submit
+                </button>
+                <button onclick="closeBriefModal()"
+                    class="w-full sm:w-auto px-5 py-3 rounded-2xl bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-300 font-black text-xs uppercase">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL 2: SUBMIT WORK MODAL ==================== -->
+    <div id="submitModal"
+        class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
+        <div
+            class="bg-white dark:bg-darkblue-900 border border-slate-200 dark:border-darkblue-border rounded-3xl p-5 sm:p-8 max-w-lg w-full shadow-2xl relative max-h-[92vh] overflow-y-auto">
+
+            <button onclick="closeSubmitModal()"
+                class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white font-black text-lg p-1">✕</button>
+
+            <div class="flex items-center gap-2 flex-wrap pr-6">
+                <span id="submitCategoryPill"
+                    class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+                    Graphic Design
+                </span>
+                <span
+                    class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+                    📱 Phone Friendly
+                </span>
+            </div>
+
+            <h3 class="text-base sm:text-xl font-black text-slate-900 dark:text-white mt-2 tracking-tight">Submit
+                Graphic Design Work</h3>
+            <p id="submitJobTitle" class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5 truncate">
+                Job title placeholder...
+            </p>
+
+            <div
+                class="my-3 p-3 rounded-2xl bg-slate-50 dark:bg-darkblue-800 border border-slate-100 dark:border-darkblue-border flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-500 dark:text-slate-400">Contract Payout Rate:</span>
+                <span id="submitPayoutRate"
+                    class="text-sm sm:text-base font-black text-emerald-600 dark:text-emerald-400">$28.00</span>
+            </div>
+
+            <form id="deliverableForm" class="space-y-3.5" novalidate>
+
+                <!-- DROPZONE -->
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                        Upload Design Deliverable (.PNG, .JPG)
+                    </label>
+
+                    <div id="dropzoneContainer" onclick="document.getElementById('graphicFileInput').click()"
+                        ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)"
+                        ondrop="handleFileDrop(event)"
+                        class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-brand-500 rounded-2xl p-4 sm:p-6 text-center cursor-pointer transition-all bg-slate-50/50 dark:bg-darkblue-850/50">
+                        <input type="file" id="graphicFileInput" accept="image/png, image/jpeg, image/jpg"
+                            class="hidden" onchange="handleFileSelect(event)" />
+
+                        <div id="dropzoneDefault">
+                            <div
+                                class="w-10 h-10 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-500 flex items-center justify-center text-lg mx-auto mb-1.5">
+                                🖼️
+                            </div>
+                            <p class="text-xs font-black text-slate-800 dark:text-white">Click to select file or drag &
+                                drop</p>
+                            <p class="text-[10px] font-bold text-slate-400 mt-0.5">No file selected yet (.png, .jpg)</p>
+                        </div>
+
+                        <div id="dropzonePreview" class="hidden flex flex-col items-center">
+                            <div
+                                class="relative max-h-36 overflow-hidden rounded-xl border border-slate-200 dark:border-darkblue-border mb-2 shadow-sm">
+                                <img id="previewImage" src="" alt="Preview" class="object-cover max-h-36 rounded-xl" />
+                            </div>
+                            <span id="previewFilename"
+                                class="text-xs font-black text-brand-600 dark:text-brand-400 truncate max-w-full"></span>
+                            <button type="button" onclick="removeSelectedFile(event)"
+                                class="text-[10px] font-bold text-rose-500 hover:underline mt-1">
+                                ✕ Remove file
+                            </button>
+                        </div>
+                    </div>
+                    <p id="err-file" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                        Work Link (Optional: Figma, Canva, Drive)
+                    </label>
+                    <input type="url" id="deliverableUrl" placeholder="https://www.figma.com/file/... or Drive link"
+                        class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500" />
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                        Design Tool Used
+                    </label>
+                    <input type="text" id="designToolInput"
+                        placeholder="e.g., Canva, Photoshop, Illustrator, Figma, or Phone App"
+                        class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500" />
+                    <p id="err-tool" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                </div>
+
+                <div class="pt-1">
+                    <button type="submit" id="submitReviewBtn"
+                        class="w-full py-3 sm:py-3.5 px-6 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all">
+                        Submit for Admin Review
+                    </button>
+                </div>
+
+                <p class="text-[9px] sm:text-[10px] font-bold text-center text-slate-400 leading-snug">
+                    Status will automatically transition to "Pending Admin Review". Escrow released upon verification.
+                </p>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== LOGIC ENGINE ==================== -->
+    <script>
+        function initTheme() {
+            const savedTheme = localStorage.getItem('rexora_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('themeIcon').textContent = '🌙';
+            }
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('rexora_theme', isDark ? 'dark' : 'light');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+        }
+        initTheme();
+
+        function toggleMobileDrawer() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        let userPlan = 'pro';
+        const storedUser = localStorage.getItem('rexora_user');
+        if (storedUser) {
+            try {
+                const parsed = JSON.parse(storedUser);
+                if (parsed.plan) userPlan = parsed.plan;
+            } catch (e) { console.error(e); }
+        }
+
+        if (userPlan === 'starter') {
+            document.getElementById('starterGateNotice').classList.remove('hidden');
+        }
+
+        function getInitialRemoteStats() {
+            const savedData = localStorage.getItem('rexora_remote_earnings');
+            if (savedData) {
+                try { return JSON.parse(savedData); } catch (e) { console.error(e); }
+            }
+            return { totalUSD: 0.00, pendingUSD: 0.00, currency: 'USD', rate: 1000 };
+        }
+
+        const remoteStats = getInitialRemoteStats();
+
+        function saveRemoteStats() {
+            localStorage.setItem('rexora_remote_earnings', JSON.stringify(remoteStats));
+        }
+
+        function renderRemoteCards() {
+            const totalDisplay = document.getElementById('totalRemoteDisplay');
+            const totalSub = document.getElementById('totalRemoteSub');
+            const pendingDisplay = document.getElementById('pendingRemoteDisplay');
+            const pendingSub = document.getElementById('pendingRemoteSub');
+            const label = document.getElementById('remoteCurLabel');
+
+            if (remoteStats.currency === 'USD') {
+                label.textContent = "USD ($)";
+                totalDisplay.textContent = `$${remoteStats.totalUSD.toFixed(2)}`;
+                totalSub.textContent = `≈ ₦${(remoteStats.totalUSD * remoteStats.rate).toLocaleString()} (Approved)`;
+
+                pendingDisplay.textContent = `$${remoteStats.pendingUSD.toFixed(2)}`;
+                pendingSub.textContent = `≈ ₦${(remoteStats.pendingUSD * remoteStats.rate).toLocaleString()} (Under Review)`;
+            } else {
+                label.textContent = "NGN (₦)";
+                totalDisplay.textContent = `₦${(remoteStats.totalUSD * remoteStats.rate).toLocaleString()}`;
+                totalSub.textContent = `≈ $${remoteStats.totalUSD.toFixed(2)} USD (Approved)`;
+
+                pendingDisplay.textContent = `₦${(remoteStats.pendingUSD * remoteStats.rate).toLocaleString()}`;
+                pendingSub.textContent = `≈ $${remoteStats.pendingUSD.toFixed(2)} USD (Under Review)`;
+            }
+        }
+
+        function toggleRemoteEarningsCurrency() {
+            remoteStats.currency = remoteStats.currency === 'USD' ? 'NGN' : 'USD';
+            saveRemoteStats();
+            renderRemoteCards();
+        }
+
+        function addPendingJobEarning(amountUSD) {
+            remoteStats.pendingUSD += parseFloat(amountUSD);
+            saveRemoteStats();
+            renderRemoteCards();
+        }
+        renderRemoteCards();
+
+        const remoteJobs = [
+            {
+                id: 1,
+                client: "Claire",
+                avatar: "C",
+                avatarBg: "bg-indigo-500",
+                deadline: "⏱ 72h left",
+                category: "Graphic Design",
+                title: "Hero Banner & Social Promo Graphics for Web3 Wallet",
+                objective: "Design 3 social media promotional creatives (1080x1080) for an online course announcement using Figma, Canva, or Photoshop.",
+                payoutUSD: 40.00,
+                payoutNGN: "₦40,000"
+            },
+            {
+                id: 2,
+                client: "Creative Studio",
+                avatar: "CS",
+                avatarBg: "bg-brand-500",
+                deadline: "⏱ 24h left",
+                category: "Script Writing",
+                title: "Write 3 Short Video Ad Hooks (Coffee Brand)",
+                objective: "Write 3 conversational script hooks for a TikTok video campaign introducing 'Boost Brew' cold coffee.",
+                payoutUSD: 18.00,
+                payoutNGN: "₦18,000"
+            },
+            {
+                id: 3,
+                client: "Michael Sterling",
+                avatar: "MS",
+                avatarBg: "bg-purple-600",
+                deadline: "⏱ 24h left",
+                category: "Script Writing",
+                title: "Explainer Video Script for Mobile DeFi App",
+                objective: "Draft a 60-second simple video script explaining how everyday users deposit and withdraw USD on mobile wallets.",
+                payoutUSD: 22.00,
+                payoutNGN: "₦22,000"
+            },
+            {
+                id: 4,
+                client: "Sarah Jenkins",
+                avatar: "SJ",
+                avatarBg: "bg-emerald-600",
+                deadline: "⏱ 48h left",
+                category: "Research",
+                title: "Competitive Analysis: High-Performance Landing Pages",
+                objective: "Review 5 modern landing pages, document CTA positioning hierarchy, and submit a 1-page summary report.",
+                payoutUSD: 25.00,
+                payoutNGN: "₦25,000"
+            },
+            {
+                id: 5,
+                client: "Apex AI Labs",
+                avatar: "AL",
+                avatarBg: "bg-sky-600",
+                deadline: "⏱ 12h left",
+                category: "Data Tasks",
+                title: "AI Response Categorization & Sentiment Tagging",
+                objective: "Categorize 100 customer prompt responses into Technical, Billing, or Usability tags with sentiment markers.",
+                payoutUSD: 15.00,
+                payoutNGN: "₦15,000"
+            },
+            {
+                id: 6,
+                client: "Jone Smith",
+                avatar: "JS",
+                avatarBg: "bg-amber-600",
+                deadline: "⏱ 36h left",
+                category: "Graphic Design",
+                title: "YouTube Thumbnail Design for Tech Channel",
+                objective: "Create 2 clean, high-CTR YouTube thumbnails for an upcoming coding tutorial. Use bold typography.",
+                payoutUSD: 20.00,
+                payoutNGN: "₦20,000"
+            }
+        ];
+
+        let activeCategory = 'All';
+        let selectedJob = null;
+        let uploadedFile = null;
+
+        function renderJobs() {
+            const grid = document.getElementById('jobGrid');
+            grid.innerHTML = '';
+
+            const filtered = activeCategory === 'All'
+                ? remoteJobs
+                : remoteJobs.filter(job => job.category === activeCategory);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400 font-bold text-xs">
+            No contracts currently available in this category.
+          </div>
+        `;
+                return;
+            }
+
+            filtered.forEach(job => {
+                const card = document.createElement('div');
+                card.className = "p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex flex-col justify-between min-w-0";
+
+                card.innerHTML = `
+          <div class="min-w-0">
+            <!-- Client Header -->
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+              <div class="flex items-center gap-2 min-w-0">
+                <div class="w-8 h-8 rounded-xl ${job.avatarBg} text-white flex items-center justify-center font-black text-xs shrink-0">
+                  ${job.avatar}
+                </div>
+                <div class="min-w-0">
+                  <div class="flex items-center gap-1">
+                    <span class="text-xs font-black text-slate-900 dark:text-white truncate">${job.client}</span>
+                    <span class="text-[10px] text-brand-500 font-black shrink-0">✓</span>
+                  </div>
+                  <span class="text-[9px] font-bold text-slate-400 block truncate">Verified Client</span>
+                </div>
+              </div>
+              <span class="text-[9px] sm:text-[10px] font-black text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-2 py-0.5 rounded-full shrink-0">
+                ${job.deadline}
+              </span>
+            </div>
+
+            <!-- Tags -->
+            <div class="mt-3 flex flex-wrap gap-1.5">
+              <span class="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300">
+                ${job.category}
+              </span>
+              <span class="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 dark:bg-darkblue-800 dark:text-slate-300">
+                📱 Mobile
+              </span>
+            </div>
+
+            <!-- Title & Snippet -->
+            <h3 class="text-sm sm:text-base font-black text-slate-900 dark:text-white mt-2.5 leading-snug break-words">
+              ${job.title}
+            </h3>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">
+              ${job.objective}
+            </p>
+          </div>
+
+          <!-- Payout and Actions -->
+          <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-darkblue-border flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <span class="text-[8px] sm:text-[9px] font-black uppercase text-slate-400 block">Payout</span>
+              <div class="text-sm sm:text-base font-black text-brand-600 dark:text-brand-400 truncate">
+                $${job.payoutUSD.toFixed(2)} 
+                <span class="text-[9px] font-bold text-slate-400">(${job.payoutNGN})</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button 
+                onclick="viewBrief(${job.id})" 
+                class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-700 dark:text-slate-200 text-xs font-black transition-all"
+              >
+                Apply
+              </button>
+              <button 
+                onclick="openSubmit(${job.id})" 
+                class="px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs font-black shadow-md transition-all"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat) {
+            activeCategory = cat;
+            const buttons = document.querySelectorAll('.cat-pill');
+            buttons.forEach(btn => {
+                if (btn.textContent.trim().includes(cat) || (cat === 'All' && btn.textContent.trim().includes('All Tasks'))) {
+                    btn.className = "cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-brand-500 text-white shadow-md whitespace-nowrap shrink-0";
+                } else {
+                    btn.className = "cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0";
+                }
+            });
+            renderJobs();
+        }
+
+        function viewBrief(jobId) {
+            if (userPlan === 'starter') {
+                alert("Remote-Jobs are strictly unlocked on PRO (₦3,000 / $3.00). Please upgrade.");
+                return;
+            }
+            selectedJob = remoteJobs.find(j => j.id === jobId);
+            if (!selectedJob) return;
+
+            document.getElementById('briefCategoryBadge').textContent = selectedJob.category;
+            document.getElementById('briefDeadline').textContent = selectedJob.deadline;
+            document.getElementById('briefTitle').textContent = selectedJob.title;
+            document.getElementById('briefPayout').textContent = `$${selectedJob.payoutUSD.toFixed(2)} (${selectedJob.payoutNGN})`;
+            document.getElementById('briefObjective').textContent = selectedJob.objective;
+
+            document.getElementById('briefModal').classList.remove('hidden');
+        }
+
+        function closeBriefModal() {
+            document.getElementById('briefModal').classList.add('hidden');
+        }
+
+        function openSubmitModalFromBrief() {
+            closeBriefModal();
+            if (selectedJob) openSubmit(selectedJob.id);
+        }
+
+        function openSubmit(jobId) {
+            if (userPlan === 'starter') {
+                alert("Remote-Jobs are strictly unlocked on PRO (₦3,000 / $3.00). Please upgrade.");
+                return;
+            }
+            selectedJob = remoteJobs.find(j => j.id === jobId);
+            if (!selectedJob) return;
+
+            document.getElementById('submitCategoryPill').textContent = selectedJob.category;
+            document.getElementById('submitJobTitle').textContent = selectedJob.title;
+            document.getElementById('submitPayoutRate').textContent = `$${selectedJob.payoutUSD.toFixed(2)} (${selectedJob.payoutNGN})`;
+
+            resetUploadState();
+            clearSubmitErrors();
+
+            document.getElementById('submitModal').classList.remove('hidden');
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submitModal').classList.add('hidden');
+            resetUploadState();
+        }
+
+        function resetUploadState() {
+            uploadedFile = null;
+            document.getElementById('graphicFileInput').value = '';
+            document.getElementById('designToolInput').value = '';
+            document.getElementById('deliverableUrl').value = '';
+            document.getElementById('dropzoneDefault').classList.remove('hidden');
+            document.getElementById('dropzonePreview').classList.add('hidden');
+            document.getElementById('previewImage').src = '';
+        }
+
+        function clearSubmitErrors() {
+            document.getElementById('dropzoneContainer').classList.remove('border-rose-400', 'bg-rose-50/20');
+            document.getElementById('err-file').classList.add('hidden');
+            document.getElementById('designToolInput').classList.remove('border-rose-400', 'bg-rose-50/20');
+            document.getElementById('err-tool').classList.add('hidden');
+        }
+
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            processFile(file);
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+            document.getElementById('dropzoneContainer').classList.add('border-brand-500', 'bg-brand-50/20');
+        }
+
+        function handleDragLeave(e) {
+            e.preventDefault();
+            document.getElementById('dropzoneContainer').classList.remove('border-brand-500', 'bg-brand-50/20');
+        }
+
+        function handleFileDrop(e) {
+            e.preventDefault();
+            document.getElementById('dropzoneContainer').classList.remove('border-brand-500', 'bg-brand-50/20');
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                processFile(e.dataTransfer.files[0]);
+            }
+        }
+
+        function processFile(file) {
+            if (!file) return;
+            const validTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+            if (!validTypes.includes(file.type)) {
+                const errFile = document.getElementById('err-file');
+                errFile.textContent = "Please upload .PNG, .JPG, or .JPEG.";
+                errFile.classList.remove('hidden');
+                return;
+            }
+
+            uploadedFile = file;
+            clearSubmitErrors();
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                document.getElementById('previewImage').src = event.target.result;
+                document.getElementById('previewFilename').textContent = `${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+                document.getElementById('dropzoneDefault').classList.add('hidden');
+                document.getElementById('dropzonePreview').classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function removeSelectedFile(e) {
+            e.stopPropagation();
+            resetUploadState();
+        }
+
+        document.getElementById('deliverableForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearSubmitErrors();
+
+            let isValid = true;
+            const workUrl = document.getElementById('deliverableUrl').value.trim();
+
+            if (!uploadedFile && workUrl === '') {
+                document.getElementById('dropzoneContainer').classList.add('border-rose-400', 'bg-rose-50/20');
+                const errFile = document.getElementById('err-file');
+                errFile.textContent = "Upload a file or provide a deliverable link.";
+                errFile.classList.remove('hidden');
+                isValid = false;
+            }
+
+            const toolInput = document.getElementById('designToolInput');
+            if (toolInput.value.trim() === '') {
+                toolInput.classList.add('border-rose-400', 'bg-rose-50/20');
+                const errTool = document.getElementById('err-tool');
+                errTool.textContent = "Specify the design tool used.";
+                errTool.classList.remove('hidden');
+                isValid = false;
+            }
+
+            if (!isValid) return;
+
+            const submitBtn = document.getElementById('submitReviewBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting Review...";
+
+            setTimeout(() => {
+                addPendingJobEarning(selectedJob.payoutUSD);
+
+                alert(`Deliverable for "${selectedJob.title}" submitted successfully! $${selectedJob.payoutUSD.toFixed(2)} added to Pending Remote Earnings.`);
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit for Admin Review";
+                closeSubmitModal();
+            }, 1000);
+        });
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out of REXORA?')) {
+                window.location.href = '../auth/login.html';
+            }
+        }
+
+        renderJobs();
+    </script>
+</body>
+
+</html>

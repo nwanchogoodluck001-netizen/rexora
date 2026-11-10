@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Daily Streaks Vault | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        darkblue: {
+                            800: '#0F243A',
+                            850: '#0C1E31',
+                            900: '#0B192C',
+                            950: '#071626',
+                            border: '#1E354F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        body.light-theme {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 55%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        html.dark body {
+            background-color: #071626;
+            background-image:
+                radial-gradient(at 50% 0%, #0F243A 0px, transparent 65%),
+                radial-gradient(at 90% 20%, #0C1E31 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="light-theme text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen pb-28 lg:pb-12 overflow-x-hidden">
+
+    <div class="flex min-h-screen w-full relative">
+
+        <!-- ==================== SIDEBAR (DESKTOP) ==================== -->
+        <aside
+            class="hidden lg:flex flex-col justify-between w-64 bg-white/80 dark:bg-darkblue-900/90 border-r border-slate-200/80 dark:border-darkblue-border fixed inset-y-0 left-0 z-40 p-5 glass-panel">
+            <div>
+                <a href="../index.html" class="flex items-center gap-2.5 px-2 py-2">
+                    <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-7 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <nav class="mt-8 space-y-1.5">
+                    <a href="index.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Overview
+                    </a>
+
+                    <a href="remote-jobs.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Remote-Jobs
+                        </span>
+                        <span
+                            class="text-[9px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 font-black px-1.5 py-0.5 rounded uppercase">Pro</span>
+                    </a>
+
+                    <a href="social-engagment.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                        Social Engagement
+                    </a>
+
+                    <a href="surveys.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        Surveys
+                    </a>
+
+                    <!-- ACTIVE: STREAKS -->
+                    <a href="streaks.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-brand-500 text-white font-extrabold text-xs tracking-wide shadow-md shadow-brand-500/20">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-amber-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Daily Streaks
+                        </span>
+                        <span class="text-[9px] bg-amber-400 text-navy-950 font-black px-1.5 py-0.5 rounded uppercase">2
+                            Ref</span>
+                    </a>
+
+                    <a href="read-to-earn.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Read to Earn
+                    </a>
+
+                    <a href="referrals.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Referrals
+                    </a>
+
+                    <a href="wallet.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                        Wallet
+                    </a>
+
+                    <a href="payout.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Withdrawals
+                    </a>
+
+                    <a href="support.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Support
+                    </a>
+                </nav>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200/80 dark:border-darkblue-border space-y-1">
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MOBILE SLIDE DRAWER ==================== -->
+        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden lg:hidden">
+            <div
+                class="w-64 max-w-[80%] bg-white dark:bg-darkblue-900 h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+                <div>
+                    <div
+                        class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-darkblue-border">
+                        <div class="flex items-center gap-2">
+                            <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
+                                onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';">
+                            <span class="font-black text-slate-900 dark:text-white">REX<span
+                                    class="text-brand-500">ORA</span></span>
+                        </div>
+                        <button onclick="toggleMobileDrawer()" class="text-slate-400 font-black text-lg p-1">✕</button>
+                    </div>
+
+                    <nav class="mt-6 space-y-1.5">
+                        <a href="index.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Overview</a>
+                        <a href="remote-jobs.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Remote-Jobs</a>
+                        <a href="social-engagment.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Social
+                            Engagement</a>
+                        <a href="surveys.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Surveys</a>
+                        <a href="streaks.html"
+                            class="block px-3 py-2 rounded-xl bg-brand-500 text-white font-extrabold text-xs">Daily
+                            Streaks (2 Ref)</a>
+                        <a href="read-to-earn.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Read
+                            to Earn</a>
+                        <a href="referrals.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Referrals</a>
+                        <a href="wallet.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Wallet</a>
+                        <a href="payout.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Withdrawals</a>
+                        <a href="support.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Support</a>
+                        <a href="settings.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Settings</a>
+                    </nav>
+                </div>
+
+                <button onclick="handleLogout()"
+                    class="w-full mt-6 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-500 font-extrabold text-xs">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+        <main class="flex-1 lg:pl-64 flex flex-col min-w-0 w-full">
+
+            <!-- TOP NAVIGATION BAR -->
+            <header
+                class="sticky top-0 z-30 bg-white/70 dark:bg-darkblue-900/80 border-b border-slate-200/80 dark:border-darkblue-border px-4 sm:px-6 lg:px-8 py-3.5 glass-panel flex items-center justify-between min-w-0">
+                <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <button onclick="toggleMobileDrawer()"
+                        class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <h2
+                        class="text-xs sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-wider truncate">
+                        Daily Streaks Hub</h2>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <a href="top-earners.html"
+                        class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300 text-[10px] sm:text-xs font-black shadow-sm hover:scale-105 transition-transform">
+                        🏆 <span class="hidden xs:inline">Top Earners</span>
+                    </a>
+
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 hover:text-brand-500 transition-colors">
+                        <span id="themeIcon" class="text-sm font-black">🌙</span>
+                    </button>
+
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-darkblue-border">
+                        <div
+                            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-md">
+                            G
+                        </div>
+                        <span class="text-xs font-black text-slate-800 dark:text-white hidden md:inline">Guzy</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- STREAKS BODY CONTAINER -->
+            <div class="p-3.5 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 min-w-0">
+
+                <!-- 1. DAILY 2-REFERRAL GATING & CYCLE COUNTDOWN BANNER -->
+                <div
+                    class="p-5 sm:p-7 rounded-3xl bg-gradient-to-br from-amber-500/10 via-brand-500/10 to-indigo-600/10 border-2 border-amber-400/50 dark:border-amber-500/30 glass-panel shadow-lg space-y-5">
+
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <span
+                                class="inline-block px-3 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-amber-500 text-white shadow-sm">
+                                Mandatory 2-Referral Daily Requirement
+                            </span>
+                            <h2
+                                class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1.5 tracking-tight">
+                                Streak Multiplier Access Gate
+                            </h2>
+                            <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                                Both daily referrals must activate Starter (₦1,500) or Pro (₦3,000) within this 24h
+                                window to unlock your 3 daily claims.
+                            </p>
+                        </div>
+
+                        <div
+                            class="p-3 rounded-2xl bg-white dark:bg-darkblue-900 border border-slate-200 dark:border-darkblue-border shrink-0 self-start sm:self-auto text-right">
+                            <span class="text-[9px] font-black uppercase tracking-wider text-slate-400 block">Cycle
+                                Reset In</span>
+                            <div class="text-sm sm:text-base font-black text-amber-600 dark:text-amber-400 font-mono"
+                                id="countdownTimer">
+                                00h : 00m : 00s
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Referral Slots Progress Visualizer -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+
+                        <!-- Referral 1 Slot -->
+                        <div id="slot1Card"
+                            class="p-3.5 rounded-2xl bg-white/80 dark:bg-darkblue-900/80 border border-slate-200 dark:border-darkblue-border flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div id="slot1Icon"
+                                    class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-400 flex items-center justify-center font-black text-sm">
+                                    1
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 dark:text-white">Active Referral #1
+                                    </div>
+                                    <span id="slot1Status" class="text-[10px] font-bold text-slate-400">Waiting for
+                                        today's invite...</span>
+                                </div>
+                            </div>
+                            <span id="slot1Badge"
+                                class="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-500 dark:bg-darkblue-800 dark:text-slate-400">
+                                Pending
+                            </span>
+                        </div>
+
+                        <!-- Referral 2 Slot -->
+                        <div id="slot2Card"
+                            class="p-3.5 rounded-2xl bg-white/80 dark:bg-darkblue-900/80 border border-slate-200 dark:border-darkblue-border flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div id="slot2Icon"
+                                    class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-400 flex items-center justify-center font-black text-sm">
+                                    2
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 dark:text-white">Active Referral #2
+                                    </div>
+                                    <span id="slot2Status" class="text-[10px] font-bold text-slate-400">Waiting for
+                                        today's invite...</span>
+                                </div>
+                            </div>
+                            <span id="slot2Badge"
+                                class="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-500 dark:bg-darkblue-800 dark:text-slate-400">
+                                Pending
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <!-- Quick Test Simulation (To showcase locked vs unlocked states) -->
+                    <div
+                        class="pt-2 flex flex-wrap items-center justify-between gap-2 text-xs border-t border-slate-200/60 dark:border-darkblue-border">
+                        <span class="text-[11px] font-bold text-slate-400">
+                            Current Status: <strong id="refCountSummary" class="text-slate-900 dark:text-white">0 / 2
+                                Referrals Completed Today</strong>
+                        </span>
+                        <div class="flex items-center gap-2">
+                            <button onclick="simulateAddReferral()"
+                                class="px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-white font-black text-[10px] uppercase tracking-wider">
+                                + Simulate Paid Referral
+                            </button>
+                            <button onclick="resetReferralsSim()"
+                                class="px-2 py-1 rounded-lg bg-slate-200 dark:bg-darkblue-800 text-slate-600 dark:text-slate-300 font-black text-[10px] uppercase">
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 2. DUAL KPI METRIC CARDS (STRICTLY 0.00 DEFAULT) -->
+                <div class="space-y-4 sm:space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 min-w-0">
+                        <div class="min-w-0">
+                            <h1
+                                class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+                                Daily Streaks & Session Drops
+                            </h1>
+                            <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                                Claim your rewards across 3 daily check-in windows: Morning, Afternoon, and Night.
+                            </p>
+                        </div>
+
+                        <!-- Currency Toggle -->
+                        <button onclick="toggleStreakCurrency()"
+                            class="inline-flex items-center justify-between sm:justify-start gap-2 px-3 py-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-700 dark:text-slate-200 text-xs font-black self-stretch sm:self-auto shrink-0 shadow-sm">
+                            <span id="streakCurLabel">USD ($)</span>
+                            <span class="text-[9px] bg-brand-500 text-white px-2 py-0.5 rounded font-black">Swap
+                                ₦</span>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
+
+                        <!-- Card 1: Total Streak Earnings -->
+                        <div
+                            class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-wider text-slate-400 truncate">
+                                        Total Streaks Earnings
+                                    </span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                                    id="totalStreakEarningsDisplay">
+                                    $0.00
+                                </div>
+                                <p class="text-[10px] sm:text-[11px] font-bold text-emerald-600 dark:text-emerald-400 truncate"
+                                    id="totalStreakSub">
+                                    ≈ ₦0 (Approved & Withdrawable)
+                                </p>
+                            </div>
+
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
+                                ⚡
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Current Streak Level -->
+                        <div
+                            class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-wider text-slate-400 truncate">
+                                        Consecutive Day Level
+                                    </span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                                    id="currentDayDisplay">
+                                    Day 1
+                                </div>
+                                <p
+                                    class="text-[10px] sm:text-[11px] font-bold text-amber-600 dark:text-amber-400 truncate">
+                                    3 Active Daily Windows
+                                </p>
+                            </div>
+
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
+                                🔥
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 3. THE 3 DAILY CHECK-IN CLAIMS (MORNING, AFTERNOON, NIGHT) -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3
+                            class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+                            <span>⏰</span> Today's 3-Window Claim Sessions
+                        </h3>
+                        <span class="text-xs font-bold text-slate-400">Unlocked via 2 Daily Referrals</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                        <!-- Window 1: Morning -->
+                        <div id="cardMorning"
+                            class="p-5 rounded-3xl bg-white dark:bg-darkblue-900 border-2 border-slate-200 dark:border-darkblue-border shadow-sm flex flex-col justify-between space-y-4 relative overflow-hidden">
+                            <div>
+                                <div
+                                    class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+                                    <span
+                                        class="text-xs font-black uppercase tracking-wider text-amber-600 dark:text-amber-400 flex items-center gap-1.5">
+                                        <span>🌅</span> Morning Drop
+                                    </span>
+                                    <span class="text-[10px] font-bold text-slate-400">06:00 – 11:59</span>
+                                </div>
+                                <div class="mt-3">
+                                    <span class="text-[10px] font-black uppercase text-slate-400 block">Session
+                                        Reward</span>
+                                    <div class="text-2xl font-black text-brand-600 dark:text-brand-400"
+                                        id="payoutMorningText">+$0.50</div>
+                                </div>
+                                <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">
+                                    Start your day strong with your first daily streak check-in reward.
+                                </p>
+                            </div>
+
+                            <button id="btnClaimMorning" onclick="claimSession('morning')" disabled
+                                class="w-full py-3 rounded-2xl bg-slate-200 dark:bg-darkblue-800 text-slate-400 dark:text-slate-500 font-black text-xs uppercase tracking-wider disabled:cursor-not-allowed transition-all">
+                                🔒 Locked (Need 2 Referrals)
+                            </button>
+                        </div>
+
+                        <!-- Window 2: Afternoon -->
+                        <div id="cardAfternoon"
+                            class="p-5 rounded-3xl bg-white dark:bg-darkblue-900 border-2 border-slate-200 dark:border-darkblue-border shadow-sm flex flex-col justify-between space-y-4 relative overflow-hidden">
+                            <div>
+                                <div
+                                    class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+                                    <span
+                                        class="text-xs font-black uppercase tracking-wider text-sky-600 dark:text-sky-400 flex items-center gap-1.5">
+                                        <span>☀️</span> Afternoon Drop
+                                    </span>
+                                    <span class="text-[10px] font-bold text-slate-400">12:00 – 17:59</span>
+                                </div>
+                                <div class="mt-3">
+                                    <span class="text-[10px] font-black uppercase text-slate-400 block">Session
+                                        Reward</span>
+                                    <div class="text-2xl font-black text-brand-600 dark:text-brand-400"
+                                        id="payoutAfternoonText">+$0.75</div>
+                                </div>
+                                <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">
+                                    Midday consistency bonus deposited directly into your reserves.
+                                </p>
+                            </div>
+
+                            <button id="btnClaimAfternoon" onclick="claimSession('afternoon')" disabled
+                                class="w-full py-3 rounded-2xl bg-slate-200 dark:bg-darkblue-800 text-slate-400 dark:text-slate-500 font-black text-xs uppercase tracking-wider disabled:cursor-not-allowed transition-all">
+                                🔒 Locked (Need 2 Referrals)
+                            </button>
+                        </div>
+
+                        <!-- Window 3: Night -->
+                        <div id="cardNight"
+                            class="p-5 rounded-3xl bg-white dark:bg-darkblue-900 border-2 border-slate-200 dark:border-darkblue-border shadow-sm flex flex-col justify-between space-y-4 relative overflow-hidden">
+                            <div>
+                                <div
+                                    class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+                                    <span
+                                        class="text-xs font-black uppercase tracking-wider text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
+                                        <span>🌙</span> Night Bonus Drop
+                                    </span>
+                                    <span class="text-[10px] font-bold text-slate-400">18:00 – 23:59</span>
+                                </div>
+                                <div class="mt-3">
+                                    <span class="text-[10px] font-black uppercase text-slate-400 block">Session
+                                        Reward</span>
+                                    <div class="text-2xl font-black text-brand-600 dark:text-brand-400"
+                                        id="payoutNightText">+$1.00</div>
+                                </div>
+                                <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1">
+                                    Complete your triple check-in to boost your 7-day vault advancement.
+                                </p>
+                            </div>
+
+                            <button id="btnClaimNight" onclick="claimSession('night')" disabled
+                                class="w-full py-3 rounded-2xl bg-slate-200 dark:bg-darkblue-800 text-slate-400 dark:text-slate-500 font-black text-xs uppercase tracking-wider disabled:cursor-not-allowed transition-all">
+                                🔒 Locked (Need 2 Referrals)
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 4. 7-DAY COMPOUNDING STREAK VAULT PROGRESSION -->
+                <div
+                    class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
+                                7-Day Compounding Reward Pool ($20+ Vault)
+                            </h3>
+                            <p class="text-xs font-bold text-slate-400 mt-0.5">Maintain 3 claims daily to unlock the Day
+                                7 grand prize drop.</p>
+                        </div>
+                        <span
+                            class="text-xs font-black text-amber-500 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1 rounded-full shrink-0">
+                            $20.00+ Pool
+                        </span>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 pt-2">
+
+                        <div class="p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/20 text-center space-y-1">
+                            <span class="text-[10px] font-black uppercase text-brand-600">Day 1</span>
+                            <div class="text-sm font-black text-slate-900 dark:text-white">$2.25</div>
+                            <span class="text-[9px] font-bold text-emerald-600 block">Active Day</span>
+                        </div>
+
+                        <div
+                            class="p-3.5 rounded-2xl border border-slate-200 dark:border-darkblue-border bg-slate-50/50 dark:bg-darkblue-850/50 text-center space-y-1 opacity-60">
+                            <span class="text-[10px] font-black uppercase text-slate-400">Day 2</span>
+                            <div class="text-sm font-black text-slate-900 dark:text-white">$3.50</div>
+                            <span class="text-[9px] font-bold text-slate-400 block">Locked</span>
+                        </div>
+
+                        <div
+                            class="p-3.5 rounded-2xl border border-slate-200 dark:border-darkblue-border bg-slate-50/50 dark:bg-darkblue-850/50 text-center space-y-1 opacity-60">
+                            <span class="text-[10px] font-black uppercase text-slate-400">Day 3</span>
+                            <div class="text-sm font-black text-slate-900 dark:text-white">$5.00</div>
+                            <span class="text-[9px] font-bold text-slate-400 block">Locked</span>
+                        </div>
+
+                        <div
+                            class="p-3.5 rounded-2xl border border-slate-200 dark:border-darkblue-border bg-slate-50/50 dark:bg-darkblue-850/50 text-center space-y-1 opacity-60">
+                            <span class="text-[10px] font-black uppercase text-slate-400">Day 4</span>
+                            <div class="text-sm font-black text-slate-900 dark:text-white">$7.50</div>
+                            <span class="text-[9px] font-bold text-slate-400 block">Locked</span>
+                        </div>
+
+                        <div
+                            class="p-3.5 rounded-2xl border border-slate-200 dark:border-darkblue-border bg-slate-50/50 dark:bg-darkblue-850/50 text-center space-y-1 opacity-60">
+                            <span class="text-[10px] font-black uppercase text-slate-400">Day 5</span>
+                            <div class="text-sm font-black text-slate-900 dark:text-white">$10.00</div>
+                            <span class="text-[9px] font-bold text-slate-400 block">Locked</span>
+                        </div>
+
+                        <div
+                            class="p-3.5 rounded-2xl border border-slate-200 dark:border-darkblue-border bg-slate-50/50 dark:bg-darkblue-850/50 text-center space-y-1 opacity-60">
+                            <span class="text-[10px] font-black uppercase text-slate-400">Day 6</span>
+                            <div class="text-sm font-black text-slate-900 dark:text-white">$15.00</div>
+                            <span class="text-[9px] font-bold text-slate-400 block">Locked</span>
+                        </div>
+
+                        <div
+                            class="col-span-2 sm:col-span-1 p-3.5 rounded-2xl border-2 border-amber-400 bg-amber-500/10 text-center space-y-1 shadow-sm">
+                            <span class="text-[10px] font-black uppercase text-amber-500">Day 7 Vault</span>
+                            <div class="text-sm font-black text-amber-600 dark:text-amber-400">$20.00+</div>
+                            <span class="text-[9px] font-black text-amber-500 block">Grand Drop</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 5. QUICK REFERRAL LINK SHARE WIDGET -->
+                <div
+                    class="p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-5">
+                    <div class="space-y-1 max-w-xl">
+                        <span class="text-[10px] font-black uppercase tracking-wider text-brand-500">Need 2 Daily
+                            Referrals?</span>
+                        <h4 class="text-base font-black text-slate-900 dark:text-white">Share Your Direct Referral Link
+                        </h4>
+                        <p class="text-xs font-bold text-slate-500 dark:text-slate-400">
+                            Earn ₦750 on Starter and ₦1,500 on Pro (50% cut) paid every weekend while unlocking your 3
+                            daily streak claims today.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2 shrink-0 w-full md:w-auto">
+                        <input type="text" readonly id="refLinkInput"
+                            value="https://rexora.com/auth/register.html?ref=guzy"
+                            class="w-full md:w-64 px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-darkblue-800 border border-slate-200 dark:border-darkblue-border text-xs font-black text-slate-700 dark:text-slate-200 focus:outline-none" />
+                        <button onclick="copyStreakRefLink()" id="copyRefBtn"
+                            class="px-4 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-md shrink-0">
+                            Copy
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ==================== FIXED MOBILE BOTTOM NAVBAR ==================== -->
+    <nav
+        class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-darkblue-900/95 border-t border-slate-200/80 dark:border-darkblue-border px-2 py-2.5 glass-panel flex items-center justify-around">
+        <a href="index.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+        </a>
+        <a href="remote-jobs.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Jobs
+        </a>
+        <a href="streaks.html" class="flex flex-col items-center text-brand-500 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Streaks
+        </a>
+        <a href="payout.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Payout
+        </a>
+        <button onclick="toggleMobileDrawer()"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Menu
+        </button>
+    </nav>
+
+    <!-- ==================== JAVASCRIPT ENGINE ==================== -->
+    <script>
+        // 1. Theme Configuration
+        function initTheme() {
+            const savedTheme = localStorage.getItem('rexora_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('themeIcon').textContent = '🌙';
+            }
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('rexora_theme', isDark ? 'dark' : 'light');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+        }
+        initTheme();
+
+        function toggleMobileDrawer() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        // 2. Streaks State (Strictly 0.00 Default - No Demo Balance)
+        function getStoredStreakData() {
+            const data = localStorage.getItem('rexora_streak_data');
+            if (data) {
+                try { return JSON.parse(data); } catch (e) { console.error(e); }
+            }
+            return {
+                totalUSD: 0.00,
+                dayLevel: 1,
+                currency: 'USD',
+                rate: 1000,
+                todayReferrals: 0,
+                claims: {
+                    morning: false,
+                    afternoon: false,
+                    night: false
+                }
+            };
+        }
+
+        const streakState = getStoredStreakData();
+
+        function saveStreakData() {
+            localStorage.setItem('rexora_streak_data', JSON.stringify(streakState));
+        }
+
+        // 3. Render Metric Cards & Currency Toggle
+        function renderStreakStats() {
+            const totalDisplay = document.getElementById('totalStreakEarningsDisplay');
+            const totalSub = document.getElementById('totalStreakSub');
+            const curLabel = document.getElementById('streakCurLabel');
+
+            if (streakState.currency === 'USD') {
+                curLabel.textContent = "USD ($)";
+                totalDisplay.textContent = `$${streakState.totalUSD.toFixed(2)}`;
+                totalSub.textContent = `≈ ₦${(streakState.totalUSD * streakState.rate).toLocaleString()} (Approved)`;
+
+                document.getElementById('payoutMorningText').textContent = "+$0.50";
+                document.getElementById('payoutAfternoonText').textContent = "+$0.75";
+                document.getElementById('payoutNightText').textContent = "+$1.00";
+            } else {
+                curLabel.textContent = "NGN (₦)";
+                totalDisplay.textContent = `₦${(streakState.totalUSD * streakState.rate).toLocaleString()}`;
+                totalSub.textContent = `≈ $${streakState.totalUSD.toFixed(2)} USD (Approved)`;
+
+                document.getElementById('payoutMorningText').textContent = "+₦500";
+                document.getElementById('payoutAfternoonText').textContent = "+₦750";
+                document.getElementById('payoutNightText').textContent = "+₦1,000";
+            }
+        }
+
+        function toggleStreakCurrency() {
+            streakState.currency = streakState.currency === 'USD' ? 'NGN' : 'USD';
+            saveStreakData();
+            renderStreakStats();
+        }
+        renderStreakStats();
+
+        // 4. Update 2-Referral Gate Visuals
+        function updateReferralGateVisuals() {
+            const summaryText = document.getElementById('refCountSummary');
+            summaryText.textContent = `${streakState.todayReferrals} / 2 Referrals Completed Today`;
+
+            const slot1Icon = document.getElementById('slot1Icon');
+            const slot1Status = document.getElementById('slot1Status');
+            const slot1Badge = document.getElementById('slot1Badge');
+
+            const slot2Icon = document.getElementById('slot2Icon');
+            const slot2Status = document.getElementById('slot2Status');
+            const slot2Badge = document.getElementById('slot2Badge');
+
+            if (streakState.todayReferrals >= 1) {
+                slot1Icon.className = "w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 font-black text-sm flex items-center justify-center";
+                slot1Icon.textContent = "✓";
+                slot1Status.textContent = "Paid & Verified Active";
+                slot1Status.className = "text-[10px] font-bold text-emerald-600";
+                slot1Badge.textContent = "Verified";
+                slot1Badge.className = "text-[10px] font-black uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-700";
+            } else {
+                slot1Icon.className = "w-9 h-9 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-400 font-black text-sm flex items-center justify-center";
+                slot1Icon.textContent = "1";
+                slot1Status.textContent = "Waiting for today's invite...";
+                slot1Status.className = "text-[10px] font-bold text-slate-400";
+                slot1Badge.textContent = "Pending";
+                slot1Badge.className = "text-[10px] font-black uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-500 dark:bg-darkblue-800 dark:text-slate-400";
+            }
+
+            if (streakState.todayReferrals >= 2) {
+                slot2Icon.className = "w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 font-black text-sm flex items-center justify-center";
+                slot2Icon.textContent = "✓";
+                slot2Status.textContent = "Paid & Verified Active";
+                slot2Status.className = "text-[10px] font-bold text-emerald-600";
+                slot2Badge.textContent = "Verified";
+                slot2Badge.className = "text-[10px] font-black uppercase px-2 py-0.5 rounded bg-emerald-100 text-emerald-700";
+            } else {
+                slot2Icon.className = "w-9 h-9 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-400 font-black text-sm flex items-center justify-center";
+                slot2Icon.textContent = "2";
+                slot2Status.textContent = "Waiting for today's invite...";
+                slot2Status.className = "text-[10px] font-bold text-slate-400";
+                slot2Badge.textContent = "Pending";
+                slot2Badge.className = "text-[10px] font-black uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-500 dark:bg-darkblue-800 dark:text-slate-400";
+            }
+
+            updateClaimButtons();
+        }
+
+        // 5. Update Claim Buttons based on Referrals & Time of Day
+        function updateClaimButtons() {
+            const isGateUnlocked = streakState.todayReferrals >= 2;
+            const currentHour = new Date().getHours();
+
+            // Morning: 06:00 - 11:59 (hours 6 to 11)
+            setupButton('btnClaimMorning', 'cardMorning', streakState.claims.morning, isGateUnlocked, currentHour >= 6 && currentHour < 12, "Claim Morning Drop ($0.50)");
+
+            // Afternoon: 12:00 - 17:59 (hours 12 to 17)
+            setupButton('btnClaimAfternoon', 'cardAfternoon', streakState.claims.afternoon, isGateUnlocked, currentHour >= 12 && currentHour < 18, "Claim Afternoon Drop ($0.75)");
+
+            // Night: 18:00 - 23:59 (hours 18 to 23)
+            setupButton('btnClaimNight', 'cardNight', streakState.claims.night, isGateUnlocked, currentHour >= 18 || currentHour < 6, "Claim Night Drop ($1.00)");
+        }
+
+        function setupButton(btnId, cardId, isClaimed, isGateUnlocked, isWindowActive, labelText) {
+            const btn = document.getElementById(btnId);
+            const card = document.getElementById(cardId);
+
+            if (isClaimed) {
+                btn.disabled = true;
+                btn.textContent = "✓ Claimed Today";
+                btn.className = "w-full py-3 rounded-2xl bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 font-black text-xs uppercase cursor-default";
+                card.classList.remove('border-brand-500', 'border-amber-400');
+                card.classList.add('border-emerald-500/40');
+            } else if (!isGateUnlocked) {
+                btn.disabled = true;
+                btn.textContent = "🔒 Locked (Need 2 Referrals)";
+                btn.className = "w-full py-3 rounded-2xl bg-slate-200 dark:bg-darkblue-800 text-slate-400 dark:text-slate-500 font-black text-xs uppercase disabled:cursor-not-allowed";
+                card.classList.remove('border-brand-500', 'border-emerald-500/40');
+            } else if (!isWindowActive) {
+                btn.disabled = true;
+                btn.textContent = "⏱ Window Not Active";
+                btn.className = "w-full py-3 rounded-2xl bg-slate-200 dark:bg-darkblue-800 text-slate-400 dark:text-slate-500 font-black text-xs uppercase disabled:cursor-not-allowed";
+                card.classList.remove('border-brand-500');
+            } else {
+                btn.disabled = false;
+                btn.textContent = labelText;
+                btn.className = "w-full py-3 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer";
+                card.classList.add('border-brand-500');
+            }
+        }
+
+        // 6. Claim Action Handlers
+        function claimSession(sessionName) {
+            if (streakState.todayReferrals < 2) {
+                alert("You must have 2 active paid referrals today to unlock daily streak drops.");
+                return;
+            }
+
+            let rewardUSD = 0;
+            if (sessionName === 'morning') rewardUSD = 0.50;
+            if (sessionName === 'afternoon') rewardUSD = 0.75;
+            if (sessionName === 'night') rewardUSD = 1.00;
+
+            streakState.claims[sessionName] = true;
+            streakState.totalUSD += rewardUSD;
+            saveStreakData();
+
+            renderStreakStats();
+            updateReferralGateVisuals();
+
+            alert(`Success! Your ${sessionName.toUpperCase()} streak reward of $${rewardUSD.toFixed(2)} has been credited to your withdrawable balance.`);
+        }
+
+        // 7. Simulation Controls (For testing 0 / 2 vs 2 / 2 unlocked states)
+        function simulateAddReferral() {
+            if (streakState.todayReferrals < 2) {
+                streakState.todayReferrals += 1;
+                saveStreakData();
+                updateReferralGateVisuals();
+            }
+        }
+
+        function resetReferralsSim() {
+            streakState.todayReferrals = 0;
+            streakState.claims = { morning: false, afternoon: false, night: false };
+            saveStreakData();
+            updateReferralGateVisuals();
+        }
+
+        // 8. 24h Cycle Countdown Timer
+        function startCountdown() {
+            function tick() {
+                const now = new Date();
+                const tomorrow = new Date(now);
+                tomorrow.setHours(24, 0, 0, 0);
+                const diff = tomorrow - now;
+
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
+                const mins = Math.floor((diff / (1000 * 60)) % 60).toString().padStart(2, '0');
+                const secs = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+
+                document.getElementById('countdownTimer').textContent = `${hours}h : ${mins}m : ${secs}s`;
+            }
+            tick();
+            setInterval(tick, 1000);
+        }
+        startCountdown();
+
+        // 9. Copy Affiliate Link
+        function copyStreakRefLink() {
+            const input = document.getElementById('refLinkInput');
+            navigator.clipboard.writeText(input.value).then(() => {
+                const btn = document.getElementById('copyRefBtn');
+                btn.textContent = "Copied!";
+                btn.classList.add('bg-emerald-500');
+                setTimeout(() => {
+                    btn.textContent = "Copy";
+                    btn.classList.remove('bg-emerald-500');
+                }, 2000);
+            });
+        }
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out of REXORA?')) {
+                window.location.href = '../auth/login.html';
+            }
+        }
+
+        updateReferralGateVisuals();
+    </script>
+</body>
+
+</html>

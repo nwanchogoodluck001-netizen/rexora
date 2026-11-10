@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activate Plan | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        navy: {
+                            900: '#071626',
+                            950: '#030B14',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .rexora-bg {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 60%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 50% 70%, #F0F9FF 0px, transparent 70%);
+            background-attachment: fixed;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+    </style>
+</head>
+
+<body
+    class="rexora-bg text-slate-800 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen py-10 px-4 sm:px-6 flex items-center justify-center">
+
+    <div class="w-full max-w-xl">
+
+        <!-- Top Branding -->
+        <div class="text-center mb-8">
+            <a href="../index.html" class="inline-flex items-center gap-2 group">
+                <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-8 w-auto object-contain"
+                    onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                <span class="text-2xl font-black tracking-tight text-navy-950">REX<span
+                        class="text-brand-500">ORA</span></span>
+            </a>
+            <p class="text-xs text-slate-500 mt-1 font-semibold uppercase tracking-wider">One-Time Account Activation
+            </p>
+        </div>
+
+        <!-- Main Checkout Container -->
+        <div class="glass-card rounded-3xl p-6 sm:p-9 shadow-2xl shadow-brand-500/10">
+
+            <!-- Order Summary Card -->
+            <div class="p-5 rounded-2xl bg-gradient-to-br from-slate-50 to-brand-50/40 border border-slate-200/80 mb-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <span id="tierBadge"
+                            class="inline-block px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-brand-100 text-brand-700">
+                            PRO Tier Plan
+                        </span>
+                        <h3 id="planTitle" class="text-base sm:text-lg font-black text-navy-950 mt-1">REXORA PRO
+                            Membership</h3>
+                        <p id="planSubtext" class="text-[11px] text-slate-500 font-medium">Includes Remote Jobs ($10+),
+                            Social Engagement, Surveys, & Read</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Amount
+                            Due</span>
+                        <div id="priceNGN" class="text-2xl font-black text-navy-950">₦3,000</div>
+                        <span id="priceUSD" class="text-[10px] font-bold text-emerald-600">($3.00 USD)</span>
+                    </div>
+                </div>
+
+                <!-- Tier Switcher Pill -->
+                <div class="mt-4 pt-3 border-t border-slate-200/60 flex items-center justify-between text-[11px]">
+                    <span class="text-slate-500 font-medium">Need to switch membership?</span>
+                    <button type="button" id="switchPlanBtn" onclick="togglePlan()"
+                        class="font-bold text-brand-600 hover:text-brand-700 underline">
+                        Switch to Starter (₦1,500)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Payment Method Selector -->
+            <div class="mb-6">
+                <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-2">
+                    Select Payment Method
+                </label>
+                <div class="grid grid-cols-2 gap-3">
+                    <button type="button" id="methodTransferBtn" onclick="selectMethod('transfer')"
+                        class="p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/20 text-left transition-all">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-black text-navy-950">Bank Transfer</span>
+                            <span class="w-3 h-3 rounded-full bg-brand-500"></span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-1 font-medium">Direct automated transfer</p>
+                    </button>
+
+                    <button type="button" id="methodCardBtn" onclick="selectMethod('card')"
+                        class="p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-left transition-all">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-black text-navy-950">Debit Card</span>
+                            <span class="w-3 h-3 rounded-full border border-slate-300"></span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 mt-1 font-medium">Instant Card / USSD</p>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Option A: Bank Transfer Details Box -->
+            <div id="transferPanel" class="space-y-4">
+                <div class="p-4 rounded-2xl bg-white border border-slate-200">
+                    <div class="flex items-center justify-between mb-3 pb-3 border-b border-slate-100">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Receiving
+                            Bank</span>
+                        <span class="text-xs font-bold text-navy-950">REXORA / Wema Bank</span>
+                    </div>
+
+                    <div class="flex items-center justify-between mb-3 pb-3 border-b border-slate-100">
+                        <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Account
+                            Name</span>
+                        <span class="text-xs font-bold text-navy-950">REXORA GLOBAL TECH</span>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Account
+                                Number</span>
+                            <div id="accountNumber" class="text-lg font-black text-brand-600 tracking-wider">0294810293
+                            </div>
+                        </div>
+                        <button type="button" onclick="copyAccountNumber()" id="copyBtn"
+                            class="px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-all">
+                            Copy
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sender Verification Details Form -->
+                <form id="transferForm" novalidate class="space-y-3 pt-2">
+                    <div>
+                        <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                            Sender Account Name (As shown on your bank)
+                        </label>
+                        <input type="text" id="senderNameInput" placeholder="e.g. Samuel Adekunle"
+                            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                        <p id="err-senderName" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                    </div>
+
+                    <div>
+                        <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                            Payment Reference or Receipt (Optional)
+                        </label>
+                        <input type="text" id="senderRefInput" placeholder="e.g. Session ID or Bank Narration"
+                            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                    </div>
+
+                    <button type="submit" id="confirmTransferBtn"
+                        class="w-full mt-2 py-3.5 px-6 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-0.5">
+                        I Have Made This Transfer
+                    </button>
+                </form>
+            </div>
+
+            <!-- Option B: Card Payment Box (Simulated Gateway) -->
+            <div id="cardPanel" class="hidden space-y-4">
+                <form id="cardForm" novalidate class="space-y-3">
+                    <div>
+                        <label class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                            Card Number
+                        </label>
+                        <input type="text" id="cardNumberInput" maxlength="19" placeholder="4000 1234 5678 9010"
+                            class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                        <p id="err-cardNum" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label
+                                class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                                Expiry Date
+                            </label>
+                            <input type="text" id="cardExpiryInput" maxlength="5" placeholder="MM/YY"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                            <p id="err-cardExpiry" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 mb-1">
+                                CVV
+                            </label>
+                            <input type="password" id="cardCvvInput" maxlength="3" placeholder="123"
+                                class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold text-navy-950 placeholder-slate-400 focus:outline-none transition-all" />
+                            <p id="err-cardCvv" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="payCardBtn"
+                        class="w-full mt-2 py-3.5 px-6 rounded-full bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-0.5">
+                        Pay ₦3,000 Now
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Security & Guarantee Footer -->
+        <div class="mt-6 flex items-center justify-center gap-4 text-[11px] text-slate-400 font-medium">
+            <span class="flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd"
+                        d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clip-rule="evenodd" />
+                </svg>
+                256-Bit Encrypted
+            </span>
+            <span>•</span>
+            <span>Instant Dashboard Activation</span>
+        </div>
+
+    </div>
+
+    <!-- ==================== VERIFICATION MODAL ==================== -->
+    <div id="verifyModal"
+        class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl space-y-4">
+            <div id="modalSpinner"
+                class="w-12 h-12 rounded-full border-4 border-brand-100 border-t-brand-500 animate-spin mx-auto"></div>
+
+            <div id="modalSuccessIcon"
+                class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 items-center justify-center font-black text-xl mx-auto hidden">
+                ✓
+            </div>
+
+            <h4 id="modalHeading" class="text-lg font-black text-navy-950">Confirming Payment...</h4>
+            <p id="modalDescription" class="text-xs text-slate-500 font-medium leading-relaxed">
+                We are checking our settlement records. Please remain on this screen.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==================== LOGIC & SCRIPTS ==================== -->
+    <script>
+        let activePlan = 'pro';
+        let activeMethod = 'transfer';
+
+        const planConfig = {
+            starter: {
+                title: "REXORA Starter Membership",
+                badge: "Starter Plan",
+                badgeClass: "bg-slate-100 text-slate-700",
+                ngn: "₦1,500",
+                usd: "($2.00 USD)",
+                subtext: "Includes Social Engagement, Surveys, Streaks, & Read",
+                switchLabel: "Switch to Pro (₦3,000)"
+            },
+            pro: {
+                title: "REXORA PRO Membership",
+                badge: "PRO Tier Plan",
+                badgeClass: "bg-brand-100 text-brand-700",
+                ngn: "₦3,000",
+                usd: "($3.00 USD)",
+                subtext: "Includes Remote Jobs ($10+), Social Engagement, Surveys, & Read",
+                switchLabel: "Switch to Starter (₦1,500)"
+            }
+        };
+
+        function renderPlan() {
+            const p = planConfig[activePlan];
+            document.getElementById('planTitle').textContent = p.title;
+            document.getElementById('planSubtext').textContent = p.subtext;
+            document.getElementById('priceNGN').textContent = p.ngn;
+            document.getElementById('priceUSD').textContent = p.usd;
+            document.getElementById('switchPlanBtn').textContent = p.switchLabel;
+
+            const badge = document.getElementById('tierBadge');
+            badge.textContent = p.badge;
+            badge.className = `inline-block px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider ${p.badgeClass}`;
+
+            document.getElementById('payCardBtn').textContent = `Pay ${p.ngn} Now`;
+        }
+
+        function togglePlan() {
+            activePlan = (activePlan === 'pro') ? 'starter' : 'pro';
+            renderPlan();
+        }
+
+        // Read URL param (?plan=starter or ?plan=pro)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const plan = urlParams.get('plan');
+            if (plan === 'starter') activePlan = 'starter';
+            else activePlan = 'pro';
+            renderPlan();
+        });
+
+        // Payment Method Switching
+        function selectMethod(method) {
+            activeMethod = method;
+            const transferBtn = document.getElementById('methodTransferBtn');
+            const cardBtn = document.getElementById('methodCardBtn');
+            const transferPanel = document.getElementById('transferPanel');
+            const cardPanel = document.getElementById('cardPanel');
+
+            if (method === 'transfer') {
+                transferBtn.className = "p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/20 text-left transition-all";
+                transferBtn.querySelector('span:last-child').className = "w-3 h-3 rounded-full bg-brand-500";
+
+                cardBtn.className = "p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-left transition-all";
+                cardBtn.querySelector('span:last-child').className = "w-3 h-3 rounded-full border border-slate-300";
+
+                transferPanel.classList.remove('hidden');
+                cardPanel.classList.add('hidden');
+            } else {
+                cardBtn.className = "p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/20 text-left transition-all";
+                cardBtn.querySelector('span:last-child').className = "w-3 h-3 rounded-full bg-brand-500";
+
+                transferBtn.className = "p-3.5 rounded-2xl border-2 border-slate-200 bg-white text-left transition-all";
+                transferBtn.querySelector('span:last-child').className = "w-3 h-3 rounded-full border border-slate-300";
+
+                cardPanel.classList.remove('hidden');
+                transferPanel.classList.add('hidden');
+            }
+        }
+
+        // Copy Account Number
+        function copyAccountNumber() {
+            const acc = document.getElementById('accountNumber').textContent.trim();
+            navigator.clipboard.writeText(acc).then(() => {
+                const copyBtn = document.getElementById('copyBtn');
+                copyBtn.textContent = 'Copied!';
+                copyBtn.classList.add('bg-emerald-100', 'text-emerald-700');
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                    copyBtn.classList.remove('bg-emerald-100', 'text-emerald-700');
+                }, 2000);
+            });
+        }
+
+        // Pure JavaScript Validation Helpers
+        function setErr(input, errId, msg) {
+            input.classList.remove('border-slate-200');
+            input.classList.add('border-rose-400', 'bg-rose-50/20');
+            const e = document.getElementById(errId);
+            e.textContent = msg;
+            e.classList.remove('hidden');
+        }
+
+        function clearErr(input, errId) {
+            input.classList.remove('border-rose-400', 'bg-rose-50/20');
+            input.classList.add('border-slate-200');
+            const e = document.getElementById(errId);
+            e.textContent = '';
+            e.classList.add('hidden');
+        }
+
+        // Transfer Form Submission
+        const transferForm = document.getElementById('transferForm');
+        const senderNameInput = document.getElementById('senderNameInput');
+
+        senderNameInput.addEventListener('input', () => {
+            if (senderNameInput.value.trim() !== '') clearErr(senderNameInput, 'err-senderName');
+        });
+
+        transferForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (senderNameInput.value.trim() === '') {
+                setErr(senderNameInput, 'err-senderName', 'Please provide your bank sender name for confirmation.');
+                return;
+            }
+            triggerActivationSequence();
+        });
+
+        // Card Form Submission
+        const cardForm = document.getElementById('cardForm');
+        const cardNumberInput = document.getElementById('cardNumberInput');
+        const cardExpiryInput = document.getElementById('cardExpiryInput');
+        const cardCvvInput = document.getElementById('cardCvvInput');
+
+        cardForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let valid = true;
+
+            if (cardNumberInput.value.replace(/\s/g, '').length < 16) {
+                setErr(cardNumberInput, 'err-cardNum', 'Enter a valid 16-digit card number.');
+                valid = false;
+            } else {
+                clearErr(cardNumberInput, 'err-cardNum');
+            }
+
+            if (!/^\d{2}\/\d{2}$/.test(cardExpiryInput.value.trim())) {
+                setErr(cardExpiryInput, 'err-cardExpiry', 'Format: MM/YY.');
+                valid = false;
+            } else {
+                clearErr(cardExpiryInput, 'err-cardExpiry');
+            }
+
+            if (cardCvvInput.value.trim().length < 3) {
+                setErr(cardCvvInput, 'err-cardCvv', 'Enter 3-digit CVV.');
+                valid = false;
+            } else {
+                clearErr(cardCvvInput, 'err-cardCvv');
+            }
+
+            if (valid) triggerActivationSequence();
+        });
+
+        // Trigger Activation Modal & Route
+        function triggerActivationSequence() {
+            const modal = document.getElementById('verifyModal');
+            const spinner = document.getElementById('modalSpinner');
+            const successIcon = document.getElementById('modalSuccessIcon');
+            const heading = document.getElementById('modalHeading');
+            const desc = document.getElementById('modalDescription');
+
+            modal.classList.remove('hidden');
+
+            setTimeout(() => {
+                spinner.classList.add('hidden');
+                successIcon.classList.remove('hidden');
+                successIcon.classList.add('flex');
+                heading.textContent = "Payment Verified & Activated!";
+                desc.textContent = "Your account is active. Redirecting to your dashboard...";
+
+                // Update local session
+                let user = localStorage.getItem('rexora_user');
+                if (user) {
+                    try {
+                        user = JSON.parse(user);
+                        user.isActivated = true;
+                        user.plan = activePlan;
+                        localStorage.setItem('rexora_user', JSON.stringify(user));
+                    } catch (e) { console.error(e); }
+                }
+
+                setTimeout(() => {
+                    window.location.href = '../dashboard/index.html';
+                }, 1200);
+            }, 1800);
+        }
+    </script>
+</body>
+
+</html>

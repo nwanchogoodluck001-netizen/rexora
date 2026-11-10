@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Surveys & Market Feedback | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        darkblue: {
+                            800: '#0F243A',
+                            850: '#0C1E31',
+                            900: '#0B192C',
+                            950: '#071626',
+                            border: '#1E354F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        body.light-theme {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 55%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        html.dark body {
+            background-color: #071626;
+            background-image:
+                radial-gradient(at 50% 0%, #0F243A 0px, transparent 65%),
+                radial-gradient(at 90% 20%, #0C1E31 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="light-theme text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen pb-28 lg:pb-12 overflow-x-hidden">
+
+    <div class="flex min-h-screen w-full relative">
+
+        <!-- ==================== SIDEBAR (DESKTOP) ==================== -->
+        <aside
+            class="hidden lg:flex flex-col justify-between w-64 bg-white/80 dark:bg-darkblue-900/90 border-r border-slate-200/80 dark:border-darkblue-border fixed inset-y-0 left-0 z-40 p-5 glass-panel">
+            <div>
+                <a href="../index.html" class="flex items-center gap-2.5 px-2 py-2">
+                    <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-7 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <nav class="mt-8 space-y-1.5">
+                    <a href="index.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Overview
+                    </a>
+
+                    <a href="remote-jobs.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Remote-Jobs
+                        </span>
+                        <span
+                            class="text-[9px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 font-black px-1.5 py-0.5 rounded uppercase">Pro</span>
+                    </a>
+
+                    <a href="social-engagment.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                        Social Engagement
+                    </a>
+
+                    <!-- ACTIVE: SURVEYS -->
+                    <a href="surveys.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-brand-500 text-white font-extrabold text-xs tracking-wide shadow-md shadow-brand-500/20">
+                        <svg class="w-4 h-4 shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        Surveys
+                    </a>
+
+                    <a href="streaks.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-amber-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Daily Streaks
+                        </span>
+                        <span
+                            class="text-[9px] bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 font-black px-1.5 py-0.5 rounded uppercase">2
+                            Ref</span>
+                    </a>
+
+                    <a href="read-to-earn.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Read to Earn
+                    </a>
+
+                    <a href="referrals.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Referrals
+                    </a>
+
+                    <a href="wallet.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                        Wallet
+                    </a>
+
+                    <a href="payout.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Withdrawals
+                    </a>
+
+                    <a href="support.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Support
+                    </a>
+                </nav>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200/80 dark:border-darkblue-border space-y-1">
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MOBILE SLIDE DRAWER ==================== -->
+        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden lg:hidden">
+            <div
+                class="w-64 max-w-[80%] bg-white dark:bg-darkblue-900 h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+                <div>
+                    <div
+                        class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-darkblue-border">
+                        <div class="flex items-center gap-2">
+                            <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
+                                onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';">
+                            <span class="font-black text-slate-900 dark:text-white">REX<span
+                                    class="text-brand-500">ORA</span></span>
+                        </div>
+                        <button onclick="toggleMobileDrawer()" class="text-slate-400 font-black text-lg p-1">✕</button>
+                    </div>
+
+                    <nav class="mt-6 space-y-1.5">
+                        <a href="index.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Overview</a>
+                        <a href="remote-jobs.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Remote-Jobs</a>
+                        <a href="social-engagment.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Social
+                            Engagement</a>
+                        <a href="surveys.html"
+                            class="block px-3 py-2 rounded-xl bg-brand-500 text-white font-extrabold text-xs">Surveys</a>
+                        <a href="streaks.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Daily
+                            Streaks</a>
+                        <a href="read-to-earn.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Read
+                            to Earn</a>
+                        <a href="referrals.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Referrals</a>
+                        <a href="wallet.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Wallet</a>
+                        <a href="payout.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Withdrawals</a>
+                        <a href="support.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Support</a>
+                        <a href="settings.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Settings</a>
+                    </nav>
+                </div>
+
+                <button onclick="handleLogout()"
+                    class="w-full mt-6 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-500 font-extrabold text-xs">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+        <main class="flex-1 lg:pl-64 flex flex-col min-w-0 w-full">
+
+            <!-- TOP NAVIGATION BAR -->
+            <header
+                class="sticky top-0 z-30 bg-white/70 dark:bg-darkblue-900/80 border-b border-slate-200/80 dark:border-darkblue-border px-4 sm:px-6 lg:px-8 py-3.5 glass-panel flex items-center justify-between min-w-0">
+                <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <button onclick="toggleMobileDrawer()"
+                        class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <h2
+                        class="text-xs sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-wider truncate">
+                        Surveys & Feedback</h2>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <a href="top-earners.html"
+                        class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300 text-[10px] sm:text-xs font-black shadow-sm hover:scale-105 transition-transform">
+                        🏆 <span class="hidden xs:inline">Top Earners</span>
+                    </a>
+
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 hover:text-brand-500 transition-colors">
+                        <span id="themeIcon" class="text-sm font-black">🌙</span>
+                    </button>
+
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-darkblue-border">
+                        <div
+                            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-md">
+                            G
+                        </div>
+                        <span class="text-xs font-black text-slate-800 dark:text-white hidden md:inline">Guzy</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SURVEYS BODY CONTAINER -->
+            <div class="p-3.5 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 min-w-0">
+
+                <!-- TIER NOTICE BANNER -->
+                <div
+                    class="p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-brand-600 via-sky-600 to-indigo-700 text-white shadow-xl shadow-brand-500/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span
+                            class="inline-block px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-white/20 text-white">
+                            Instant Escrow Settlement
+                        </span>
+                        <h3 class="text-base sm:text-lg font-black tracking-tight">Micro-Research & Market Audits</h3>
+                        <p class="text-xs font-bold text-brand-100 max-w-xl">
+                            Starter: Standard Surveys ($0.50 – $1.00) | PRO Plan: Boosted Enterprise Feedback ($1.50 –
+                            $4.00+)
+                        </p>
+                    </div>
+                    <div class="shrink-0">
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-white/10 border border-white/20 text-xs font-black">
+                            ⚡ Instant Auto-Credit
+                        </span>
+                    </div>
+                </div>
+
+                <!-- HEADER & DUAL METRIC CARDS (STRICTLY 0.00 DEFAULT) -->
+                <div class="space-y-4 sm:space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 min-w-0">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                                <span
+                                    class="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-brand-600 dark:text-brand-400 truncate">
+                                    Targeted Feedback Opportunities
+                                </span>
+                            </div>
+                            <h1
+                                class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-1 leading-tight">
+                                Available Micro-Surveys
+                            </h1>
+                            <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                                Answer interactive 3-question consumer questionnaires and earn directly into your
+                                account balance.
+                            </p>
+                        </div>
+
+                        <!-- Currency Toggle -->
+                        <button onclick="toggleSurveyCurrency()"
+                            class="inline-flex items-center justify-between sm:justify-start gap-2 px-3 py-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-700 dark:text-slate-200 text-xs font-black self-stretch sm:self-auto shrink-0 shadow-sm">
+                            <span id="surveyCurLabel">USD ($)</span>
+                            <span class="text-[9px] bg-brand-500 text-white px-2 py-0.5 rounded font-black">Swap
+                                ₦</span>
+                        </button>
+                    </div>
+
+                    <!-- CARDS: ZERO DEMO DEFAULT -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
+
+                        <!-- Card 1: Total Earnings -->
+                        <div
+                            class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-wider text-slate-400 truncate">
+                                        Total Survey Earnings
+                                    </span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                                    id="totalSurveyEarningsDisplay">
+                                    $0.00
+                                </div>
+                                <p class="text-[10px] sm:text-[11px] font-bold text-emerald-600 dark:text-emerald-400 truncate"
+                                    id="totalSurveySub">
+                                    ≈ ₦0 (Approved)
+                                </p>
+                            </div>
+
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
+                                ✓
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Completed Surveys Count -->
+                        <div
+                            class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-brand-500 shrink-0"></span>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-wider text-slate-400 truncate">
+                                        Surveys Completed
+                                    </span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                                    id="completedSurveysDisplay">
+                                    0 Completed
+                                </div>
+                                <p
+                                    class="text-[10px] sm:text-[11px] font-bold text-brand-600 dark:text-brand-400 truncate">
+                                    Ready to participate
+                                </p>
+                            </div>
+
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
+                                📊
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- HORIZONTAL FILTER BAR -->
+                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-3.5 px-3.5 sm:mx-0 sm:px-0"
+                    id="categoryFilterContainer">
+                    <button onclick="filterCategory('All')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-brand-500 text-white shadow-md whitespace-nowrap shrink-0">
+                        All Surveys
+                    </button>
+                    <button onclick="filterCategory('Fintech & Remittance')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Fintech & Remittance
+                    </button>
+                    <button onclick="filterCategory('Consumer Tech & AI')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Consumer Tech & AI
+                    </button>
+                    <button onclick="filterCategory('Digital Work Habits')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Digital Work Habits
+                    </button>
+                    <button onclick="filterCategory('Lifestyle & Media')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Lifestyle & Media
+                    </button>
+                </div>
+
+                <!-- SURVEY CARDS GRID -->
+                <div id="surveyGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 min-w-0">
+                    <!-- Dynamically populated via JavaScript -->
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ==================== FIXED MOBILE BOTTOM NAVBAR ==================== -->
+    <nav
+        class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-darkblue-900/95 border-t border-slate-200/80 dark:border-darkblue-border px-2 py-2.5 glass-panel flex items-center justify-around">
+        <a href="index.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+        </a>
+        <a href="remote-jobs.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Jobs
+        </a>
+        <a href="streaks.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Streaks
+        </a>
+        <a href="payout.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Payout
+        </a>
+        <button onclick="toggleMobileDrawer()"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Menu
+        </button>
+    </nav>
+
+    <!-- ==================== IN-APP INTERACTIVE SURVEY MODAL ==================== -->
+    <div id="surveyModal"
+        class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
+        <div
+            class="bg-white dark:bg-darkblue-900 border border-slate-200 dark:border-darkblue-border rounded-3xl p-5 sm:p-8 max-w-lg w-full shadow-2xl relative max-h-[92vh] overflow-y-auto">
+
+            <!-- Close Button -->
+            <button onclick="closeSurveyModal()"
+                class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white font-black text-lg p-1">✕</button>
+
+            <!-- Active Survey State -->
+            <div id="surveyQuestionView" class="space-y-4">
+
+                <div class="flex items-center justify-between pr-6">
+                    <span id="modalCategoryBadge"
+                        class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300">
+                        Category
+                    </span>
+                    <span id="modalQuestionCounter" class="text-xs font-black text-slate-400">
+                        Question 1 of 3
+                    </span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full h-1.5 rounded-full bg-slate-100 dark:bg-darkblue-800 overflow-hidden">
+                    <div id="modalProgressBar" class="h-full bg-brand-500 rounded-full transition-all duration-300"
+                        style="width: 33.3%;"></div>
+                </div>
+
+                <h3 id="modalQuestionTitle"
+                    class="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-snug">
+                    Question Title Goes Here?
+                </h3>
+
+                <!-- Options Container -->
+                <div id="modalOptionsContainer" class="space-y-2.5 pt-1">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- Modal Payout Indicator -->
+                <div
+                    class="pt-2 flex items-center justify-between border-t border-slate-100 dark:border-darkblue-border">
+                    <span class="text-[10px] font-bold text-slate-400">Survey Settlement:</span>
+                    <span id="modalPayoutDisplay"
+                        class="text-xs font-black text-emerald-600 dark:text-emerald-400">+$1.50</span>
+                </div>
+
+                <!-- Action Button -->
+                <div class="pt-1">
+                    <button type="button" id="nextQuestionBtn" onclick="handleNextQuestion()" disabled
+                        class="w-full py-3.5 px-6 rounded-2xl bg-brand-500 hover:bg-brand-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all">
+                        Continue
+                    </button>
+                </div>
+            </div>
+
+            <!-- Completion Success State (Hidden by default) -->
+            <div id="surveySuccessView" class="hidden text-center py-6 space-y-4">
+                <div
+                    class="w-14 h-14 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center text-2xl font-black shadow-sm">
+                    ✓
+                </div>
+                <h3 class="text-xl font-black text-slate-900 dark:text-white tracking-tight">Survey Completed!</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400 font-bold max-w-xs mx-auto leading-relaxed">
+                    Your responses have been recorded and your settlement reward of <span id="rewardCreditedText"
+                        class="text-emerald-600 dark:text-emerald-400 font-black">$1.50</span> has been credited to your
+                    balance.
+                </p>
+
+                <div class="pt-4">
+                    <button type="button" onclick="closeSurveyModal()"
+                        class="w-full py-3.5 px-6 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-md transition-all">
+                        Return to Surveys Feed
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== LOGIC ENGINE ==================== -->
+    <script>
+        // 1. Theme Configuration
+        function initTheme() {
+            const savedTheme = localStorage.getItem('rexora_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('themeIcon').textContent = '🌙';
+            }
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('rexora_theme', isDark ? 'dark' : 'light');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+        }
+        initTheme();
+
+        // 2. Mobile Drawer Controls
+        function toggleMobileDrawer() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        // 3. Plan & Currency State
+        let userPlan = 'pro';
+        const storedUser = localStorage.getItem('rexora_user');
+        if (storedUser) {
+            try {
+                const parsed = JSON.parse(storedUser);
+                if (parsed.plan) userPlan = parsed.plan;
+            } catch (e) { console.error(e); }
+        }
+
+        // 4. Survey KPI Stats (Strict 0.00 Default - No Demo Balance)
+        function getStoredSurveyStats() {
+            const data = localStorage.getItem('rexora_survey_stats');
+            if (data) {
+                try { return JSON.parse(data); } catch (e) { console.error(e); }
+            }
+            return { totalUSD: 0.00, completedCount: 0, currency: 'USD', rate: 1000 };
+        }
+
+        const surveyStats = getStoredSurveyStats();
+
+        function saveSurveyStats() {
+            localStorage.setItem('rexora_survey_stats', JSON.stringify(surveyStats));
+        }
+
+        function renderSurveyStats() {
+            const totalDisplay = document.getElementById('totalSurveyEarningsDisplay');
+            const totalSub = document.getElementById('totalSurveySub');
+            const countDisplay = document.getElementById('completedSurveysDisplay');
+            const label = document.getElementById('surveyCurLabel');
+
+            countDisplay.textContent = `${surveyStats.completedCount} Completed`;
+
+            if (surveyStats.currency === 'USD') {
+                label.textContent = "USD ($)";
+                totalDisplay.textContent = `$${surveyStats.totalUSD.toFixed(2)}`;
+                totalSub.textContent = `≈ ₦${(surveyStats.totalUSD * surveyStats.rate).toLocaleString()} (Approved)`;
+            } else {
+                label.textContent = "NGN (₦)";
+                totalDisplay.textContent = `₦${(surveyStats.totalUSD * surveyStats.rate).toLocaleString()}`;
+                totalSub.textContent = `≈ $${surveyStats.totalUSD.toFixed(2)} USD (Approved)`;
+            }
+        }
+
+        function toggleSurveyCurrency() {
+            surveyStats.currency = surveyStats.currency === 'USD' ? 'NGN' : 'USD';
+            saveSurveyStats();
+            renderSurveyStats();
+            renderSurveys();
+        }
+        renderSurveyStats();
+
+        // 5. Surveys Dataset
+        const surveyPool = [
+            {
+                id: 1,
+                category: "Fintech & Remittance",
+                title: "Cross-Border Remittance Fees & Speed Evaluation",
+                duration: "⏱ 3–5 Mins",
+                slots: "🔥 42 / 100 spots remaining",
+                description: "Answer 3 multiple-choice questions assessing your preferred payment rails, app delays, and fee tolerances when converting funds.",
+                usdPayout: userPlan === 'pro' ? 2.00 : 0.75,
+                questions: [
+                    {
+                        title: "What is your primary method for receiving digital international payments?",
+                        options: ["Cryptocurrency / Stablecoins (USDT)", "Local Bank Transfer / Virtual Accounts", "Fintech Mobile Wallets", "Peer-to-Peer (P2P) Networks"]
+                    },
+                    {
+                        title: "What is the biggest challenge you face with traditional bank transfers?",
+                        options: ["High conversion spreads & hidden charges", "Excessive processing settlement delays", "Complex verification requirements", "Account freezes or transaction limits"]
+                    },
+                    {
+                        title: "How often do you withdraw earnings to your local bank account?",
+                        options: ["Daily as soon as received", "Weekly (e.g. Weekend payouts)", "Twice a month", "Monthly in bulk"]
+                    }
+                ]
+            },
+            {
+                id: 2,
+                category: "Consumer Tech & AI",
+                title: "AI Tools & Workflow Adoption Survey",
+                duration: "⏱ 2–4 Mins",
+                slots: "🔥 68 / 150 spots remaining",
+                description: "Provide feedback on your daily use of artificial intelligence generators, script writing software, and automated content tools.",
+                usdPayout: userPlan === 'pro' ? 1.80 : 0.60,
+                questions: [
+                    {
+                        title: "Which generative AI tooling do you use most frequently?",
+                        options: ["ChatGPT / Claude / Gemini (Text & Code)", "Canva / Midjourney (Graphics)", "ElevenLabs / NarraVox (Voice synthesis)", "I do not use AI tools regularly"]
+                    },
+                    {
+                        title: "For what task does AI save you the most time?",
+                        options: ["Writing content briefs and social copy", "Graphic design and marketing banners", "Coding and web debugging", "Research and concept summarization"]
+                    },
+                    {
+                        title: "Are you willing to pay a recurring subscription for premium AI features?",
+                        options: ["Yes, if it directly increases my income", "No, I strictly use free tiers", "Only for one-time project needs", "Undecided"]
+                    }
+                ]
+            },
+            {
+                id: 3,
+                category: "Digital Work Habits",
+                title: "African Remote Freelancer Productivity Audit",
+                duration: "⏱ 3 Mins",
+                slots: "🔥 19 / 50 spots remaining",
+                description: "Assess device accessibility, data cost constraints, and peak productive working hours for mobile-first digital contributors.",
+                usdPayout: userPlan === 'pro' ? 2.50 : 0.90,
+                questions: [
+                    {
+                        title: "What device do you use primarily to complete remote jobs and micro-tasks?",
+                        options: ["Smartphone / Mobile Data only", "Laptop / Desktop on Wi-Fi", "Tablet / Mobile Hybrid", "Shared Internet Cybercafé"]
+                    },
+                    {
+                        title: "What is your estimated weekly mobile data expenditure?",
+                        options: ["Under ₦2,000 / $2.00", "₦2,000 – ₦5,000 / $5.00", "₦5,000 – ₦10,000", "Above ₦10,000 / $10.00+"]
+                    },
+                    {
+                        title: "What time of day are you most active completing online tasks?",
+                        options: ["Early morning (6 AM – 11 AM)", "Afternoon (12 PM – 5 PM)", "Evening (6 PM – 10 PM)", "Late night / Midnight hours"]
+                    }
+                ]
+            },
+            {
+                id: 4,
+                category: "Lifestyle & Media",
+                title: "Short-Form Video & Streaming Content Preferences",
+                duration: "⏱ 2 Mins",
+                slots: "🔥 85 / 200 spots remaining",
+                description: "Review current viewing trends across short-form platforms, video engagement lengths, and sponsored marketing formats.",
+                usdPayout: userPlan === 'pro' ? 1.50 : 0.50,
+                questions: [
+                    {
+                        title: "On which platform do you spend the most personal screen time?",
+                        options: ["TikTok", "YouTube / YouTube Shorts", "Instagram Reels", "X (Twitter)"]
+                    },
+                    {
+                        title: "What style of promotional videos keeps your attention longest?",
+                        options: ["Faceless aesthetic walkthroughs with voiceover", "Direct creator talking head reviews", "High-energy comedic skits", "Before-and-after case studies"]
+                    },
+                    {
+                        title: "Have you ever bought a product directly after watching a social video ad?",
+                        options: ["Yes, multiple times", "Yes, once or twice", "No, never", "Only if it had a large discount code"]
+                    }
+                ]
+            },
+            {
+                id: 5,
+                category: "Fintech & Remittance",
+                title: "Mobile Banking Security & KYC Usability Survey",
+                duration: "⏱ 3 Mins",
+                slots: "🔥 34 / 80 spots remaining",
+                description: "Share your preferences on biometric authentication, identity document verification, and password safety.",
+                usdPayout: userPlan === 'pro' ? 2.00 : 0.70,
+                questions: [
+                    {
+                        title: "Which login authentication method do you consider most secure on mobile?",
+                        options: ["Biometrics (Fingerprint / Face ID)", "SMS / WhatsApp OTP verification", "Hardware security keys or Authenticator App", "Standard alphanumeric passwords"]
+                    },
+                    {
+                        title: "How do you feel about government ID verification (e.g. NIN, BVN) on earning apps?",
+                        options: ["Comfortable, if it guarantees instant payouts", "Hesitant, I prefer anonymous platforms", "Neutral, standard procedure", "Only for high withdrawal volumes"]
+                    },
+                    {
+                        title: "Have you experienced unauthorized account access attempts in the past year?",
+                        options: ["No, never", "Yes, caught via 2FA alerts", "Yes, had to reset passwords", "Prefer not to disclose"]
+                    }
+                ]
+            },
+            {
+                id: 6,
+                category: "Consumer Tech & AI",
+                title: "Web3 Wallet Usability & Token Swapping Feedback",
+                duration: "⏱ 4 Mins",
+                slots: "🔥 12 / 60 spots remaining",
+                description: "Evaluate decentralized wallet interfaces, slippage comprehension, and transaction speed expectations.",
+                usdPayout: userPlan === 'pro' ? 3.00 : 1.00,
+                questions: [
+                    {
+                        title: "How comfortable are you managing your own crypto private keys or seed phrases?",
+                        options: ["Very comfortable (Self-custody native)", "Somewhat comfortable", "Prefer custodial wallets (with email recovery)", "Brand new to crypto"]
+                    },
+                    {
+                        title: "What is your main priority when swapping stablecoins or tokens?",
+                        options: ["Lowest possible gas / network fees", "Instant transaction confirmation", "Clean and simple mobile UI", "Guaranteed zero slippage"]
+                    },
+                    {
+                        title: "Would you prefer direct automated weekend withdrawals into stablecoins or local bank naira?",
+                        options: ["Local bank naira (NGN)", "USDT / USDC stablecoins", "A 50/50 split option", "No preference"]
+                    }
+                ]
+            }
+        ];
+
+        let activeCategory = 'All';
+        let currentSurvey = null;
+        let currentQuestionIdx = 0;
+        let selectedOption = null;
+
+        // 6. Render Surveys Feed
+        function renderSurveys() {
+            const grid = document.getElementById('surveyGrid');
+            grid.innerHTML = '';
+
+            const filtered = activeCategory === 'All'
+                ? surveyPool
+                : surveyPool.filter(s => s.category.toLowerCase().includes(activeCategory.toLowerCase()));
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400 font-bold text-xs">
+            No active surveys in this category. Check back shortly for new research drops.
+          </div>
+        `;
+                return;
+            }
+
+            filtered.forEach(survey => {
+                const card = document.createElement('div');
+                card.className = "p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex flex-col justify-between min-w-0 hover:border-brand-500 transition-all";
+
+                const ngnVal = survey.usdPayout * surveyStats.rate;
+                const payoutText = surveyStats.currency === 'USD'
+                    ? `+$${survey.usdPayout.toFixed(2)}`
+                    : `+₦${ngnVal.toLocaleString()}`;
+
+                card.innerHTML = `
+          <div class="min-w-0">
+            <!-- Header Badges -->
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+              <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300 truncate max-w-[170px]">
+                ${survey.category}
+              </span>
+              <span class="text-[9px] sm:text-[10px] font-black text-slate-400 shrink-0">
+                ${survey.duration}
+              </span>
+            </div>
+
+            <!-- Slots Remaining -->
+            <div class="mt-3 flex items-center gap-1.5 text-[10px] font-bold text-amber-600 dark:text-amber-400">
+              <span>${survey.slots}</span>
+            </div>
+
+            <!-- Title & Snippet -->
+            <h3 class="text-sm sm:text-base font-black text-slate-900 dark:text-white mt-1.5 leading-snug break-words">
+              ${survey.title}
+            </h3>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">
+              ${survey.description}
+            </p>
+          </div>
+
+          <!-- Payout and CTA Button -->
+          <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-darkblue-border flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <span class="text-[8px] sm:text-[9px] font-black uppercase text-slate-400 block">Reward</span>
+              <div class="text-sm sm:text-base font-black text-emerald-600 dark:text-emerald-400 truncate">
+                ${payoutText}
+              </div>
+            </div>
+
+            <button 
+              onclick="startSurveyModal(${survey.id})" 
+              class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs font-black shadow-md shadow-brand-500/20 transition-all shrink-0 uppercase tracking-wider"
+            >
+              Start Survey
+            </button>
+          </div>
+        `;
+                grid.appendChild(card);
+            });
+        }
+
+        // 7. Filter Buttons Click Logic
+        function filterCategory(cat) {
+            activeCategory = cat;
+            const buttons = document.querySelectorAll('.cat-pill');
+            buttons.forEach(btn => {
+                if (btn.textContent.trim().toLowerCase().includes(cat.toLowerCase()) || (cat === 'All' && btn.textContent.trim().includes('All Surveys'))) {
+                    btn.className = "cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-brand-500 text-white shadow-md whitespace-nowrap shrink-0";
+                } else {
+                    btn.className = "cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0";
+                }
+            });
+            renderSurveys();
+        }
+
+        // 8. Interactive Survey Modal Handlers
+        function startSurveyModal(surveyId) {
+            currentSurvey = surveyPool.find(s => s.id === surveyId);
+            if (!currentSurvey) return;
+
+            currentQuestionIdx = 0;
+            selectedOption = null;
+
+            document.getElementById('surveyQuestionView').classList.remove('hidden');
+            document.getElementById('surveySuccessView').classList.add('hidden');
+
+            document.getElementById('modalCategoryBadge').textContent = currentSurvey.category;
+
+            const ngnVal = currentSurvey.usdPayout * surveyStats.rate;
+            const payoutFormatted = surveyStats.currency === 'USD'
+                ? `+$${currentSurvey.usdPayout.toFixed(2)}`
+                : `+₦${ngnVal.toLocaleString()}`;
+            document.getElementById('modalPayoutDisplay').textContent = payoutFormatted;
+
+            renderCurrentQuestion();
+            document.getElementById('surveyModal').classList.remove('hidden');
+        }
+
+        function renderCurrentQuestion() {
+            const q = currentSurvey.questions[currentQuestionIdx];
+            const totalQuestions = currentSurvey.questions.length;
+
+            document.getElementById('modalQuestionCounter').textContent = `Question ${currentQuestionIdx + 1} of ${totalQuestions}`;
+
+            const progressPercent = ((currentQuestionIdx + 1) / totalQuestions) * 100;
+            document.getElementById('modalProgressBar').style.width = `${progressPercent}%`;
+
+            document.getElementById('modalQuestionTitle').textContent = q.title;
+
+            const optionsBox = document.getElementById('modalOptionsContainer');
+            optionsBox.innerHTML = '';
+            selectedOption = null;
+
+            const nextBtn = document.getElementById('nextQuestionBtn');
+            nextBtn.disabled = true;
+            nextBtn.textContent = currentQuestionIdx === totalQuestions - 1 ? "Submit & Credit Reward" : "Continue";
+
+            q.options.forEach((optText, idx) => {
+                const optButton = document.createElement('button');
+                optButton.type = "button";
+                optButton.className = "w-full text-left p-3.5 rounded-2xl border-2 border-slate-200 dark:border-darkblue-border bg-slate-50/50 dark:bg-darkblue-850 hover:border-brand-400 text-xs font-bold text-slate-800 dark:text-slate-200 transition-all flex items-center justify-between";
+                optButton.innerHTML = `
+          <span>${optText}</span>
+          <span class="w-4 h-4 rounded-full border-2 border-slate-300 dark:border-slate-600 radio-dot shrink-0 ml-2"></span>
+        `;
+                optButton.onclick = () => selectSurveyOption(idx, optButton);
+                optionsBox.appendChild(optButton);
+            });
+        }
+
+        function selectSurveyOption(idx, btnElement) {
+            selectedOption = idx;
+            const allButtons = document.querySelectorAll('#modalOptionsContainer button');
+            allButtons.forEach(b => {
+                b.className = "w-full text-left p-3.5 rounded-2xl border-2 border-slate-200 dark:border-darkblue-border bg-slate-50/50 dark:bg-darkblue-850 hover:border-brand-400 text-xs font-bold text-slate-800 dark:text-slate-200 transition-all flex items-center justify-between";
+                b.querySelector('.radio-dot').className = "w-4 h-4 rounded-full border-2 border-slate-300 dark:border-slate-600 radio-dot shrink-0 ml-2";
+            });
+
+            btnElement.className = "w-full text-left p-3.5 rounded-2xl border-2 border-brand-500 bg-brand-50/30 dark:bg-brand-950/40 text-xs font-bold text-slate-900 dark:text-white transition-all flex items-center justify-between";
+            btnElement.querySelector('.radio-dot').className = "w-4 h-4 rounded-full border-4 border-brand-500 bg-white radio-dot shrink-0 ml-2";
+
+            document.getElementById('nextQuestionBtn').disabled = false;
+        }
+
+        function handleNextQuestion() {
+            if (selectedOption === null) return;
+
+            if (currentQuestionIdx < currentSurvey.questions.length - 1) {
+                currentQuestionIdx++;
+                renderCurrentQuestion();
+            } else {
+                // Complete Survey: Settle & Credit
+                const nextBtn = document.getElementById('nextQuestionBtn');
+                nextBtn.disabled = true;
+                nextBtn.textContent = "Processing Reward...";
+
+                setTimeout(() => {
+                    surveyStats.totalUSD += currentSurvey.usdPayout;
+                    surveyStats.completedCount += 1;
+                    saveSurveyStats();
+                    renderSurveyStats();
+
+                    const ngnVal = currentSurvey.usdPayout * surveyStats.rate;
+                    const payoutFormatted = surveyStats.currency === 'USD'
+                        ? `$${currentSurvey.usdPayout.toFixed(2)}`
+                        : `₦${ngnVal.toLocaleString()}`;
+
+                    document.getElementById('rewardCreditedText').textContent = payoutFormatted;
+                    document.getElementById('surveyQuestionView').classList.add('hidden');
+                    document.getElementById('surveySuccessView').classList.remove('hidden');
+                }, 700);
+            }
+        }
+
+        function closeSurveyModal() {
+            document.getElementById('surveyModal').classList.add('hidden');
+        }
+
+        // 9. Sign Out Trigger
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out of REXORA?')) {
+                window.location.href = '../auth/login.html';
+            }
+        }
+
+        // Initial feed render
+        renderSurveys();
+    </script>
+</body>
+
+</html>
