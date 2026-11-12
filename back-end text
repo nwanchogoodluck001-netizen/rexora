@@ -94,3 +94,11 @@ Protect all `/api/admin/*` routes with Admin role middleware + Master Security P
    - `POST /api/admin/submissions/social/approve-all` & single review endpoints.
    - `POST /api/admin/withdrawals/:id/disburse` & `approve-all`: Mark withdrawal as `Disbursed` (or `Declined` and refund user balance).
 3. CRUD Endpoints: Full Create, Read, Update, Delete endpoints for Remote Jobs, Social Tasks, Surveys, Read-to-Earn Articles, Daily Streak Windows, and User Accounts (including manual tier activation and balance adjustments).
+
+
+=====================================================================
+7. TOP EARNERS
+=====================================================================
+the ranking should be with referral but don't display it's referral just as you did Glovex and kudix
+
+the admin should be able to enble or disable affillate withdrawal and non-affillate 
