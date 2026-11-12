@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Help Desk & Telegram Support | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        darkblue: {
+                            800: '#0F243A',
+                            850: '#0C1E31',
+                            900: '#0B192C',
+                            950: '#071626',
+                            border: '#1E354F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        body.light-theme {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 55%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        html.dark body {
+            background-color: #071626;
+            background-image:
+                radial-gradient(at 50% 0%, #0F243A 0px, transparent 65%),
+                radial-gradient(at 90% 20%, #0C1E31 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="light-theme text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen pb-28 lg:pb-12 overflow-x-hidden">
+
+    <div class="flex min-h-screen w-full relative">
+
+        <!-- ==================== SIDEBAR (DESKTOP) ==================== -->
+        <aside
+            class="hidden lg:flex flex-col justify-between w-64 bg-white/80 dark:bg-darkblue-900/90 border-r border-slate-200/80 dark:border-darkblue-border fixed inset-y-0 left-0 z-40 p-5 glass-panel">
+            <div>
+                <a href="../index.html" class="flex items-center gap-2.5 px-2 py-2">
+                    <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-7 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <nav class="mt-8 space-y-1.5">
+                    <a href="index.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Overview
+                    </a>
+
+                    <a href="remote-jobs.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Remote-Jobs
+                        </span>
+                        <span
+                            class="text-[9px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 font-black px-1.5 py-0.5 rounded uppercase">Pro</span>
+                    </a>
+
+                    <a href="social-engagment.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                        Social Engagement
+                    </a>
+
+                    <a href="surveys.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        Surveys
+                    </a>
+
+                    <a href="streaks.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-amber-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Daily Streaks
+                        </span>
+                        <span
+                            class="text-[9px] bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 font-black px-1.5 py-0.5 rounded uppercase">2
+                            Ref</span>
+                    </a>
+
+                    <a href="read-to-earn.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Read to Earn
+                    </a>
+
+                    <a href="referrals.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Referrals
+                    </a>
+
+                    <a href="wallet.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                        Wallet
+                    </a>
+
+                    <a href="payout.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Withdrawals
+                    </a>
+
+                    <!-- ACTIVE: SUPPORT -->
+                    <a href="support.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-brand-500 text-white font-extrabold text-xs tracking-wide shadow-md shadow-brand-500/20">
+                        <svg class="w-4 h-4 shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Support & Help
+                    </a>
+                </nav>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200/80 dark:border-darkblue-border space-y-1">
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MOBILE SLIDE DRAWER ==================== -->
+        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden lg:hidden">
+            <div
+                class="w-64 max-w-[80%] bg-white dark:bg-darkblue-900 h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+                <div>
+                    <div
+                        class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-darkblue-border">
+                        <div class="flex items-center gap-2">
+                            <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
+                                onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';">
+                            <span class="font-black text-slate-900 dark:text-white">REX<span
+                                    class="text-brand-500">ORA</span></span>
+                        </div>
+                        <button onclick="toggleMobileDrawer()" class="text-slate-400 font-black text-lg p-1">✕</button>
+                    </div>
+
+                    <nav class="mt-6 space-y-1.5">
+                        <a href="index.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Overview</a>
+                        <a href="remote-jobs.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Remote-Jobs</a>
+                        <a href="social-engagment.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Social
+                            Engagement</a>
+                        <a href="surveys.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Surveys</a>
+                        <a href="streaks.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Daily
+                            Streaks</a>
+                        <a href="read-to-earn.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Read
+                            to Earn</a>
+                        <a href="referrals.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Referrals</a>
+                        <a href="wallet.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Wallet</a>
+                        <a href="payout.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Withdrawals</a>
+                        <a href="support.html"
+                            class="block px-3 py-2 rounded-xl bg-brand-500 text-white font-extrabold text-xs">Support &
+                            Help</a>
+                        <a href="settings.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Settings</a>
+                    </nav>
+                </div>
+
+                <button onclick="handleLogout()"
+                    class="w-full mt-6 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-500 font-extrabold text-xs">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+        <main class="flex-1 lg:pl-64 flex flex-col min-w-0 w-full">
+
+            <!-- TOP NAVIGATION BAR -->
+            <header
+                class="sticky top-0 z-30 bg-white/70 dark:bg-darkblue-900/80 border-b border-slate-200/80 dark:border-darkblue-border px-4 sm:px-6 lg:px-8 py-3.5 glass-panel flex items-center justify-between min-w-0">
+                <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <button onclick="toggleMobileDrawer()"
+                        class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <h2
+                        class="text-xs sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-wider truncate">
+                        Help & Telegram Support</h2>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <a href="top-earners.html"
+                        class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300 text-[10px] sm:text-xs font-black shadow-sm hover:scale-105 transition-transform">
+                        🏆 <span class="hidden xs:inline">Top Earners</span>
+                    </a>
+
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 hover:text-brand-500 transition-colors">
+                        <span id="themeIcon" class="text-sm font-black">🌙</span>
+                    </button>
+
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-darkblue-border">
+                        <div
+                            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-md">
+                            G
+                        </div>
+                        <span class="text-xs font-black text-slate-800 dark:text-white hidden md:inline">Guzy</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- SUPPORT BODY CONTAINER -->
+            <div class="p-3.5 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 min-w-0">
+
+                <!-- HEADER TITLE -->
+                <div>
+                    <span
+                        class="text-[10px] font-black uppercase tracking-wider text-brand-500 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Telegram Support
+                        Channels Active
+                    </span>
+                    <h1
+                        class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-1 leading-tight">
+                        Official REXORA Help Desk
+                    </h1>
+                    <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                        Support is managed through our verified Telegram infrastructure. Connect with the desk matching
+                        your issue.
+                    </p>
+                </div>
+
+                <!-- ==================== THREE TELEGRAM SUPPORT CHANNELS ==================== -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+
+                    <!-- TELEGRAM LINK 1: DIRECT SUPPORT & ESCROW DESK -->
+                    <div
+                        class="p-5 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border-2 border-brand-500/40 shadow-sm flex flex-col justify-between space-y-5 hover:border-brand-500 transition-all">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl shadow-sm">
+                                    ✈️
+                                </div>
+                                <span
+                                    class="text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+                                    Online
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-slate-900 dark:text-white">General Help & Direct
+                                    Support</h3>
+                                <span class="text-xs font-black text-brand-500 block mt-0.5">@REXORASupport</span>
+                                <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Direct inquiry desk for account access, task submission issues, screenshot disputes,
+                                    and general questions.
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="https://t.me/rexorasupport" target="_blank"
+                            class="w-full py-3.5 px-4 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider text-center shadow-md shadow-brand-500/20 transition-all transform hover:-translate-y-0.5">
+                            Open Direct Support 1
+                        </a>
+
+                        <a href="https://t.me/rexorasupport" target="_blank"
+                            class="w-full py-3.5 px-4 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider text-center shadow-md shadow-brand-500/20 transition-all transform hover:-translate-y-0.5">
+                            Open Direct Support 2
+                        </a>
+
+
+                        <a href="https://t.me/rexorasupport" target="_blank"
+                            class="w-full py-3.5 px-4 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider text-center shadow-md shadow-brand-500/20 transition-all transform hover:-translate-y-0.5">
+                            Open Direct Support 3
+                        </a>
+                    </div>
+
+                    <!-- TELEGRAM LINK 2: BILLING & PAYMENT GATEWAY DESK -->
+                    <!-- <div
+                        class="p-5 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border-2 border-indigo-500/40 shadow-sm flex flex-col justify-between space-y-5 hover:border-indigo-500 transition-all">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl shadow-sm">
+                                    💳
+                                </div>
+                                <span
+                                    class="text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+                                    Billing Desk
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-slate-900 dark:text-white">Activation & Payments
+                                    Desk</h3>
+                                <span class="text-xs font-black text-indigo-500 block mt-0.5">@REXORABilling</span>
+                                <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Handles Afrixapay transactions, manual activation slip verification, pending bank
+                                    payouts, and deposit issues.
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="https://t.me/rexorabilling" target="_blank"
+                            class="w-full py-3.5 px-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs uppercase tracking-wider text-center shadow-md shadow-indigo-600/20 transition-all transform hover:-translate-y-0.5">
+                            Open Payments Desk
+                        </a>
+                    </div> -->
+
+                    <!-- TELEGRAM LINK 3: OFFICIAL ANNOUNCEMENT CHANNEL -->
+                    <div
+                        class="p-5 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border-2 border-amber-500/40 shadow-sm flex flex-col justify-between space-y-5 hover:border-amber-500 transition-all">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl shadow-sm">
+                                    📢
+                                </div>
+                                <span
+                                    class="text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300">
+                                    Official
+                                </span>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-slate-900 dark:text-white">Announcements Channel
+                                </h3>
+                                <span class="text-xs font-black text-amber-500 block mt-0.5">@REXORACommunity</span>
+                                <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Live task drop updates, high-yield contract alerts, weekend payout proof logs, and
+                                    server maintenance news.
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="https://t.me/rexoracommunity" target="_blank"
+                            class="w-full py-3.5 px-4 rounded-2xl bg-amber-500 hover:bg-amber-600 text-white font-black text-xs uppercase tracking-wider text-center shadow-md shadow-amber-500/20 transition-all transform hover:-translate-y-0.5">
+                            Join Official Channel
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- ==================== TWO-COLUMN SECTION: IN-APP TELEGRAM DISPATCH TICKET + FAQ ==================== -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+
+                    <!-- LEFT: TELEGRAM IN-APP DISPATCH TICKET -->
+                    <!-- <div
+                        class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4">
+                        <div class="border-b border-slate-100 dark:border-darkblue-border pb-3">
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-500">Fast
+                                Forwarding</span>
+                            <h3 class="text-base font-black text-slate-900 dark:text-white">Prepare Telegram Support
+                                Ticket</h3>
+                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                                Generate a formatted issue brief with your user parameters and launch directly into
+                                Telegram.
+                            </p>
+                        </div>
+
+                        <form id="telegramTicketForm" class="space-y-3.5" novalidate>
+                            <div>
+                                <label
+                                    class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">Select
+                                    Issue Category</label>
+                                <select id="ticketCategory"
+                                    class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500">
+                                    <option value="Withdrawal & Bank Settlement Delay">Withdrawal & Bank Settlement
+                                        Delay</option>
+                                    <option value="Afrixapay Plan Activation Issue">Afrixapay Plan Activation Issue
+                                    </option>
+                                    <option value="Remote Job / Social Proof Review">Remote Job / Social Proof Review
+                                    </option>
+                                    <option value="Daily Streak 2-Referral Verification">Daily Streak 2-Referral
+                                        Verification</option>
+                                    <option value="Affiliate 50% Cut Commission Dispute">Affiliate 50% Cut Commission
+                                        Dispute</option>
+                                    <option value="Other Technical Inquiries">Other Technical Inquiries</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">Account
+                                    Username / Reference ID</label>
+                                <input type="text" id="ticketHandle" value="@guzy"
+                                    class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500" />
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">Issue
+                                    Details & Message</label>
+                                <textarea id="ticketMessage" rows="3"
+                                    placeholder="Describe your issue with transaction IDs, dates, or task titles..."
+                                    class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500"></textarea>
+                                <p id="err-msg" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full py-3.5 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-0.5">
+                                Launch Prepared Telegram Ticket
+                            </button>
+                        </form>
+                    </div> -->
+
+                    <!-- RIGHT: COMMON SELF-SERVICE FAQ ACCORDION -->
+                    <div
+                        class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4">
+                        <div class="border-b border-slate-100 dark:border-darkblue-border pb-3">
+                            <span class="text-[10px] font-black uppercase tracking-wider text-brand-500">Self
+                                Help</span>
+                            <h3 class="text-base font-black text-slate-900 dark:text-white">Frequently Addressed
+                                Questions</h3>
+                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5">Quick resolutions
+                                before messaging an administrator.</p>
+                        </div>
+
+                        <div class="space-y-2.5 text-xs">
+
+                            <!-- FAQ 1 -->
+                            <div
+                                class="p-3.5 rounded-2xl bg-slate-50 dark:bg-darkblue-850 border border-slate-100 dark:border-darkblue-border">
+                                <button onclick="toggleFaq(1)"
+                                    class="w-full flex items-center justify-between text-left font-black text-slate-900 dark:text-white">
+                                    <span>When do affiliate weekend cash-outs process?</span>
+                                    <span id="faqArrow1" class="text-brand-500 text-sm">▼</span>
+                                </button>
+                                <p id="faqAnswer1"
+                                    class="hidden font-medium text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Affiliate 50% commission cuts process automatically every weekend from Friday
+                                    through Sunday directly to your linked Nigerian bank account.
+                                </p>
+                            </div>
+
+                            <!-- FAQ 2 -->
+                            <div
+                                class="p-3.5 rounded-2xl bg-slate-50 dark:bg-darkblue-850 border border-slate-100 dark:border-darkblue-border">
+                                <button onclick="toggleFaq(2)"
+                                    class="w-full flex items-center justify-between text-left font-black text-slate-900 dark:text-white">
+                                    <span>How long do task screenshot reviews take?</span>
+                                    <span id="faqArrow2" class="text-brand-500 text-sm">▼</span>
+                                </button>
+                                <p id="faqAnswer2"
+                                    class="hidden font-medium text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                                    Remote jobs and social proofs are evaluated automatically or by platform review
+                                    staff within 15 to 45 minutes of deliverable submission.
+                                </p>
+                            </div>
+
+                            <!-- FAQ 3 -->
+                            <div
+                                class="p-3.5 rounded-2xl bg-slate-50 dark:bg-darkblue-850 border border-slate-100 dark:border-darkblue-border">
+                                <button onclick="toggleFaq(3)"
+                                    class="w-full flex items-center justify-between text-left font-black text-slate-900 dark:text-white">
+                                    <span>Why are my 3 daily streak claims locked?</span>
+                                    <span id="faqArrow3" class="text-brand-500 text-sm">▼</span>
+                                </button>
+                                <p id="faqAnswer3"
+                                    class="hidden font-medium text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                                    The daily streak vault requires 2 paid referrals (Starter or Pro) activated within
+                                    the 24-hour cycle. Once 2 referrals register, all 3 check-in windows unlock.
+                                </p>
+                            </div>
+
+                            <!-- FAQ 4 -->
+                            <div
+                                class="p-3.5 rounded-2xl bg-slate-50 dark:bg-darkblue-850 border border-slate-100 dark:border-darkblue-border">
+                                <button onclick="toggleFaq(4)"
+                                    class="w-full flex items-center justify-between text-left font-black text-slate-900 dark:text-white">
+                                    <span>What are the minimum withdrawal limits?</span>
+                                    <span id="faqArrow4" class="text-brand-500 text-sm">▼</span>
+                                </button>
+                                <p id="faqAnswer4"
+                                    class="hidden font-medium text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                                    The minimum cash-out threshold is $2.00 / ₦2,000 for affiliate commission funds and
+                                    $5.00 / ₦5,000 for non-affiliate task balances.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ==================== FIXED MOBILE BOTTOM NAVBAR ==================== -->
+    <nav
+        class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-darkblue-900/95 border-t border-slate-200/80 dark:border-darkblue-border px-2 py-2.5 glass-panel flex items-center justify-around">
+        <a href="index.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+        </a>
+        <a href="remote-jobs.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Jobs
+        </a>
+        <a href="streaks.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Streaks
+        </a>
+        <a href="payout.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Payout
+        </a>
+        <button onclick="toggleMobileDrawer()"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Menu
+        </button>
+    </nav>
+
+    <!-- ==================== JAVASCRIPT CONTROLLERS ==================== -->
+    <script>
+        function initTheme() {
+            const savedTheme = localStorage.getItem('rexora_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('themeIcon').textContent = '🌙';
+            }
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('rexora_theme', isDark ? 'dark' : 'light');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+        }
+        initTheme();
+
+        function toggleMobileDrawer() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        // FAQ Accordion Controls
+        function toggleFaq(index) {
+            const ans = document.getElementById(`faqAnswer${index}`);
+            const arrow = document.getElementById(`faqArrow${index}`);
+            const isHidden = ans.classList.contains('hidden');
+
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`faqAnswer${i}`).classList.add('hidden');
+                document.getElementById(`faqArrow${i}`).textContent = '▼';
+            }
+
+            if (isHidden) {
+                ans.classList.remove('hidden');
+                arrow.textContent = '▲';
+            }
+        }
+
+        // Telegram Ticket Forwarding Handler
+        document.getElementById('telegramTicketForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const category = document.getElementById('ticketCategory').value;
+            const handle = document.getElementById('ticketHandle').value.trim();
+            const message = document.getElementById('ticketMessage').value.trim();
+            const errEl = document.getElementById('err-msg');
+
+            if (!message) {
+                errEl.textContent = "Please enter brief details about your issue before launching Telegram.";
+                errEl.classList.remove('hidden');
+                return;
+            }
+            errEl.classList.add('hidden');
+
+            // Select target telegram desk based on issue
+            let targetDesk = 'rexorasupport';
+            if (category.includes('Afrixapay') || category.includes('Withdrawal')) {
+                targetDesk = 'rexorabilling';
+            }
+
+            const formattedText = encodeURIComponent(
+                `[REXORA SUPPORT BRIEF]\n` +
+                `User: ${handle}\n` +
+                `Category: ${category}\n` +
+                `Details: ${message}`
+            );
+
+            // Open Telegram direct deep-link
+            window.open(`https://t.me/${targetDesk}?text=${formattedText}`, '_blank');
+        });
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out of REXORA?')) {
+                window.location.href = '../auth/login.html';
+            }
+        }
+    </script>
+</body>
+
+</html>

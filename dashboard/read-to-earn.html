@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Read to Earn | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        darkblue: {
+                            800: '#0F243A',
+                            850: '#0C1E31',
+                            900: '#0B192C',
+                            950: '#071626',
+                            border: '#1E354F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        body.light-theme {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 55%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        html.dark body {
+            background-color: #071626;
+            background-image:
+                radial-gradient(at 50% 0%, #0F243A 0px, transparent 65%),
+                radial-gradient(at 90% 20%, #0C1E31 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body
+    class="light-theme text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen pb-28 lg:pb-12 overflow-x-hidden">
+
+    <div class="flex min-h-screen w-full relative">
+
+        <!-- ==================== SIDEBAR (DESKTOP) ==================== -->
+        <aside
+            class="hidden lg:flex flex-col justify-between w-64 bg-white/80 dark:bg-darkblue-900/90 border-r border-slate-200/80 dark:border-darkblue-border fixed inset-y-0 left-0 z-40 p-5 glass-panel">
+            <div>
+                <a href="../index.html" class="flex items-center gap-2.5 px-2 py-2">
+                    <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-7 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <nav class="mt-8 space-y-1.5">
+                    <a href="index.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Overview
+                    </a>
+
+                    <a href="remote-jobs.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Remote-Jobs
+                        </span>
+                        <span
+                            class="text-[9px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 font-black px-1.5 py-0.5 rounded uppercase">Pro</span>
+                    </a>
+
+                    <a href="social-engagment.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                        Social Engagement
+                    </a>
+
+                    <a href="surveys.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        Surveys
+                    </a>
+
+                    <a href="streaks.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-amber-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Daily Streaks
+                        </span>
+                        <span
+                            class="text-[9px] bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 font-black px-1.5 py-0.5 rounded uppercase">2
+                            Ref</span>
+                    </a>
+
+                    <!-- ACTIVE: READ TO EARN -->
+                    <a href="read-to-earn.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-brand-500 text-white font-extrabold text-xs tracking-wide shadow-md shadow-brand-500/20">
+                        <svg class="w-4 h-4 shrink-0 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Read to Earn
+                    </a>
+
+                    <a href="referrals.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Referrals
+                    </a>
+
+                    <a href="wallet.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                        Wallet
+                    </a>
+
+                    <a href="payout.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Withdrawals
+                    </a>
+
+                    <a href="support.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Support
+                    </a>
+                </nav>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200/80 dark:border-darkblue-border space-y-1">
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MOBILE SLIDE DRAWER ==================== -->
+        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden lg:hidden">
+            <div
+                class="w-64 max-w-[80%] bg-white dark:bg-darkblue-900 h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+                <div>
+                    <div
+                        class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-darkblue-border">
+                        <div class="flex items-center gap-2">
+                            <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
+                                onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';">
+                            <span class="font-black text-slate-900 dark:text-white">REX<span
+                                    class="text-brand-500">ORA</span></span>
+                        </div>
+                        <button onclick="toggleMobileDrawer()" class="text-slate-400 font-black text-lg p-1">✕</button>
+                    </div>
+
+                    <nav class="mt-6 space-y-1.5">
+                        <a href="index.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Overview</a>
+                        <a href="remote-jobs.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Remote-Jobs</a>
+                        <a href="social-engagment.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Social
+                            Engagement</a>
+                        <a href="surveys.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Surveys</a>
+                        <a href="streaks.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Daily
+                            Streaks</a>
+                        <a href="read-to-earn.html"
+                            class="block px-3 py-2 rounded-xl bg-brand-500 text-white font-extrabold text-xs">Read to
+                            Earn</a>
+                        <a href="referrals.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Referrals</a>
+                        <a href="wallet.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Wallet</a>
+                        <a href="payout.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Withdrawals</a>
+                        <a href="support.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Support</a>
+                        <a href="settings.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Settings</a>
+                    </nav>
+                </div>
+
+                <button onclick="handleLogout()"
+                    class="w-full mt-6 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-500 font-extrabold text-xs">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+        <main class="flex-1 lg:pl-64 flex flex-col min-w-0 w-full">
+
+            <!-- TOP NAVIGATION BAR -->
+            <header
+                class="sticky top-0 z-30 bg-white/70 dark:bg-darkblue-900/80 border-b border-slate-200/80 dark:border-darkblue-border px-4 sm:px-6 lg:px-8 py-3.5 glass-panel flex items-center justify-between min-w-0">
+                <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <button onclick="toggleMobileDrawer()"
+                        class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <h2
+                        class="text-xs sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-wider truncate">
+                        Read & Earn Portal</h2>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <a href="top-earners.html"
+                        class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300 text-[10px] sm:text-xs font-black shadow-sm hover:scale-105 transition-transform">
+                        🏆 <span class="hidden xs:inline">Top Earners</span>
+                    </a>
+
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 hover:text-brand-500 transition-colors">
+                        <span id="themeIcon" class="text-sm font-black">🌙</span>
+                    </button>
+
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-darkblue-border">
+                        <div
+                            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-md">
+                            G
+                        </div>
+                        <span class="text-xs font-black text-slate-800 dark:text-white hidden md:inline">Guzy</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- READ TO EARN BODY CONTAINER -->
+            <div class="p-3.5 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 min-w-0">
+
+                <!-- TIER NOTICE BANNER -->
+                <div
+                    class="p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-600 to-indigo-700 text-white shadow-xl shadow-emerald-500/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div class="space-y-1">
+                        <span
+                            class="inline-block px-2.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider bg-white/20 text-white">
+                            Verified Engagement Drops
+                        </span>
+                        <h3 class="text-base sm:text-lg font-black tracking-tight">Marketplace Intel & Editorial Drops
+                        </h3>
+                        <p class="text-xs font-bold text-emerald-100 max-w-xl">
+                            Starter: Standard Reads ($0.25 – $0.50) | PRO Plan: Boosted Macro Reports ($1.00 – $2.50+)
+                        </p>
+                    </div>
+                    <div class="shrink-0">
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-white/10 border border-white/20 text-xs font-black">
+                            ⏱ 45s Active Attention Timer
+                        </span>
+                    </div>
+                </div>
+
+                <!-- HEADER & DUAL METRIC CARDS (STRICTLY 0.00 DEFAULT) -->
+                <div class="space-y-4 sm:space-y-6">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 min-w-0">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                                <span
+                                    class="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-brand-600 dark:text-brand-400 truncate">
+                                    Editorial Intelligence Feed
+                                </span>
+                            </div>
+                            <h1
+                                class="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white tracking-tight mt-1 leading-tight">
+                                Read, Learn & Earn
+                            </h1>
+                            <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mt-0.5">
+                                Explore verified market briefings, spend 45 seconds reviewing the content, and claim
+                                instant cash rewards.
+                            </p>
+                        </div>
+
+                        <!-- Currency Toggle -->
+                        <button onclick="toggleReadCurrency()"
+                            class="inline-flex items-center justify-between sm:justify-start gap-2 px-3 py-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-700 dark:text-slate-200 text-xs font-black self-stretch sm:self-auto shrink-0 shadow-sm">
+                            <span id="readCurLabel">USD ($)</span>
+                            <span class="text-[9px] bg-brand-500 text-white px-2 py-0.5 rounded font-black">Swap
+                                ₦</span>
+                        </button>
+                    </div>
+
+                    <!-- CARDS: ZERO DEMO DEFAULT -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
+
+                        <!-- Card 1: Total Earnings -->
+                        <div
+                            class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-wider text-slate-400 truncate">
+                                        Total Reading Earnings
+                                    </span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                                    id="totalReadEarningsDisplay">
+                                    $0.00
+                                </div>
+                                <p class="text-[10px] sm:text-[11px] font-bold text-emerald-600 dark:text-emerald-400 truncate"
+                                    id="totalReadSub">
+                                    ≈ ₦0 (Approved & Withdrawable)
+                                </p>
+                            </div>
+
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
+                                📖
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Completed Articles Count -->
+                        <div
+                            class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
+                            <div class="space-y-1 min-w-0">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-brand-500 shrink-0"></span>
+                                    <span
+                                        class="text-[10px] font-black uppercase tracking-wider text-slate-400 truncate">
+                                        Articles Read & Settled
+                                    </span>
+                                </div>
+                                <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight"
+                                    id="completedArticlesDisplay">
+                                    0 Articles
+                                </div>
+                                <p
+                                    class="text-[10px] sm:text-[11px] font-bold text-brand-600 dark:text-brand-400 truncate">
+                                    Ready to read
+                                </p>
+                            </div>
+
+                            <div
+                                class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
+                                ✓
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- HORIZONTAL FILTER BAR -->
+                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-3.5 px-3.5 sm:mx-0 sm:px-0"
+                    id="categoryFilterContainer">
+                    <button onclick="filterCategory('All')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-brand-500 text-white shadow-md whitespace-nowrap shrink-0">
+                        All Articles
+                    </button>
+                    <button onclick="filterCategory('Forex & Liquidity')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Forex & Liquidity
+                    </button>
+                    <button onclick="filterCategory('Web3 & DeFi')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Web3 & DeFi
+                    </button>
+                    <button onclick="filterCategory('Remote Work')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Remote Work & Skills
+                    </button>
+                    <button onclick="filterCategory('Tech & AI')"
+                        class="cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0">
+                        Tech & AI Trends
+                    </button>
+                </div>
+
+                <!-- ARTICLES GRID: 1 COL (MOBILE), 2 COLS (TABLET), 3 COLS (DESKTOP) -->
+                <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 min-w-0">
+                    <!-- Dynamically populated via JavaScript -->
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ==================== FIXED MOBILE BOTTOM NAVBAR ==================== -->
+    <nav
+        class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-darkblue-900/95 border-t border-slate-200/80 dark:border-darkblue-border px-2 py-2.5 glass-panel flex items-center justify-around">
+        <a href="index.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+        </a>
+        <a href="remote-jobs.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Jobs
+        </a>
+        <a href="streaks.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Streaks
+        </a>
+        <a href="payout.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Payout
+        </a>
+        <button onclick="toggleMobileDrawer()"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Menu
+        </button>
+    </nav>
+
+    <!-- ==================== INTERACTIVE READER MODAL ==================== -->
+    <div id="readerModal"
+        class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
+        <div
+            class="bg-white dark:bg-darkblue-900 border border-slate-200 dark:border-darkblue-border rounded-3xl p-5 sm:p-8 max-w-2xl w-full shadow-2xl relative max-h-[92vh] flex flex-col">
+
+            <!-- Modal Header -->
+            <div
+                class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-darkblue-border shrink-0">
+                <div class="flex items-center gap-2">
+                    <span id="modalArticleCategory"
+                        class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300">
+                        Category
+                    </span>
+                    <span class="text-xs font-black text-emerald-600 dark:text-emerald-400" id="modalRewardLabel">
+                        +$1.00 Escrow
+                    </span>
+                </div>
+                <button onclick="closeReaderModal()"
+                    class="text-slate-400 hover:text-slate-600 dark:hover:text-white font-black text-lg p-1">✕</button>
+            </div>
+
+            <!-- Attention Progress & Verification Timer -->
+            <div class="py-3 shrink-0 space-y-2">
+                <div class="flex items-center justify-between text-xs font-black">
+                    <span class="text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+                        Active Reading Verification:
+                    </span>
+                    <span id="timerCountdown" class="text-brand-600 dark:text-brand-400 font-mono text-sm">45s
+                        remaining</span>
+                </div>
+                <div class="w-full h-1.5 rounded-full bg-slate-100 dark:bg-darkblue-800 overflow-hidden">
+                    <div id="readingProgressBar" class="h-full bg-brand-500 rounded-full transition-all duration-1000"
+                        style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Scrollable Article Reader Body -->
+            <div id="articleScrollArea"
+                class="flex-1 overflow-y-auto space-y-4 pr-1 text-slate-700 dark:text-slate-300 text-xs sm:text-sm font-medium leading-relaxed my-2">
+                <h3 id="modalArticleTitle"
+                    class="text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-tight">
+                    Article Title
+                </h3>
+                <div id="modalArticleContent" class="space-y-3 font-medium text-slate-600 dark:text-slate-300">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Modal Footer & Claim Action -->
+            <div
+                class="pt-4 border-t border-slate-100 dark:border-darkblue-border shrink-0 flex items-center justify-between gap-3">
+                <div class="text-[11px] font-bold text-slate-400 truncate hidden xs:block">
+                    *Scroll and stay on tab to verify completion.
+                </div>
+                <button id="claimReadRewardBtn" onclick="handleClaimReadReward()" disabled
+                    class="w-full xs:w-auto px-6 py-3 rounded-2xl bg-slate-200 dark:bg-darkblue-800 text-slate-400 dark:text-slate-500 font-black text-xs uppercase tracking-wider disabled:cursor-not-allowed transition-all">
+                    🔒 Reading (45s)
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT CONTROLLERS ==================== -->
+    <script>
+        // 1. Theme Configuration
+        function initTheme() {
+            const savedTheme = localStorage.getItem('rexora_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('themeIcon').textContent = '🌙';
+            }
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('rexora_theme', isDark ? 'dark' : 'light');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+        }
+        initTheme();
+
+        // 2. Mobile Drawer
+        function toggleMobileDrawer() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        // 3. User Plan Gating
+        let userPlan = 'pro';
+        const storedUser = localStorage.getItem('rexora_user');
+        if (storedUser) {
+            try {
+                const parsed = JSON.parse(storedUser);
+                if (parsed.plan) userPlan = parsed.plan;
+            } catch (e) { console.error(e); }
+        }
+
+        // 4. Read to Earn KPI Stats (Strictly 0.00 Default - No Demo Balance)
+        function getStoredReadStats() {
+            const data = localStorage.getItem('rexora_read_stats');
+            if (data) {
+                try { return JSON.parse(data); } catch (e) { console.error(e); }
+            }
+            return { totalUSD: 0.00, readCount: 0, currency: 'USD', rate: 1000 };
+        }
+
+        const readStats = getStoredReadStats();
+
+        function saveReadStats() {
+            localStorage.setItem('rexora_read_stats', JSON.stringify(readStats));
+        }
+
+        function renderReadStats() {
+            const totalDisplay = document.getElementById('totalReadEarningsDisplay');
+            const totalSub = document.getElementById('totalReadSub');
+            const countDisplay = document.getElementById('completedArticlesDisplay');
+            const curLabel = document.getElementById('readCurLabel');
+
+            countDisplay.textContent = `${readStats.readCount} Articles`;
+
+            if (readStats.currency === 'USD') {
+                curLabel.textContent = "USD ($)";
+                totalDisplay.textContent = `$${readStats.totalUSD.toFixed(2)}`;
+                totalSub.textContent = `≈ ₦${(readStats.totalUSD * readStats.rate).toLocaleString()} (Approved & Withdrawable)`;
+            } else {
+                curLabel.textContent = "NGN (₦)";
+                totalDisplay.textContent = `₦${(readStats.totalUSD * readStats.rate).toLocaleString()}`;
+                totalSub.textContent = `≈ $${readStats.totalUSD.toFixed(2)} USD (Approved & Withdrawable)`;
+            }
+        }
+
+        function toggleReadCurrency() {
+            readStats.currency = readStats.currency === 'USD' ? 'NGN' : 'USD';
+            saveReadStats();
+            renderReadStats();
+            renderArticles();
+        }
+        renderReadStats();
+
+        // 5. Articles Dataset
+        const articlesPool = [
+            {
+                id: 1,
+                category: "Forex & Liquidity",
+                title: "USD/NGN Currency Outlook & Global Foreign Exchange Liquidity in 2026",
+                readTime: "⏱ 2 Mins Read",
+                usdPayout: userPlan === 'pro' ? 1.50 : 0.40,
+                excerpt: "An empirical overview of central bank clearing rails, interbank liquidity pools, and digital hedging instruments for emerging market professionals.",
+                body: [
+                    "Cross-border payment infrastructure across Sub-Saharan Africa has entered a transformative era. As global inflation metrics normalize and high-frequency trading networks deepen liquidity access, individual remote contributors are finding unprecedented utility in dollar-denominated task settlement.",
+                    "Central bank frameworks throughout 2026 have increasingly accommodated digital verification mechanisms. This regulatory clarity has reduced clearing slippage, making peer-to-peer liquidity and immediate weekend settlements far more accessible for independent web developers and technical freelancers.",
+                    "Key Takeaway: Preserving active capital across decentralized dollar accounts buffers local earnings against currency volatility while guaranteeing predictable weekly payouts."
+                ]
+            },
+            {
+                id: 2,
+                category: "Web3 & DeFi",
+                title: "Self-Custody Wallets vs. Institutional Escrow: Safe Task Settlement",
+                readTime: "⏱ 2 Mins Read",
+                usdPayout: userPlan === 'pro' ? 2.00 : 0.50,
+                excerpt: "Examining smart contract escrow mechanisms, counterparty risk mitigation, and instant settlement speed for digital platform workers.",
+                body: [
+                    "Traditional freelance marketplaces often hold earner balances for up to fourteen business days under the guise of fraud prevention. In contrast, modern task platforms rely on pre-funded escrow pools that disburse directly upon proof validation.",
+                    "By utilizing verified client contracts, platforms can guarantee that funds are already locked in reserve before an assignment is published. This architecture eliminates non-payment risk entirely for contributors submitting remote deliverables.",
+                    "Key Takeaway: Always ensure task platforms offer visible escrow verification or audited settlement schedules to maximize your productive earning hours."
+                ]
+            },
+            {
+                id: 3,
+                category: "Remote Work",
+                title: "Top High-Yield Remote Skills: Frontend Web Architecture in Demand",
+                readTime: "⏱ 3 Mins Read",
+                usdPayout: userPlan === 'pro' ? 1.75 : 0.45,
+                excerpt: "Why clean HTML5, Tailwind CSS, and lightweight Vanilla JavaScript interfaces command premium micro-job contract pricing.",
+                body: [
+                    "While heavy single-page application frameworks dominate enterprise engineering, high-converting digital marketplaces and landing portals favor lightweight, clean codebases with zero bloat and near-instant initial render speeds.",
+                    "Frontend developers who master responsive layout primitives, viewport-locked mobile drawers, and smooth touch-first filter carousels are uniquely positioned to win verified client micro-contracts across digital earning hubs.",
+                    "Key Takeaway: Focus on core fundamentals—speed, mobile responsiveness, and clean CSS architecture—to consistently qualify for top-tier marketplace contracts."
+                ]
+            },
+            {
+                id: 4,
+                category: "Tech & AI",
+                title: "Generative AI Workflow Integration for Digital Marketers",
+                readTime: "⏱ 2 Mins Read",
+                usdPayout: userPlan === 'pro' ? 1.25 : 0.35,
+                excerpt: "Leveraging structured prompt engineering to accelerate social engagement campaigns, script writing, and ad deliverables.",
+                body: [
+                    "The modern digital task economy does not penalize the use of artificial intelligence; it rewards those who leverage automated tools to deliver superior client results in a fraction of the time.",
+                    "From synthesizing short video ad hooks to generating high-CTR thumbnail ideas, creators who combine AI drafting with human editorial refinement consistently achieve higher contract acceptance rates and faster escrow releases.",
+                    "Key Takeaway: Use AI to handle preliminary conceptualization, but always apply personalized design review to ensure brand compliance."
+                ]
+            },
+            {
+                id: 5,
+                category: "Forex & Liquidity",
+                title: "Managing Risk & Leverage: Principles of Sustainable Day Trading",
+                readTime: "⏱ 2 Mins Read",
+                usdPayout: userPlan === 'pro' ? 1.50 : 0.40,
+                excerpt: "Essential position-sizing formulas and psychological guidelines for emerging forex market analysts.",
+                body: [
+                    "Capital preservation is the cornerstone of sustainable financial market participation. Professional analysts never evaluate a trade based on potential profit alone; risk exposure per transaction is strictly calculated before entry.",
+                    "Adhering to fixed risk-to-reward ratios and avoiding over-leveraged lots during high-impact economic news releases protects the learning trader's capital base during volatile market cycles.",
+                    "Key Takeaway: Consistent technical execution paired with structured time management yields superior long-term results compared to aggressive risk-taking."
+                ]
+            },
+            {
+                id: 6,
+                category: "Remote Work",
+                title: "Building Sustainable Multi-Stream Online Earning Regimens",
+                readTime: "⏱ 2 Mins Read",
+                usdPayout: userPlan === 'pro' ? 2.50 : 0.50,
+                excerpt: "How balancing remote jobs, daily streaks, and passive referral commissions compounds your weekly income.",
+                body: [
+                    "Top earners on platform ecosystems rarely depend on a single task module. By combining daily consistency routines—such as claiming triple streak drops and answering research surveys—with higher-yield remote contracts, users establish steady baseline revenue.",
+                    "Supplementing active work with optional affiliate invites generates recurring 50% commission cuts that payout automatically during weekend settlements, creating a resilient dual-income mechanism.",
+                    "Key Takeaway: Diversify your daily platform activity across both active tasks and streak multipliers to maximize cumulative earnings."
+                ]
+            }
+        ];
+
+        let activeCategory = 'All';
+        let currentArticle = null;
+        let timerInterval = null;
+        let secondsRemaining = 45;
+
+        // 6. Render Articles
+        function renderArticles() {
+            const grid = document.getElementById('articlesGrid');
+            grid.innerHTML = '';
+
+            const filtered = activeCategory === 'All'
+                ? articlesPool
+                : articlesPool.filter(a => a.category.toLowerCase().includes(activeCategory.toLowerCase()));
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400 font-bold text-xs">
+            No articles currently published in this category.
+          </div>
+        `;
+                return;
+            }
+
+            filtered.forEach(article => {
+                const card = document.createElement('div');
+                card.className = "p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex flex-col justify-between min-w-0 hover:border-brand-500 transition-all";
+
+                const ngnVal = article.usdPayout * readStats.rate;
+                const payoutText = readStats.currency === 'USD'
+                    ? `+$${article.usdPayout.toFixed(2)}`
+                    : `+₦${ngnVal.toLocaleString()}`;
+
+                card.innerHTML = `
+          <div class="min-w-0">
+            <!-- Header Badges -->
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+              <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300 truncate max-w-[170px]">
+                ${article.category}
+              </span>
+              <span class="text-[9px] sm:text-[10px] font-black text-slate-400 shrink-0">
+                ${article.readTime}
+              </span>
+            </div>
+
+            <!-- Title & Snippet -->
+            <h3 class="text-sm sm:text-base font-black text-slate-900 dark:text-white mt-3 leading-snug break-words">
+              ${article.title}
+            </h3>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mt-1.5 line-clamp-2 leading-relaxed">
+              ${article.excerpt}
+            </p>
+          </div>
+
+          <!-- Payout and Read Action -->
+          <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-darkblue-border flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <span class="text-[8px] sm:text-[9px] font-black uppercase text-slate-400 block">Reward</span>
+              <div class="text-sm sm:text-base font-black text-emerald-600 dark:text-emerald-400 truncate">
+                ${payoutText}
+              </div>
+            </div>
+
+            <button 
+              onclick="openReaderModal(${article.id})" 
+              class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white text-xs font-black shadow-md shadow-brand-500/20 transition-all shrink-0 uppercase tracking-wider"
+            >
+              Read Article
+            </button>
+          </div>
+        `;
+                grid.appendChild(card);
+            });
+        }
+
+        // 7. Filter Buttons Click Logic
+        function filterCategory(cat) {
+            activeCategory = cat;
+            const buttons = document.querySelectorAll('.cat-pill');
+            buttons.forEach(btn => {
+                if (btn.textContent.trim().toLowerCase().includes(cat.toLowerCase()) || (cat === 'All' && btn.textContent.trim().includes('All Articles'))) {
+                    btn.className = "cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-brand-500 text-white shadow-md whitespace-nowrap shrink-0";
+                } else {
+                    btn.className = "cat-pill px-3.5 sm:px-4 py-2 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all bg-white dark:bg-darkblue-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-darkblue-border whitespace-nowrap shrink-0";
+                }
+            });
+            renderArticles();
+        }
+
+        // 8. Reader Modal & 45s Verification Timer Engine
+        function openReaderModal(articleId) {
+            currentArticle = articlesPool.find(a => a.id === articleId);
+            if (!currentArticle) return;
+
+            document.getElementById('modalArticleCategory').textContent = currentArticle.category;
+
+            const ngnVal = currentArticle.usdPayout * readStats.rate;
+            const payoutFormatted = readStats.currency === 'USD'
+                ? `+$${currentArticle.usdPayout.toFixed(2)} Escrow`
+                : `+₦${ngnVal.toLocaleString()} Escrow`;
+            document.getElementById('modalRewardLabel').textContent = payoutFormatted;
+
+            document.getElementById('modalArticleTitle').textContent = currentArticle.title;
+
+            const contentBox = document.getElementById('modalArticleContent');
+            contentBox.innerHTML = '';
+            currentArticle.body.forEach(para => {
+                const p = document.createElement('p');
+                p.textContent = para;
+                contentBox.appendChild(p);
+            });
+
+            // Reset Verification Timer
+            clearInterval(timerInterval);
+            secondsRemaining = 45;
+            updateTimerUI();
+
+            const claimBtn = document.getElementById('claimReadRewardBtn');
+            claimBtn.disabled = true;
+            claimBtn.className = "w-full xs:w-auto px-6 py-3 rounded-2xl bg-slate-200 dark:bg-darkblue-800 text-slate-400 dark:text-slate-500 font-black text-xs uppercase tracking-wider disabled:cursor-not-allowed transition-all";
+
+            document.getElementById('readerModal').classList.remove('hidden');
+
+            // Start countdown
+            timerInterval = setInterval(() => {
+                secondsRemaining--;
+                updateTimerUI();
+
+                if (secondsRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    claimBtn.disabled = false;
+                    claimBtn.textContent = `Claim ${payoutFormatted.replace(' Escrow', '')} Reward`;
+                    claimBtn.className = "w-full xs:w-auto px-6 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer";
+                }
+            }, 1000);
+        }
+
+        function updateTimerUI() {
+            const percent = Math.min(100, Math.round(((45 - secondsRemaining) / 45) * 100));
+            document.getElementById('readingProgressBar').style.width = `${percent}%`;
+
+            if (secondsRemaining > 0) {
+                document.getElementById('timerCountdown').textContent = `${secondsRemaining}s remaining`;
+                document.getElementById('claimReadRewardBtn').textContent = `🔒 Reading (${secondsRemaining}s)`;
+            } else {
+                document.getElementById('timerCountdown').textContent = "✓ Verified Active";
+            }
+        }
+
+        function handleClaimReadReward() {
+            if (secondsRemaining > 0) return;
+
+            readStats.totalUSD += currentArticle.usdPayout;
+            readStats.readCount += 1;
+            saveReadStats();
+            renderReadStats();
+
+            const ngnVal = currentArticle.usdPayout * readStats.rate;
+            const amountClaimed = readStats.currency === 'USD'
+                ? `$${currentArticle.usdPayout.toFixed(2)}`
+                : `₦${ngnVal.toLocaleString()}`;
+
+            alert(`Success! ${amountClaimed} reading reward has been deposited into your withdrawable balance.`);
+            closeReaderModal();
+        }
+
+        function closeReaderModal() {
+            clearInterval(timerInterval);
+            document.getElementById('readerModal').classList.add('hidden');
+        }
+
+        // 9. Sign Out Trigger
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out of REXORA?')) {
+                window.location.href = '../auth/login.html';
+            }
+        }
+
+        // Initial render
+        renderArticles();
+    </script>
+</body>
+
+</html>
