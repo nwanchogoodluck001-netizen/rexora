@@ -1,0 +1,31 @@
+this is how the admin should look like no much design just white and black 
+they should be card record of total user, total plan revenve, total paid out
+
+other section of card total starter user
+
+the admin should be able to change the site rate, they should be input for that 
+gate way: 
+they admin should be able to config the price for starter or pro (input)
+inputs for Automated Online Activation API (AfrixaPay / Paystack) the Secret Key and public key and a drop down input to to enable or disable it.
+input for Direct Payment Link URL and drop down input to to enable or disable it.
+manual bank inputs(bank name, account name and account number) and rop down input to to enable or disable it
+
+and a "save" button
+
+REMOTE JOB: 
+it should have card for Total Published Tasks, Contract Budget and Submissions in Audit
+it should have input for Poster / Client Name, Job Category dropdown, Reward Amount ($ USD), Delivery Window, Job Title / Headline Detailed Task Instructions & Deliverable Prompt and public job button'
+add Active Platform Job Listings table
+
+
+SOCIAL ENGAGMENT:
+it should have a card for Global Task Reward, Pending Proofs, Active Tasks
+they should be an input for Amount to pay per approved task($)
+they should be inputs like Task Title, platform, reward, user limit, status, action link(offical task URL), Instructions / Requirements and "add task" button
+ User Submissions & Manual Verification table they should be "approve all" button at the top of the table 
+and a table Manage tasks available for users. Edit details or delete any task below
+
+
+Surveys:
+
+Here is structured UI copy and micro-text for the **Surveys Management** section of the **REXORA Admin Control Panel** (`admin/`), matching REXORA’s fintech terminology, USD/NGN pegged currency (`1 USD = ₦1,000`), and Starter/Pro tier rules:
