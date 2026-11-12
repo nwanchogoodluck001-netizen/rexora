@@ -1,0 +1,96 @@
+PROJECT BRIEF & BACKEND ARCHITECTURE SPECIFICATION: REXORA
+currently using localStorage mocks
+
+=====================================================================
+1. SYSTEM OVERVIEW & CORE BUSINESS RULES
+=====================================================================
+REXORA is a dual-currency (USD / NGN) digital earning, remote micro-job, and affiliate marketplace. The frontend is 100% built and requires a secure RESTful (or GraphQL) backend API, database schema, authentication system, webhook handlers, and admin controls to replace all client-side `localStorage` mocks.
+
+Core Platform Rules:
+- Pegged Exchange Rate: Default `1 USD = ₦1,000 NGN` (must be dynamically configurable from the Admin Control Panel).
+- Zero-Demo Default: Every newly registered user starts at `$0.00` across all balances.
+- Dual Wallet Architecture: Every user has two distinct, strictly separated balances:
+  1. `task_balance_usd`: Earned via Remote Jobs, Social Engagement, Surveys, Read-to-Earn, and Daily Streaks. Minimum withdrawal: `$5.00` (`₦5,000`).
+  2. `affiliate_balance_usd`: Earned via 50% direct referral commissions and Referral Milestone Quest grants. Minimum withdrawal: `$2.00` (`₦2,000`). Automated/primary withdrawal window runs Friday – Sunday (WAT).
+- Pending Escrow Balance (`pending_balance_usd`): Holds funds from submitted Remote Jobs and Social Engagement proofs until an Admin approves or rejects them.
+
+=====================================================================
+2. AUTHENTICATION, MEMBERSHIP TIERS & PAYMENT GATEWAYS
+=====================================================================
+- User Registration & Login:
+  - Fields: `full_name`, `username` (handle, e.g., `@guzy`), `email`, `phone`, `password_hash`, `referral_code_used`, `withdrawal_pin_hash` (4-digit PIN), `plan_tier` (`unactivated` | `starter` | `pro`), `account_status` (`active` | `suspended`).
+  - JWT or secure HTTP-only session cookie authentication for both User Dashboard (`/dashboard/*`) and Admin Console (`/admin/*`).
+- Membership Packages & Gating:
+  - Starter Plan: `₦1,500` / `$2.00` one-time activation. Grants access to Social Engagement, Surveys, Daily Streaks, Read-to-Earn, and Referrals.
+  - PRO Plan: `₦3,000` / `$3.00` one-time activation. Unlocks everything in Starter PLUS Remote Jobs (`$10 – $50+` contracts) and boosted payout rates on Read-to-Earn and Surveys.
+  - Middleware Enforcement: Backend endpoints for Remote Jobs must reject requests from `starter` or `unactivated` accounts with `403 Forbidden`.
+- Payment Gateway & Manual Activation Integrations:
+  - Must support toggling three payment methods from the Admin Panel:
+    1. Automated Online API (AfrixaPay / Paystack): Initialize transaction endpoint + Webhook listener (`/api/webhooks/payment`) to verify payment signature, upgrade `plan_tier` to `starter` or `pro`, and instantly credit the referrer's `affiliate_balance_usd` with 50% (`$0.75` for Starter, `$1.50` for PRO).
+    2. Direct Payment Link URL: Configurable redirect checkout URL.
+    3. Manual Bank Transfer: Endpoint to submit sender bank name and payment reference/receipt for Admin manual approval.
+
+=====================================================================
+3. EARNING MODULES & API ENDPOINTS NEEDED
+=====================================================================
+A. Remote Jobs (`/api/jobs`)
+- `GET /api/jobs`: List active contracts filtered by category (`Graphic Design`, `Script Writing`, `Research`, `Data Tasks`).
+- `POST /api/jobs/:id/submit`:
+  - Enforce `plan_tier === 'pro'` and prevent duplicate submissions per user/job.
+  - For `Graphic Design`: Accept multipart image upload (`.png`, `.jpg`) + `design_tool_used` string (store image in S3/Cloudinary).
+  - For text categories (`Script Writing`, `Research`, `Data Tasks`): Accept `deliverable_text` + optional `external_doc_url`.
+  - Credit reward amount to user's `pending_balance_usd` with status `pending_audit`.
+
+B. Social Engagement (`/api/social`)
+- `GET /api/social/tasks`: Fetch active tasks (WhatsApp, Telegram, X, Instagram, TikTok, YouTube) that haven't reached `user_limit`.
+- `POST /api/social/tasks/:id/submit`: Accept screenshot proof upload + user handle; add reward to `pending_balance_usd`.
+
+C. Market Research Surveys (`/api/surveys`)
+- `GET /api/surveys`: Fetch active 3-question surveys based on user's `plan_tier`.
+- `POST /api/surveys/:id/complete`: Validate answers, enforce one-time completion per user, and immediately credit `task_balance_usd` (no escrow hold).
+
+D. Read to Earn (`/api/articles`)
+- `GET /api/articles`: Return published market briefings with tier-specific payouts (e.g., `$0.40` Starter vs. `$1.50` PRO).
+- `POST /api/articles/:id/start` & `POST /api/articles/:id/claim`: Track server-side start timestamp to verify at least 45 seconds elapsed before crediting `task_balance_usd` (prevents API replay/spam).
+
+E. Daily Streaks Vault (`/api/streaks`)
+- 3 daily claim windows (WAT timezone): Morning (`06:00–11:59`), Afternoon (`12:00–17:59`), Night (`18:00–23:59`).
+- `GET /api/streaks/status`: Return current 24h paid referral count for the user (`required_referrals = 2` default) and claim status of each window.
+- `POST /api/streaks/claim/:windowId`: Verify user has >= 2 paid referrals in the current 24h cycle and hasn't claimed that window today; credit `task_balance_usd`.
+
+=====================================================================
+4. AFFILIATE ENGINE, MILESTONES & LEADERBOARD
+=====================================================================
+- Referral Tracking: Attribute sign-ups via `?ref=username`. Credit 50% commission ONLY upon verified payment activation (not on free sign-up).
+- Referral Milestone Quests (`/api/referrals/milestones`):
+  - Track verified paid referrals and PRO-specific referrals per user:
+    - Tier 01 (Bronze Scout): 3 Paid Referrals -> `+$2.00`
+    - Tier 02 (Silver Builder): 10 Paid Referrals -> `+$7.50`
+    - Tier 03 (Gold Partner): 25 PRO Referrals -> `+$25.00`
+    - Tier 04 (Diamond Ambassador): 50 PRO Referrals -> `+$60.00`
+  - `POST /api/referrals/milestones/:tierId/claim`: Verify threshold met and not previously claimed; credit `affiliate_balance_usd`.
+- Top Earners Leaderboard (`GET /api/leaderboard`): Aggregate and rank top users by total verified earnings (USD) in real time.
+
+=====================================================================
+5. WITHDRAWALS, RECEIPTS & LIVE TICKER
+=====================================================================
+- Bank Details & Transaction PIN:
+  - `PUT /api/user/bank`: Save Nigerian NUBAN (10 digits), Bank Name, and Account Holder Name.
+  - `PUT /api/user/security`: Update password and 4-digit Withdrawal PIN.
+- Cash-Out Processing (`POST /api/withdrawals`):
+  - Accept `rail` (`affiliate` | `tasks`), `amount_usd`, bank details, and `withdrawal_pin`.
+  - Validate: PIN matches, `amount_usd >= minimum_threshold` (`$2.00` affiliate / `$5.00` tasks), and `amount_usd <= available_balance`.
+  - Atomically deduct balance, create withdrawal record (`REX-WD-XXXX`), and log in transaction ledger.
+  - `GET /api/withdrawals/:refId/receipt`: Return verified receipt metadata for the frontend receipt generator.
+- Live Settlement Ticker (`GET /api/payouts/recent-ticker`): Public/authenticated lightweight endpoint returning anonymized/masked recent disbursed payouts (`@handle`, `amount_usd`, `bank_name`, `time_ago`).
+
+=====================================================================
+6. ADMIN CONTROL PANEL APIs (`/api/admin/*`)
+=====================================================================
+Protect all `/api/admin/*` routes with Admin role middleware + Master Security PIN verification for destructive/bulk actions:
+1. Platform Config (`GET/PUT /api/admin/config`): Update `site_rate`, Starter/PRO prices, AfrixaPay/Paystack API keys, Direct Payment URL, Manual Bank details, Maintenance Mode, Registration Open/Closed, and the 3 official Telegram support URLs (`@REXORASupport`, `@REXORABilling`, `@REXORACommunity`).
+2. Audit & Approval Queues:
+   - `POST /api/admin/submissions/jobs/:id/review` (`approve` | `reject`): Move funds from `pending_balance_usd` to `task_balance_usd` on approval, or deduct pending on rejection.
+   - `POST /api/admin/submissions/social/approve-all` & single review endpoints.
+   - `POST /api/admin/withdrawals/:id/disburse` & `approve-all`: Mark withdrawal as `Disbursed` (or `Declined` and refund user balance).
+3. CRUD Endpoints: Full Create, Read, Update, Delete endpoints for Remote Jobs, Social Tasks, Surveys, Read-to-Earn Articles, Daily Streak Windows, and User Accounts (including manual tier activation and balance adjustments).
