@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Top Earners Leaderboard | REXORA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F9FF',
+                            100: '#E0F2FE',
+                            200: '#BAE6FD',
+                            400: '#38BDF8',
+                            500: '#0EA5E9',
+                            600: '#0284C7',
+                            700: '#0369A1',
+                        },
+                        darkblue: {
+                            800: '#0F243A',
+                            850: '#0C1E31',
+                            900: '#0B192C',
+                            950: '#071626',
+                            border: '#1E354F'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        body.light-theme {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(at 50% 0%, #BAE6FD 0px, transparent 55%),
+                radial-gradient(at 10% 20%, #E0F2FE 0px, transparent 40%),
+                radial-gradient(at 90% 30%, #E0F2FE 0px, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        html.dark body {
+            background-color: #071626;
+            background-image:
+                radial-gradient(at 50% 0%, #0F243A 0px, transparent 65%),
+                radial-gradient(at 90% 20%, #0C1E31 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        @keyframes floatSlow {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .podium-crown {
+            animation: floatSlow 3.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body
+    class="light-theme text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen pb-28 lg:pb-12 overflow-x-hidden">
+
+    <div class="flex min-h-screen w-full relative">
+
+        <!-- ==================== SIDEBAR (DESKTOP) ==================== -->
+        <aside
+            class="hidden lg:flex flex-col justify-between w-64 bg-white/80 dark:bg-darkblue-900/90 border-r border-slate-200/80 dark:border-darkblue-border fixed inset-y-0 left-0 z-40 p-5 glass-panel">
+            <div>
+                <a href="../index.html" class="flex items-center gap-2.5 px-2 py-2">
+                    <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-7 w-auto object-contain"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x36/0EA5E9/ffffff?text=REXORA';" />
+                    <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">REX<span
+                            class="text-brand-500">ORA</span></span>
+                </a>
+
+                <nav class="mt-8 space-y-1.5">
+                    <a href="index.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        Overview
+                    </a>
+
+                    <a href="remote-jobs.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-indigo-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                            Remote-Jobs
+                        </span>
+                        <span
+                            class="text-[9px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 font-black px-1.5 py-0.5 rounded uppercase">Pro</span>
+                    </a>
+
+                    <a href="social-engagment.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                        Social Engagement
+                    </a>
+
+                    <a href="surveys.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                        Surveys
+                    </a>
+
+                    <a href="streaks.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <span class="flex items-center gap-3">
+                            <svg class="w-4 h-4 shrink-0 text-amber-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                            Daily Streaks
+                        </span>
+                        <span
+                            class="text-[9px] bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 font-black px-1.5 py-0.5 rounded uppercase">2
+                            Ref</span>
+                    </a>
+
+                    <a href="read-to-earn.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        Read to Earn
+                    </a>
+
+                    <a href="referrals.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Referrals
+                    </a>
+
+                    <!-- ACTIVE: TOP EARNERS -->
+                    <a href="top-earners.html"
+                        class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl bg-brand-500 text-white font-extrabold text-xs tracking-wide shadow-md shadow-brand-500/20">
+                        <span class="flex items-center gap-3">
+                            <span class="text-sm">🏆</span>
+                            Top Earners
+                        </span>
+                        <span
+                            class="text-[9px] bg-white/20 text-white font-black px-1.5 py-0.5 rounded uppercase">Live</span>
+                    </a>
+
+                    <a href="wallet.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                        Wallet
+                    </a>
+
+                    <a href="payout.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Withdrawals
+                    </a>
+
+                    <a href="support.html"
+                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
+                        <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Support
+                    </a>
+                </nav>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200/80 dark:border-darkblue-border space-y-1">
+                <a href="settings.html"
+                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Settings
+                </a>
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 font-extrabold text-xs tracking-wide">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                    Sign Out
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==================== MOBILE SLIDE DRAWER ==================== -->
+        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden lg:hidden">
+            <div
+                class="w-64 max-w-[80%] bg-white dark:bg-darkblue-900 h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+                <div>
+                    <div
+                        class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-darkblue-border">
+                        <div class="flex items-center gap-2">
+                            <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
+                                onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';">
+                            <span class="font-black text-slate-900 dark:text-white">REX<span
+                                    class="text-brand-500">ORA</span></span>
+                        </div>
+                        <button onclick="toggleMobileDrawer()" class="text-slate-400 font-black text-lg p-1">✕</button>
+                    </div>
+
+                    <nav class="mt-6 space-y-1.5">
+                        <a href="index.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Overview</a>
+                        <a href="remote-jobs.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Remote-Jobs</a>
+                        <a href="social-engagment.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Social
+                            Engagement</a>
+                        <a href="surveys.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Surveys</a>
+                        <a href="streaks.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Daily
+                            Streaks</a>
+                        <a href="read-to-earn.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Read
+                            to Earn</a>
+                        <a href="referrals.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Referrals</a>
+                        <a href="top-earners.html"
+                            class="block px-3 py-2 rounded-xl bg-brand-500 text-white font-extrabold text-xs">🏆 Top
+                            Earners</a>
+                        <a href="wallet.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Wallet</a>
+                        <a href="payout.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Withdrawals</a>
+                        <a href="support.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Support</a>
+                        <a href="settings.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Settings</a>
+                    </nav>
+                </div>
+
+                <button onclick="handleLogout()"
+                    class="w-full mt-6 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-500 font-extrabold text-xs">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+        <main class="flex-1 lg:pl-64 flex flex-col min-w-0 w-full">
+
+            <!-- TOP NAVIGATION BAR -->
+            <header
+                class="sticky top-0 z-30 bg-white/70 dark:bg-darkblue-900/80 border-b border-slate-200/80 dark:border-darkblue-border px-4 sm:px-6 lg:px-8 py-3.5 glass-panel flex items-center justify-between min-w-0">
+                <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <button onclick="toggleMobileDrawer()"
+                        class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 shrink-0">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <h2
+                        class="text-xs sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-wider truncate">
+                        Hall of Fame</h2>
+                </div>
+
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <!-- Currency Toggle (Defaults to USD $) -->
+                    <button onclick="toggleLeaderboardCurrency()"
+                        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-50 dark:bg-darkblue-800 border border-brand-200/60 dark:border-darkblue-border text-brand-700 dark:text-brand-300 text-[10px] sm:text-xs font-black shadow-sm">
+                        <span id="lbCurLabel">USD ($)</span>
+                        <span class="text-[9px] bg-brand-500 text-white px-1.5 py-0.5 rounded font-black">Swap ₦</span>
+                    </button>
+
+                    <button onclick="toggleTheme()"
+                        class="p-2 rounded-full bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 hover:text-brand-500 transition-colors">
+                        <span id="themeIcon" class="text-sm font-black">🌙</span>
+                    </button>
+
+                    <div class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-darkblue-border">
+                        <div
+                            class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-md">
+                            G
+                        </div>
+                        <span class="text-xs font-black text-slate-800 dark:text-white hidden md:inline">Guzy</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- LEADERBOARD BODY CONTAINER -->
+            <div class="p-3.5 sm:p-6 lg:p-8 max-w-6xl mx-auto w-full space-y-8 min-w-0">
+
+                <!-- 1. HERO TITLE & LIVE STATUS -->
+                <div class="text-center max-w-2xl mx-auto space-y-2 pt-2">
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-100/80 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/50 text-brand-700 dark:text-brand-300 text-[10px] font-black uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                        Verified Earnings Leaderboard
+                    </div>
+                    <h1
+                        class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                        REXORA Top Earners
+                    </h1>
+                    <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400">
+                        Ranked strictly by verified USD task payouts and 50% affiliate referral commissions credited to
+                        member balances.
+                    </p>
+                </div>
+
+                <!-- 2. PODIUM SHOWCASE: RANK #2 (LEFT) | RANK #1 (CENTER ELEVATED) | RANK #3 (RIGHT) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 items-end pt-4">
+
+                    <!-- RANK #2 CARD (SILVER / SKY ACCENT - LEFT ON DESKTOP, SECOND ON MOBILE) -->
+                    <div
+                        class="order-2 md:order-1 p-6 rounded-3xl bg-white dark:bg-darkblue-900 border-2 border-slate-200 dark:border-slate-700/80 shadow-lg relative text-center flex flex-col items-center space-y-4 hover:-translate-y-1 transition-all">
+                        <!-- Rank Pill -->
+                        <div
+                            class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-black text-xs flex items-center justify-center shadow-md -mt-10 border-4 border-slate-50 dark:border-darkblue-950">
+                            2
+                        </div>
+
+                        <!-- Avatar Circle -->
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-slate-600 to-slate-400 p-1 shadow-md">
+                            <div class="w-full h-full rounded-full bg-slate-100 dark:bg-darkblue-800 flex items-center justify-center font-black text-xl text-slate-800 dark:text-white"
+                                id="podium2Avatar">
+                                B
+                            </div>
+                        </div>
+
+                        <!-- Name & Handle -->
+                        <div>
+                            <h3 class="text-lg font-black text-slate-900 dark:text-white" id="podium2Name">Buff</h3>
+                            <span class="text-xs font-bold text-slate-400" id="podium2Handle">@buffunique890</span>
+                        </div>
+
+                        <!-- Earnings Box -->
+                        <div
+                            class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200/80 dark:border-darkblue-border">
+                            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400 block">Total
+                                Verified Earnings</span>
+                            <div class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-0.5"
+                                id="podium2Amount">
+                                $4.00
+                            </div>
+                        </div>
+
+                        <span class="text-[11px] font-bold text-brand-600 dark:text-brand-400 flex items-center gap-1">
+                            ✓ Verified Active Status
+                        </span>
+                    </div>
+
+                    <!-- RANK #1 CARD (GOLD / BRAND CHAMPION - CENTER ELEVATED, FIRST ON MOBILE) -->
+                    <div
+                        class="order-1 md:order-2 p-6 sm:p-7 rounded-3xl bg-gradient-to-b from-brand-50/90 via-white to-white dark:from-darkblue-800 dark:via-darkblue-900 dark:to-darkblue-900 border-2 border-amber-400 dark:border-amber-400/80 shadow-2xl shadow-amber-500/10 relative text-center flex flex-col items-center space-y-4 md:pb-9 hover:-translate-y-1.5 transition-all">
+                        <!-- Floating Crown & Rank #1 Badge -->
+                        <div class="flex flex-col items-center -mt-12">
+                            <span class="text-2xl podium-crown drop-shadow">👑</span>
+                            <div
+                                class="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-400 text-navy-950 font-black text-sm flex items-center justify-center shadow-lg border-4 border-white dark:border-darkblue-950">
+                                1
+                            </div>
+                        </div>
+
+                        <!-- Gold Ring Avatar -->
+                        <div
+                            class="w-20 h-20 rounded-full bg-gradient-to-tr from-amber-500 via-yellow-400 to-amber-300 p-1 shadow-xl shadow-amber-500/20">
+                            <div class="w-full h-full rounded-full bg-amber-50 dark:bg-darkblue-850 flex items-center justify-center font-black text-2xl text-amber-600 dark:text-amber-400"
+                                id="podium1Avatar">
+                                S
+                            </div>
+                        </div>
+
+                        <!-- Champion Pill -->
+                        <span
+                            class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-500/20 border border-amber-300 dark:border-amber-500/40 text-amber-700 dark:text-amber-300 text-[9px] font-black uppercase tracking-widest">
+                            🏆 TOP REXORA CHAMPION
+                        </span>
+
+                        <!-- Name & Handle -->
+                        <div>
+                            <h3 class="text-xl font-black text-slate-900 dark:text-white" id="podium1Name">Smart</h3>
+                            <span class="text-xs font-bold text-slate-400" id="podium1Handle">@smart</span>
+                        </div>
+
+                        <!-- Earnings Box -->
+                        <div
+                            class="w-full p-4 rounded-2xl bg-amber-50/60 dark:bg-darkblue-850 border border-amber-200/80 dark:border-amber-500/30">
+                            <span
+                                class="text-[10px] font-black uppercase tracking-wider text-amber-600 dark:text-amber-400 block">Total
+                                Verified Earnings</span>
+                            <div class="text-2xl sm:text-3xl font-black text-amber-600 dark:text-amber-400 mt-0.5"
+                                id="podium1Amount">
+                                $4.00
+                            </div>
+                        </div>
+
+                        <span
+                            class="text-[11px] font-black text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                            ✓ Verified Active Status
+                        </span>
+                    </div>
+
+                    <!-- RANK #3 CARD (BRONZE / INDIGO ACCENT - RIGHT ON DESKTOP, THIRD ON MOBILE) -->
+                    <div
+                        class="order-3 p-6 rounded-3xl bg-white dark:bg-darkblue-900 border-2 border-amber-700/30 dark:border-amber-700/50 shadow-lg relative text-center flex flex-col items-center space-y-4 hover:-translate-y-1 transition-all">
+                        <!-- Rank Pill -->
+                        <div
+                            class="w-8 h-8 rounded-full bg-amber-600 text-white font-black text-xs flex items-center justify-center shadow-md -mt-10 border-4 border-slate-50 dark:border-darkblue-950">
+                            3
+                        </div>
+
+                        <!-- Avatar Circle -->
+                        <div
+                            class="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-700 to-orange-500 p-1 shadow-md">
+                            <div class="w-full h-full rounded-full bg-orange-50 dark:bg-darkblue-800 flex items-center justify-center font-black text-xl text-amber-700 dark:text-amber-400"
+                                id="podium3Avatar">
+                                D
+                            </div>
+                        </div>
+
+                        <!-- Name & Handle -->
+                        <div>
+                            <h3 class="text-lg font-black text-slate-900 dark:text-white" id="podium3Name">David_FX</h3>
+                            <span class="text-xs font-bold text-slate-400" id="podium3Handle">@david_fx</span>
+                        </div>
+
+                        <!-- Earnings Box -->
+                        <div
+                            class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200/80 dark:border-darkblue-border">
+                            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400 block">Total
+                                Verified Earnings</span>
+                            <div class="text-xl sm:text-2xl font-black text-amber-600 dark:text-amber-400 mt-0.5"
+                                id="podium3Amount">
+                                $1.50
+                            </div>
+                        </div>
+
+                        <span class="text-[11px] font-bold text-brand-600 dark:text-brand-400 flex items-center gap-1">
+                            ✓ Verified Active Status
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- 3. OFFICIAL LEADERBOARD TABLE -->
+                <div
+                    class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-5">
+
+                    <!-- Table Header -->
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 dark:border-darkblue-border">
+                        <div>
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <h3
+                                    class="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
+                                    Official REXORA Leaderboard
+                                </h3>
+                                <span
+                                    class="px-2.5 py-0.5 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 text-[9px] font-black uppercase tracking-wider">
+                                    Verified Rankings
+                                </span>
+                            </div>
+                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-1">
+                                Ranked strictly by verified, authentic referral & task earnings credited to member
+                                balances.
+                            </p>
+                        </div>
+
+                        <div
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase tracking-wider self-start sm:self-auto shrink-0">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Live Database Feed
+                        </div>
+                    </div>
+
+                    <!-- Responsive Table Container -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs font-bold min-w-[560px]">
+                            <thead>
+                                <tr
+                                    class="border-b border-slate-100 dark:border-darkblue-border text-slate-400 text-[10px] uppercase tracking-wider">
+                                    <th class="py-3.5 px-3">Rank</th>
+                                    <th class="py-3.5 px-3">User & Handle</th>
+                                    <th class="py-3.5 px-3">Active Tier</th>
+                                    <th class="py-3.5 px-3">Status</th>
+                                    <th class="py-3.5 px-3 text-right">Total Verified Earnings</th>
+                                </tr>
+                            </thead>
+                            <tbody id="leaderboardTableBody"
+                                class="divide-y divide-slate-100 dark:divide-darkblue-border text-slate-700 dark:text-slate-300">
+                                <!-- Populated dynamically via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- ==================== FIXED MOBILE BOTTOM NAVBAR ==================== -->
+    <nav
+        class="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-darkblue-900/95 border-t border-slate-200/80 dark:border-darkblue-border px-2 py-2.5 glass-panel flex items-center justify-around">
+        <a href="index.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            Home
+        </a>
+        <a href="remote-jobs.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Jobs
+        </a>
+        <a href="streaks.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Streaks
+        </a>
+        <a href="payout.html"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Payout
+        </a>
+        <button onclick="toggleMobileDrawer()"
+            class="flex flex-col items-center text-slate-500 dark:text-slate-400 font-black text-[10px]">
+            <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            Menu
+        </button>
+    </nav>
+
+    <!-- ==================== JAVASCRIPT CONTROLLERS ==================== -->
+    <script>
+        // 1. Theme Configuration
+        function initTheme() {
+            const savedTheme = localStorage.getItem('rexora_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+            } else {
+                document.documentElement.classList.remove('dark');
+                document.getElementById('themeIcon').textContent = '🌙';
+            }
+        }
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('rexora_theme', isDark ? 'dark' : 'light');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+        }
+        initTheme();
+
+        function toggleMobileDrawer() {
+            document.getElementById('mobileDrawer').classList.toggle('hidden');
+        }
+
+        // 2. Leaderboard Dataset (USD Default)
+        let activeCurrency = 'USD'; // Defaults to USD ($)
+        const rate = 1000;
+
+        const topEarnersData = [
+            { rank: 1, name: "Smart", handle: "@smart", initial: "S", plan: "PRO", earningsUSD: 4.00 },
+            { rank: 2, name: "Buff", handle: "@buffunique890", initial: "B", plan: "PRO", earningsUSD: 4.00 },
+            { rank: 3, name: "David_FX", handle: "@david_fx", initial: "D", plan: "PRO", earningsUSD: 1.50 },
+            { rank: 4, name: "Chidex Dev", handle: "@chidex_ui", initial: "C", plan: "PRO", earningsUSD: 1.50 },
+            { rank: 5, name: "Amina_K", handle: "@amina_k", initial: "A", plan: "STARTER", earningsUSD: 0.75 },
+            { rank: 6, name: "Victor Tech", handle: "@victortech", initial: "V", plan: "PRO", earningsUSD: 0.75 }
+        ];
+
+        function formatAmount(usdAmount) {
+            if (activeCurrency === 'USD') {
+                return `$${usdAmount.toFixed(2)}`;
+            } else {
+                const ngn = usdAmount * rate;
+                return `₦${ngn.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            }
+        }
+
+        function toggleLeaderboardCurrency() {
+            activeCurrency = activeCurrency === 'USD' ? 'NGN' : 'USD';
+            document.getElementById('lbCurLabel').textContent = activeCurrency === 'USD' ? 'USD ($)' : 'NGN (₦)';
+            renderLeaderboard();
+        }
+
+        function renderLeaderboard() {
+            // Update Podium Top 3
+            const p1 = topEarnersData[0];
+            const p2 = topEarnersData[1];
+            const p3 = topEarnersData[2];
+
+            document.getElementById('podium1Avatar').textContent = p1.initial;
+            document.getElementById('podium1Name').textContent = p1.name;
+            document.getElementById('podium1Handle').textContent = p1.handle;
+            document.getElementById('podium1Amount').textContent = formatAmount(p1.earningsUSD);
+
+            document.getElementById('podium2Avatar').textContent = p2.initial;
+            document.getElementById('podium2Name').textContent = p2.name;
+            document.getElementById('podium2Handle').textContent = p2.handle;
+            document.getElementById('podium2Amount').textContent = formatAmount(p2.earningsUSD);
+
+            document.getElementById('podium3Avatar').textContent = p3.initial;
+            document.getElementById('podium3Name').textContent = p3.name;
+            document.getElementById('podium3Handle').textContent = p3.handle;
+            document.getElementById('podium3Amount').textContent = formatAmount(p3.earningsUSD);
+
+            // Update Table Body
+            const tbody = document.getElementById('leaderboardTableBody');
+            tbody.innerHTML = '';
+
+            topEarnersData.forEach(user => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 dark:hover:bg-darkblue-850/60 transition-colors";
+
+                let rankBadge = `<span class="w-6 h-6 rounded-lg bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-300 inline-flex items-center justify-center font-black text-[11px]">#${user.rank}</span>`;
+                if (user.rank === 1) {
+                    rankBadge = `<span class="w-6 h-6 rounded-lg bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300 inline-flex items-center justify-center font-black text-[11px]">🥇</span>`;
+                } else if (user.rank === 2) {
+                    rankBadge = `<span class="w-6 h-6 rounded-lg bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-200 inline-flex items-center justify-center font-black text-[11px]">🥈</span>`;
+                } else if (user.rank === 3) {
+                    rankBadge = `<span class="w-6 h-6 rounded-lg bg-orange-100 text-orange-700 dark:bg-orange-500/20 dark:text-orange-300 inline-flex items-center justify-center font-black text-[11px]">🥉</span>`;
+                }
+
+                const tierPill = user.plan === 'PRO'
+                    ? `<span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">PRO</span>`
+                    : `<span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300">STARTER</span>`;
+
+                tr.innerHTML = `
+          <td class="py-3.5 px-3">${rankBadge}</td>
+          <td class="py-3.5 px-3">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400 font-black text-xs flex items-center justify-center shrink-0">
+                ${user.initial}
+              </div>
+              <div>
+                <div class="font-black text-slate-900 dark:text-white">${user.name}</div>
+                <div class="text-[10px] font-bold text-slate-400">${user.handle}</div>
+              </div>
+            </div>
+          </td>
+          <td class="py-3.5 px-3">${tierPill}</td>
+          <td class="py-3.5 px-3">
+            <span class="text-[10px] font-black text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+              ✓ Verified Active
+            </span>
+          </td>
+          <td class="py-3.5 px-3 text-right font-black text-sm text-slate-900 dark:text-white">
+            ${formatAmount(user.earningsUSD)}
+          </td>
+        `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out of REXORA?')) {
+                window.location.href = '../auth/login.html';
+            }
+        }
+
+        // Initial render
+        renderLeaderboard();
+    </script>
+</body>
+
+</html>

@@ -5,13 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Affiliate Commissions & Referrals | REXORA</title>
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
         rel="stylesheet">
-
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -44,11 +42,16 @@
             }
         }
     </script>
-
     <style>
         * {
             box-sizing: border-box;
             transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         body.light-theme {
@@ -86,9 +89,7 @@
 
 <body
     class="light-theme text-slate-800 dark:text-slate-100 font-sans selection:bg-brand-500 selection:text-white antialiased min-h-screen pb-28 lg:pb-12 overflow-x-hidden">
-
-    <div class="flex min-h-screen w-full relative">
-
+    <div class="flex min-h-screen w-full relative overflow-x-hidden">
         <!-- ==================== SIDEBAR (DESKTOP) ==================== -->
         <aside
             class="hidden lg:flex flex-col justify-between w-64 bg-white/80 dark:bg-darkblue-900/90 border-r border-slate-200/80 dark:border-darkblue-border fixed inset-y-0 left-0 z-40 p-5 glass-panel">
@@ -99,7 +100,6 @@
                     <span class="text-xl font-black tracking-tight text-slate-900 dark:text-white">REX<span
                             class="text-brand-500">ORA</span></span>
                 </a>
-
                 <nav class="mt-8 space-y-1.5">
                     <a href="index.html"
                         class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
@@ -109,7 +109,6 @@
                         </svg>
                         Overview
                     </a>
-
                     <a href="remote-jobs.html"
                         class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
                         <span class="flex items-center gap-3">
@@ -123,7 +122,6 @@
                         <span
                             class="text-[9px] bg-indigo-100 text-indigo-700 dark:bg-indigo-900/50 dark:text-indigo-300 font-black px-1.5 py-0.5 rounded uppercase">Pro</span>
                     </a>
-
                     <a href="social-engagment.html"
                         class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
                         <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
@@ -133,7 +131,6 @@
                         </svg>
                         Social Engagement
                     </a>
-
                     <a href="surveys.html"
                         class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
                         <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
@@ -143,7 +140,6 @@
                         </svg>
                         Surveys
                     </a>
-
                     <a href="streaks.html"
                         class="flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
                         <span class="flex items-center gap-3">
@@ -158,7 +154,6 @@
                             class="text-[9px] bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300 font-black px-1.5 py-0.5 rounded uppercase">2
                             Ref</span>
                     </a>
-
                     <a href="read-to-earn.html"
                         class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
                         <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
@@ -168,7 +163,6 @@
                         </svg>
                         Read to Earn
                     </a>
-
                     <!-- ACTIVE: REFERRALS -->
                     <a href="referrals.html"
                         class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl bg-brand-500 text-white font-extrabold text-xs tracking-wide shadow-md shadow-brand-500/20">
@@ -178,7 +172,6 @@
                         </svg>
                         Referrals & 50% Cuts
                     </a>
-
                     <a href="wallet.html"
                         class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
                         <svg class="w-4 h-4 shrink-0 text-brand-500" fill="none" stroke="currentColor"
@@ -188,7 +181,6 @@
                         </svg>
                         Wallet
                     </a>
-
                     <a href="payout.html"
                         class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
                         <svg class="w-4 h-4 shrink-0 text-emerald-500" fill="none" stroke="currentColor"
@@ -198,7 +190,6 @@
                         </svg>
                         Withdrawals
                     </a>
-
                     <a href="support.html"
                         class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide transition-all">
                         <svg class="w-4 h-4 shrink-0 text-slate-400" fill="none" stroke="currentColor"
@@ -210,7 +201,6 @@
                     </a>
                 </nav>
             </div>
-
             <div class="pt-4 border-t border-slate-200/80 dark:border-darkblue-border space-y-1">
                 <a href="settings.html"
                     class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-darkblue-800 font-extrabold text-xs tracking-wide">
@@ -234,12 +224,12 @@
         </aside>
 
         <!-- ==================== MOBILE SLIDE DRAWER ==================== -->
-        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden lg:hidden">
+        <div id="mobileDrawer" class="fixed inset-0 z-50 bg-darkblue-950/70 backdrop-blur-sm hidden lg:hidden">
             <div
-                class="w-64 max-w-[80%] bg-white dark:bg-darkblue-900 h-full p-6 flex flex-col justify-between shadow-2xl overflow-y-auto">
+                class="w-64 max-w-[82%] bg-white dark:bg-darkblue-900 h-full p-5 flex flex-col justify-between shadow-2xl overflow-y-auto">
                 <div>
                     <div
-                        class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-darkblue-border">
+                        class="flex items-center justify-between pb-5 border-b border-slate-100 dark:border-darkblue-border">
                         <div class="flex items-center gap-2">
                             <img src="../assets/images/logo/logo.png" alt="REXORA" class="h-6 w-auto"
                                 onerror="this.onerror=null; this.src='https://placehold.co/90x24/0EA5E9/ffffff?text=REXORA';">
@@ -248,8 +238,7 @@
                         </div>
                         <button onclick="toggleMobileDrawer()" class="text-slate-400 font-black text-lg p-1">✕</button>
                     </div>
-
-                    <nav class="mt-6 space-y-1.5">
+                    <nav class="mt-5 space-y-1.5">
                         <a href="index.html"
                             class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Overview</a>
                         <a href="remote-jobs.html"
@@ -267,6 +256,9 @@
                             to Earn</a>
                         <a href="referrals.html"
                             class="block px-3 py-2 rounded-xl bg-brand-500 text-white font-extrabold text-xs">Referrals</a>
+                        <a href="top-earners.html"
+                            class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">🏆
+                            Top Earners</a>
                         <a href="wallet.html"
                             class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Wallet</a>
                         <a href="payout.html"
@@ -277,7 +269,6 @@
                             class="block px-3 py-2 rounded-xl text-slate-700 dark:text-slate-300 font-extrabold text-xs">Settings</a>
                     </nav>
                 </div>
-
                 <button onclick="handleLogout()"
                     class="w-full mt-6 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-500 font-extrabold text-xs">
                     Sign Out
@@ -287,7 +278,6 @@
 
         <!-- ==================== MAIN CONTENT WRAPPER ==================== -->
         <main class="flex-1 lg:pl-64 flex flex-col min-w-0 w-full">
-
             <!-- TOP NAVIGATION BAR -->
             <header
                 class="sticky top-0 z-30 bg-white/70 dark:bg-darkblue-900/80 border-b border-slate-200/80 dark:border-darkblue-border px-4 sm:px-6 lg:px-8 py-3.5 glass-panel flex items-center justify-between min-w-0">
@@ -303,18 +293,15 @@
                         class="text-xs sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-wider truncate">
                         Affiliate Hub</h2>
                 </div>
-
                 <div class="flex items-center gap-2 sm:gap-3 shrink-0">
                     <a href="top-earners.html"
                         class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300 text-[10px] sm:text-xs font-black shadow-sm hover:scale-105 transition-transform">
-                        🏆 <span class="hidden xs:inline">Top Earners</span>
+                        🏆 <span class="hidden sm:inline">Top Earners</span>
                     </a>
-
                     <button onclick="toggleTheme()"
                         class="p-2 rounded-full bg-slate-100 dark:bg-darkblue-800 text-slate-600 dark:text-slate-200 hover:text-brand-500 transition-colors">
                         <span id="themeIcon" class="text-sm font-black">🌙</span>
                     </button>
-
                     <div class="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-darkblue-border">
                         <div
                             class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center font-black text-xs shadow-md">
@@ -327,7 +314,6 @@
 
             <!-- REFERRALS BODY CONTAINER -->
             <div class="p-3.5 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full space-y-6 min-w-0">
-
                 <!-- 1. WEEKEND SETTLEMENT NOTICE BANNER -->
                 <div
                     class="p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-700 text-white shadow-xl shadow-brand-500/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -342,14 +328,15 @@
                         <h3 class="text-base sm:text-lg font-black tracking-tight mt-1">Automatic Weekend Payout
                             Schedule</h3>
                         <p class="text-xs font-bold text-brand-100 max-w-xl">
-                            All accumulated affiliate cuts are unlocked and processed directly to your Nigerian bank
-                            account or wallet every Friday through Sunday.
+                            All accumulated affiliate cuts and claimed milestone grants are unlocked and processed
+                            directly
+                            to your Nigerian bank account every Friday through Sunday.
                         </p>
                     </div>
                     <div class="shrink-0 flex items-center gap-2">
                         <span
                             class="px-3.5 py-2 rounded-2xl bg-white/10 border border-white/20 text-xs font-black text-white">
-                            🏦 Direct Settlement
+                            ⚡ Direct Settlement
                         </span>
                     </div>
                 </div>
@@ -363,10 +350,9 @@
                                 Referral Network & Yield
                             </h1>
                             <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-                                Earn 50% instant payout on every invited member who activates a Starter or Pro package.
+                                Earn 50% instant payout per invite plus tiered achievement milestone bonuses.
                             </p>
                         </div>
-
                         <!-- Currency Toggle -->
                         <button onclick="toggleRefCurrency()"
                             class="inline-flex items-center justify-between sm:justify-start gap-2 px-3 py-2 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-700 dark:text-slate-200 text-xs font-black self-stretch sm:self-auto shrink-0 shadow-sm">
@@ -375,9 +361,7 @@
                                 ₦</span>
                         </button>
                     </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
-
                         <!-- Card 1: Total Affiliate Earnings -->
                         <div
                             class="p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex items-center justify-between min-w-0">
@@ -398,7 +382,6 @@
                                     ≈ ₦0 (Pending Weekend Settlement)
                                 </p>
                             </div>
-
                             <div
                                 class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
                                 💰
@@ -420,24 +403,61 @@
                                     id="networkCountDisplay">
                                     0 Referrals
                                 </div>
-                                <p
-                                    class="text-[10px] sm:text-[11px] font-bold text-brand-600 dark:text-brand-400 truncate">
+                                <p class="text-[10px] sm:text-[11px] font-bold text-brand-600 dark:text-brand-400 truncate"
+                                    id="networkBreakdownSub">
                                     0 Starter • 0 Pro Verified
                                 </p>
                             </div>
-
                             <div
                                 class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center font-black text-lg sm:text-xl shrink-0 ml-2">
                                 👥
                             </div>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- 3. REFERRAL LINK & MULTI-CHANNEL SHARE HUB -->
+                <!-- 3. INTERACTIVE REFERRAL MILESTONE QUESTS (BONUS TIERS) -->
                 <div
-                    class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-5">
+                    class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-5 min-w-0">
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100 dark:border-darkblue-border">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300">
+                                    🏆 Achievement Quests
+                                </span>
+                                <span class="text-[10px] font-black uppercase tracking-wider text-brand-500">
+                                    Extra Bonus Grants
+                                </span>
+                            </div>
+                            <h3 class="text-base sm:text-lg font-black text-slate-900 dark:text-white mt-1.5">
+                                Interactive Referral Milestone Quests
+                            </h3>
+                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400">
+                                Hit verified member invite targets to unlock one-click bonus grants on top of your 50%
+                                cuts.
+                            </p>
+                        </div>
+
+                        <div class="text-left sm:text-right shrink-0">
+                            <span class="text-[10px] font-black uppercase text-slate-400 block">Claimed Tiers</span>
+                            <span id="claimedMilestonesCount"
+                                class="text-sm font-black text-emerald-600 dark:text-emerald-400">
+                                0 / 4 Unlocked
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- 4 Milestone Cards Grid (Populated via JS) -->
+                    <div id="milestonesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 min-w-0">
+                        <!-- Dynamically rendered -->
+                    </div>
+                </div>
+
+                <!-- 4. REFERRAL LINK & MULTI-CHANNEL SHARE HUB -->
+                <div
+                    class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-5 min-w-0">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                         <div>
                             <span class="text-[10px] font-black uppercase tracking-wider text-brand-500">Distribution
@@ -448,51 +468,45 @@
                         <span class="text-xs font-bold text-slate-400">Referral ID: <strong
                                 class="text-brand-500">@guzy</strong></span>
                     </div>
-
                     <!-- Direct Copy Field -->
-                    <div class="flex items-center gap-2">
+                    <div class="flex flex-col xs:flex-row items-stretch xs:items-center gap-2 min-w-0">
                         <input type="text" readonly id="mainAffiliateLinkInput"
                             value="https://rexora.com/auth/register.html?ref=guzy"
-                            class="flex-1 px-3.5 py-3 rounded-2xl bg-slate-100 dark:bg-darkblue-800 border border-slate-200 dark:border-darkblue-border text-xs sm:text-sm font-black text-slate-700 dark:text-slate-200 focus:outline-none" />
+                            class="flex-1 min-w-0 px-3.5 py-3 rounded-2xl bg-slate-100 dark:bg-darkblue-800 border border-slate-200 dark:border-darkblue-border text-xs sm:text-sm font-black text-slate-700 dark:text-slate-200 focus:outline-none truncate" />
                         <button onclick="copyAffiliateLink()" id="copyMainLinkBtn"
                             class="px-5 py-3 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-md transition-all shrink-0">
                             Copy Link
                         </button>
                     </div>
-
                     <!-- One-Click Social Sharing Channels -->
                     <div
                         class="pt-3 border-t border-slate-100 dark:border-darkblue-border flex flex-wrap items-center justify-between gap-3">
                         <span class="text-xs font-black text-slate-400 uppercase tracking-wider">Fast Broadcast:</span>
-
                         <div class="flex flex-wrap items-center gap-2">
                             <a href="https://api.whatsapp.com/send?text=Join%20me%20on%20REXORA%20to%20access%20verified%20remote%20micro-jobs,%20daily%20streak%20pools,%20and%20instant%20surveys!%20Register%20here:%20https://rexora.com/auth/register.html?ref=guzy"
                                 target="_blank"
                                 class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-black inline-flex items-center gap-1.5 shadow-sm transition-all">
                                 <span>💬</span> WhatsApp
                             </a>
-
                             <a href="https://t.me/share/url?url=https://rexora.com/auth/register.html?ref=guzy&text=Join%20me%20on%20REXORA%20to%20start%20earning%20from%20tasks,%20remote%20jobs,%20and%20daily%20streaks!"
                                 target="_blank"
                                 class="px-3.5 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white text-xs font-black inline-flex items-center gap-1.5 shadow-sm transition-all">
                                 <span>✈️</span> Telegram
                             </a>
-
                             <a href="https://twitter.com/intent/tweet?text=Join%20me%20on%20REXORA%20to%20earn%20from%20verified%20remote%20jobs%20and%20daily%20rewards!%20https://rexora.com/auth/register.html?ref=guzy"
                                 target="_blank"
                                 class="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-black text-white text-xs font-black inline-flex items-center gap-1.5 shadow-sm transition-all">
-                                <span>🐦</span> X (Twitter)
+                                <span>𝕏</span> X (Twitter)
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 4. DUAL-TIER COMMISSION BREAKDOWN & INTERACTIVE SIMULATOR -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
+                <!-- 5. DUAL-TIER COMMISSION BREAKDOWN & INTERACTIVE SIMULATOR -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 min-w-0">
                     <!-- Commission Yield Rate Cards -->
                     <div
-                        class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4 flex flex-col justify-between">
+                        class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4 flex flex-col justify-between min-w-0">
                         <div>
                             <span class="text-[10px] font-black uppercase tracking-wider text-brand-500">Commission
                                 Structure</span>
@@ -502,9 +516,7 @@
                                 Every activated subscription automatically routes half of the registration fee directly
                                 into your affiliate balance.
                             </p>
-
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mt-4">
-
                                 <!-- Starter Cut Card -->
                                 <div
                                     class="p-4 rounded-2xl bg-slate-50 dark:bg-darkblue-800 border border-slate-100 dark:border-darkblue-border space-y-1">
@@ -515,7 +527,6 @@
                                     <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 block">50%
                                         Instant Cut</span>
                                 </div>
-
                                 <!-- Pro Cut Card -->
                                 <div
                                     class="p-4 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/40 space-y-1">
@@ -526,10 +537,8 @@
                                     <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 block">50%
                                         Instant Cut</span>
                                 </div>
-
                             </div>
                         </div>
-
                         <p
                             class="text-[11px] font-bold text-slate-400 pt-2 border-t border-slate-100 dark:border-darkblue-border">
                             *All referral cuts contribute towards unlocking your daily streak triple drops on the
@@ -539,7 +548,7 @@
 
                     <!-- Interactive Commission Calculator -->
                     <div
-                        class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4">
+                        class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4 min-w-0">
                         <div>
                             <span
                                 class="text-[10px] font-black uppercase tracking-wider text-brand-500">Calculator</span>
@@ -550,18 +559,15 @@
                                 referrals.
                             </p>
                         </div>
-
                         <div class="space-y-3 pt-2">
                             <div class="flex items-center justify-between text-xs font-black">
                                 <span class="text-slate-500 dark:text-slate-400">Projected PRO Invites:</span>
                                 <span id="sliderValueText"
                                     class="text-brand-600 dark:text-brand-400 font-black text-sm">10 Members</span>
                             </div>
-
                             <input type="range" min="1" max="50" value="10" id="referralSlider"
                                 oninput="updateProjection(this.value)"
                                 class="w-full h-2 bg-slate-200 dark:bg-darkblue-800 rounded-lg appearance-none cursor-pointer accent-brand-500" />
-
                             <div
                                 class="p-4 rounded-2xl bg-brand-50/50 dark:bg-darkblue-800/80 border border-brand-100 dark:border-darkblue-border flex items-center justify-between mt-2">
                                 <div>
@@ -572,34 +578,33 @@
                                 </div>
                                 <span class="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400"
                                     id="projectedNgnText">
-                                    ≈ ₦15,000 NGN
+                                    ₦15,000 NGN
                                 </span>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
-                <!-- 5. DOWNLINE REFERRAL TREE & ACTIVITY TABLE (STRICTLY 0 DEFAULT) -->
+                <!-- 6. DOWNLINE REFERRAL TREE & ACTIVITY TABLE (STRICTLY 0 DEFAULT) -->
                 <div
-                    class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4">
+                    class="p-5 sm:p-7 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm space-y-4 min-w-0">
                     <div
-                        class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-darkblue-border">
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100 dark:border-darkblue-border">
                         <div>
-                            <h3 class="text-base font-black text-slate-900 dark:text-white">Invited Members Downline
+                            <h3 class="text-base font-black text-slate-900 dark:text-white">Invited Members Downline &
+                                Milestone Credits
                             </h3>
-                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Direct sign-ups tracked via
-                                ref code: @guzy</p>
+                            <p class="text-xs font-bold text-slate-500 dark:text-slate-400">Direct sign-ups and claimed
+                                quest rewards tracked via ref code: @guzy</p>
                         </div>
-
                         <!-- Testing Sim: Add / Reset Demo Referrals -->
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 self-start sm:self-auto">
                             <button onclick="simulateAddReferralDownline()"
-                                class="px-2.5 py-1 rounded-lg bg-brand-500 text-white font-black text-[10px] uppercase tracking-wider">
+                                class="px-2.5 py-1.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white font-black text-[10px] uppercase tracking-wider transition-colors">
                                 + Simulate Sign-Up
                             </button>
                             <button onclick="resetReferralsDownline()"
-                                class="px-2 py-1 rounded-lg bg-slate-200 dark:bg-darkblue-800 text-slate-600 dark:text-slate-300 font-black text-[10px] uppercase">
+                                class="px-2.5 py-1.5 rounded-lg bg-slate-200 dark:bg-darkblue-800 text-slate-600 dark:text-slate-300 font-black text-[10px] uppercase">
                                 Reset
                             </button>
                         </div>
@@ -609,25 +614,25 @@
                     <div id="emptyDownlineView" class="py-12 text-center flex flex-col items-center">
                         <div
                             class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-darkblue-800 text-slate-400 flex items-center justify-center text-xl mb-3">
-                            👥
+                            🌱
                         </div>
                         <h4 class="text-sm font-black text-slate-900 dark:text-white">No referrals joined yet</h4>
                         <p class="text-xs font-bold text-slate-400 mt-1 max-w-xs leading-relaxed">
                             Share your affiliate link on WhatsApp, Telegram, or social channels to start building your
-                            50% commission downline.
+                            50% commission downline and unlocking milestone quests.
                         </p>
                     </div>
 
                     <!-- Table Container (Hidden when 0) -->
                     <div id="tableContainer" class="overflow-x-auto hidden">
-                        <table class="w-full text-left text-xs font-bold min-w-[500px]">
+                        <table class="w-full text-left text-xs font-bold min-w-[520px]">
                             <thead>
                                 <tr
                                     class="border-b border-slate-100 dark:border-darkblue-border text-slate-400 text-[10px] uppercase tracking-wider">
-                                    <th class="py-3 px-2">Member</th>
-                                    <th class="py-3 px-2">Plan Tier</th>
-                                    <th class="py-3 px-2">Your 50% Cut</th>
-                                    <th class="py-3 px-2">Date</th>
+                                    <th class="py-3 px-2">Member / Milestone</th>
+                                    <th class="py-3 px-2">Tier / Category</th>
+                                    <th class="py-3 px-2">Credit Earned</th>
+                                    <th class="py-3 px-2">Time</th>
                                     <th class="py-3 px-2 text-right">Status</th>
                                 </tr>
                             </thead>
@@ -637,12 +642,9 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
-
             </div>
         </main>
-
     </div>
 
     <!-- ==================== FIXED MOBILE BOTTOM NAVBAR ==================== -->
@@ -713,17 +715,26 @@
             document.getElementById('mobileDrawer').classList.toggle('hidden');
         }
 
-        // 2. Affiliate KPI Stats State (Strict 0.00 Default - No Demo Balance)
+        // 2. Affiliate & Milestone Quests State (Strict 0.00 Default - No Demo Balance)
         function getStoredAffiliateData() {
             const data = localStorage.getItem('rexora_affiliate_data');
             if (data) {
-                try { return JSON.parse(data); } catch (e) { console.error(e); }
+                try {
+                    const parsed = JSON.parse(data);
+                    if (!Array.isArray(parsed.downline)) parsed.downline = [];
+                    if (!Array.isArray(parsed.claimedMilestones)) parsed.claimedMilestones = [];
+                    if (typeof parsed.totalUSD !== 'number') parsed.totalUSD = 0.00;
+                    if (!parsed.currency) parsed.currency = 'USD';
+                    if (!parsed.rate) parsed.rate = 1000;
+                    return parsed;
+                } catch (e) { console.error(e); }
             }
             return {
                 totalUSD: 0.00,
                 currency: 'USD',
                 rate: 1000,
-                downline: [] // [{ username, plan, amountUSD, date, status }]
+                downline: [],          // [{ username, plan, amountUSD, date, status }]
+                claimedMilestones: []  // ['tier_1', 'tier_2', ...]
             };
         }
 
@@ -733,15 +744,78 @@
             localStorage.setItem('rexora_affiliate_data', JSON.stringify(affiliateState));
         }
 
-        // 3. Render Cards & Currency Toggles
+        // 3. Milestone Tiers Definition
+        const milestoneTiers = [
+            {
+                id: 'tier_1',
+                badge: 'TIER 01 • BRONZE SCOUT',
+                title: 'First 3 Paid Referrals',
+                description: 'Invite 3 paid members on any package (Starter or Pro).',
+                target: 3,
+                type: 'all', // Any paid referral
+                rewardUSD: 2.00,
+                icon: '🥉',
+                accentBg: 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300'
+            },
+            {
+                id: 'tier_2',
+                badge: 'TIER 02 • SILVER BUILDER',
+                title: '10 Active Network Invites',
+                description: 'Grow your verified paid referral network to 10 members.',
+                target: 10,
+                type: 'all', // Any paid referral
+                rewardUSD: 7.50,
+                icon: '🥈',
+                accentBg: 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200'
+            },
+            {
+                id: 'tier_3',
+                badge: 'TIER 03 • GOLD PARTNER',
+                title: '25 PRO Plan Activations',
+                description: 'Invite 25 members who activate the PRO ($3 / ₦3,000) tier.',
+                target: 25,
+                type: 'pro', // Pro referrals only
+                rewardUSD: 25.00,
+                icon: '🥇',
+                accentBg: 'bg-indigo-100 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300'
+            },
+            {
+                id: 'tier_4',
+                badge: 'TIER 04 • DIAMOND AMBASSADOR',
+                title: '50 PRO Plan Activations',
+                description: 'Reach 50 verified PRO referrals to unlock the Ambassador Grant.',
+                target: 50,
+                type: 'pro', // Pro referrals only
+                rewardUSD: 60.00,
+                icon: '💎',
+                accentBg: 'bg-brand-100 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300'
+            }
+        ];
+
+        // Count actual member referrals (excluding milestone ledger rows)
+        function getReferralCounts() {
+            const members = affiliateState.downline.filter(item => item.plan === 'starter' || item.plan === 'pro');
+            const starterCount = members.filter(m => m.plan === 'starter').length;
+            const proCount = members.filter(m => m.plan === 'pro').length;
+            return {
+                totalMembers: members.length,
+                starterCount,
+                proCount
+            };
+        }
+
+        // 4. Render Cards, Milestones & Currency Toggles
         function renderAffiliateStats() {
             const totalDisplay = document.getElementById('totalAffiliateDisplay');
             const totalSub = document.getElementById('totalAffiliateSub');
             const networkCount = document.getElementById('networkCountDisplay');
+            const networkSub = document.getElementById('networkBreakdownSub');
             const curLabel = document.getElementById('refCurLabel');
 
-            const count = affiliateState.downline.length;
-            networkCount.textContent = `${count} Referral${count === 1 ? '' : 's'}`;
+            const { totalMembers, starterCount, proCount } = getReferralCounts();
+
+            networkCount.textContent = `${totalMembers} Referral${totalMembers === 1 ? '' : 's'}`;
+            networkSub.textContent = `${starterCount} Starter • ${proCount} Pro Verified`;
 
             if (affiliateState.currency === 'USD') {
                 curLabel.textContent = "USD ($)";
@@ -753,7 +827,130 @@
                 totalSub.textContent = `≈ $${affiliateState.totalUSD.toFixed(2)} USD (Pending Weekend Settlement)`;
             }
 
+            renderMilestones();
             renderDownlineTable();
+        }
+
+        function renderMilestones() {
+            const grid = document.getElementById('milestonesGrid');
+            const claimedHeader = document.getElementById('claimedMilestonesCount');
+            const { totalMembers, proCount } = getReferralCounts();
+
+            claimedHeader.textContent = `${affiliateState.claimedMilestones.length} / ${milestoneTiers.length} Unlocked`;
+            grid.innerHTML = '';
+
+            milestoneTiers.forEach(tier => {
+                const currentCount = tier.type === 'pro' ? proCount : totalMembers;
+                const cappedCount = Math.min(currentCount, tier.target);
+                const pct = Math.min(100, Math.round((currentCount / tier.target) * 100));
+                const isClaimed = affiliateState.claimedMilestones.includes(tier.id);
+                const isUnlocked = currentCount >= tier.target;
+                const remaining = Math.max(0, tier.target - currentCount);
+
+                const rewardText = affiliateState.currency === 'USD'
+                    ? `+$${tier.rewardUSD.toFixed(2)}`
+                    : `+₦${(tier.rewardUSD * affiliateState.rate).toLocaleString()}`;
+
+                const unitLabel = tier.type === 'pro' ? 'Pro Referrals' : 'Paid Referrals';
+
+                let actionBtnHtml = '';
+                if (isClaimed) {
+                    actionBtnHtml = `
+                        <button disabled class="w-full py-2.5 px-4 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-black text-xs uppercase tracking-wider cursor-default">
+                            ✓ Claimed & Credited
+                        </button>
+                    `;
+                } else if (isUnlocked) {
+                    actionBtnHtml = `
+                        <button onclick="claimMilestoneBonus('${tier.id}')" class="w-full py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5 cursor-pointer">
+                            Claim ${rewardText} Bonus
+                        </button>
+                    `;
+                } else {
+                    actionBtnHtml = `
+                        <button disabled class="w-full py-2.5 px-4 rounded-xl bg-slate-100 dark:bg-darkblue-800 text-slate-400 dark:text-slate-500 font-black text-xs uppercase tracking-wider cursor-not-allowed">
+                            🔒 ${remaining} More Needed
+                        </button>
+                    `;
+                }
+
+                const card = document.createElement('div');
+                card.className = `p-4 sm:p-5 rounded-2xl border transition-all flex flex-col justify-between space-y-4 min-w-0 ${isUnlocked && !isClaimed
+                        ? 'bg-emerald-50/40 dark:bg-emerald-950/15 border-emerald-400/70 shadow-md'
+                        : 'bg-slate-50/70 dark:bg-darkblue-850 border-slate-200/80 dark:border-darkblue-border'
+                    }`;
+
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between gap-2">
+                            <div class="flex items-center gap-2.5 min-w-0">
+                                <div class="w-10 h-10 rounded-xl ${tier.accentBg} flex items-center justify-center text-lg shrink-0 font-black">
+                                    ${tier.icon}
+                                </div>
+                                <div class="min-w-0">
+                                    <span class="text-[9px] font-black uppercase tracking-wider text-slate-400 block truncate">${tier.badge}</span>
+                                    <h4 class="text-sm font-black text-slate-900 dark:text-white truncate">${tier.title}</h4>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-black text-xs shrink-0">
+                                ${rewardText}
+                            </span>
+                        </div>
+
+                        <p class="text-xs font-medium text-slate-500 dark:text-slate-400 leading-relaxed">
+                            ${tier.description}
+                        </p>
+
+                        <!-- Progress Bar -->
+                        <div class="space-y-1.5">
+                            <div class="flex items-center justify-between text-[11px] font-black">
+                                <span class="text-slate-600 dark:text-slate-300">${cappedCount} / ${tier.target} ${unitLabel}</span>
+                                <span class="text-brand-600 dark:text-brand-400">${pct}%</span>
+                            </div>
+                            <div class="w-full h-2 rounded-full bg-slate-200 dark:bg-darkblue-900 overflow-hidden">
+                                <div class="h-full rounded-full transition-all duration-500 ${isUnlocked ? 'bg-emerald-500' : 'bg-brand-500'}" style="width: ${pct}%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        ${actionBtnHtml}
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        function claimMilestoneBonus(tierId) {
+            const tier = milestoneTiers.find(t => t.id === tierId);
+            if (!tier) return;
+            if (affiliateState.claimedMilestones.includes(tierId)) return;
+
+            const { totalMembers, proCount } = getReferralCounts();
+            const currentCount = tier.type === 'pro' ? proCount : totalMembers;
+            if (currentCount < tier.target) return;
+
+            affiliateState.claimedMilestones.push(tierId);
+            affiliateState.totalUSD += tier.rewardUSD;
+
+            // Log into downline/credits ledger
+            affiliateState.downline.unshift({
+                username: `Milestone: ${tier.title}`,
+                plan: 'milestone',
+                amountUSD: tier.rewardUSD,
+                date: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                status: 'Credited'
+            });
+
+            saveAffiliateData();
+            renderAffiliateStats();
+
+            const claimedDisplay = affiliateState.currency === 'USD'
+                ? `$${tier.rewardUSD.toFixed(2)}`
+                : `₦${(tier.rewardUSD * affiliateState.rate).toLocaleString()}`;
+
+            alert(`🎉 Congratulations! You claimed ${claimedDisplay} for completing "${tier.title}". Added to your Affiliate Reserve!`);
         }
 
         function toggleRefCurrency() {
@@ -763,17 +960,17 @@
         }
         renderAffiliateStats();
 
-        // 4. Projection Slider Engine
+        // 5. Projection Slider Engine
         function updateProjection(value) {
             document.getElementById('sliderValueText').textContent = `${value} Member${value === '1' ? '' : 's'}`;
             const yieldUSD = value * 1.50;
             const yieldNGN = yieldUSD * 1000;
             document.getElementById('projectedYieldText').textContent = `$${yieldUSD.toFixed(2)}`;
-            document.getElementById('projectedNgnText').textContent = `≈ ₦${yieldNGN.toLocaleString()} NGN`;
+            document.getElementById('projectedNgnText').textContent = `₦${yieldNGN.toLocaleString()} NGN`;
         }
         updateProjection(10);
 
-        // 5. Render Downline Table
+        // 6. Render Downline Table
         function renderDownlineTable() {
             const emptyView = document.getElementById('emptyDownlineView');
             const tableWrapper = document.getElementById('tableContainer');
@@ -792,32 +989,35 @@
 
             affiliateState.downline.forEach(member => {
                 const row = document.createElement('tr');
-
                 const cutDisplay = affiliateState.currency === 'USD'
                     ? `+$${member.amountUSD.toFixed(2)}`
                     : `+₦${(member.amountUSD * affiliateState.rate).toLocaleString()}`;
 
-                const isPro = member.plan === 'pro';
-                const planBadge = isPro
-                    ? `<span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">PRO (₦3k)</span>`
-                    : `<span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-slate-100 text-slate-700 dark:bg-darkblue-800 dark:text-slate-300">Starter (₦1.5k)</span>`;
+                let planBadge = '';
+                if (member.plan === 'milestone') {
+                    planBadge = `<span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">🏆 Milestone Quest</span>`;
+                } else if (member.plan === 'pro') {
+                    planBadge = `<span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">PRO (₦3k)</span>`;
+                } else {
+                    planBadge = `<span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-slate-100 text-slate-700 dark:bg-darkblue-800 dark:text-slate-300">Starter (₦1.5k)</span>`;
+                }
 
                 row.innerHTML = `
-          <td class="py-3 px-2 font-black text-slate-900 dark:text-white">${member.username}</td>
-          <td class="py-3 px-2">${planBadge}</td>
-          <td class="py-3 px-2 font-black text-emerald-600 dark:text-emerald-400">${cutDisplay}</td>
-          <td class="py-3 px-2 text-[10px] text-slate-400">${member.date}</td>
-          <td class="py-3 px-2 text-right">
-            <span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300">
-              Weekend Payout
-            </span>
-          </td>
-        `;
+                  <td class="py-3 px-2 font-black text-slate-900 dark:text-white">${member.username}</td>
+                  <td class="py-3 px-2">${planBadge}</td>
+                  <td class="py-3 px-2 font-black text-emerald-600 dark:text-emerald-400">${cutDisplay}</td>
+                  <td class="py-3 px-2 text-[10px] text-slate-400">${member.date}</td>
+                  <td class="py-3 px-2 text-right">
+                    <span class="px-2 py-0.5 rounded text-[9px] font-black uppercase bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300">
+                      Weekend Payout
+                    </span>
+                  </td>
+                `;
                 tableBody.appendChild(row);
             });
         }
 
-        // 6. Copy Affiliate Link Handler
+        // 7. Copy Affiliate Link Handler
         function copyAffiliateLink() {
             const input = document.getElementById('mainAffiliateLinkInput');
             navigator.clipboard.writeText(input.value).then(() => {
@@ -831,11 +1031,11 @@
             });
         }
 
-        // 7. Simulation Controls (For testing 0 vs active downline additions)
+        // 8. Simulation Controls (For testing 0 vs active downline & milestone unlocks)
         function simulateAddReferralDownline() {
             const sampleNames = ['@alex_dev', '@sarah_k', '@chidex_99', '@victor_fx', '@faith_hub', '@emeka_ui'];
             const randomName = sampleNames[Math.floor(Math.random() * sampleNames.length)] + Math.floor(Math.random() * 10);
-            const isPro = Math.random() > 0.4;
+            const isPro = Math.random() > 0.35;
             const cut = isPro ? 1.50 : 0.75;
 
             const newMember = {
@@ -854,12 +1054,13 @@
 
         function resetReferralsDownline() {
             affiliateState.downline = [];
+            affiliateState.claimedMilestones = [];
             affiliateState.totalUSD = 0.00;
             saveAffiliateData();
             renderAffiliateStats();
         }
 
-        // 8. Sign Out Handler
+        // 9. Sign Out Handler
         function handleLogout() {
             if (confirm('Are you sure you want to sign out of REXORA?')) {
                 window.location.href = '../auth/login.html';

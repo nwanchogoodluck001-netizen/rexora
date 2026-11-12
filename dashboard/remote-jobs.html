@@ -306,10 +306,10 @@
                 </div>
 
                 <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                    <span
-                        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-100 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800/40">
-                        📱 Phone Friendly
-                    </span>
+                    <button onclick="openPartnerPopup()"
+                        class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-brand-100 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/40 hover:bg-brand-200 transition-colors">
+                        🌍 Global Partners
+                    </button>
 
                     <a href="top-earners.html"
                         class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300 text-[10px] sm:text-xs font-black shadow-sm">
@@ -347,7 +347,7 @@
                                 Contracts ($10 - $50+)</h3>
                             <p class="text-xs text-indigo-200 mt-1 max-w-xl font-bold">
                                 Your account is on Starter. Upgrade to PRO (₦3,000 / $3.00) to claim and submit verified
-                                remote deliverables.
+                                foreign client deliverables.
                             </p>
                         </div>
                         <a href="../auth/activation-checkout.html?plan=pro"
@@ -365,7 +365,7 @@
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
                                 <span
                                     class="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-brand-600 dark:text-brand-400 truncate">
-                                    Verified Client Contracts
+                                    International Client Contracts
                                 </span>
                             </div>
                             <h1
@@ -373,7 +373,8 @@
                                 Explore Micro-Jobs & Tasks
                             </h1>
                             <p class="text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 mt-0.5">
-                                Select a category, complete tasks, and submit deliverables directly from your phone.
+                                Select a category, complete tasks for partner companies, and submit deliverables
+                                directly from your phone.
                             </p>
                         </div>
 
@@ -524,6 +525,60 @@
         </button>
     </nav>
 
+    <!-- ==================== MODAL 0: ALWAYS-ON FOREIGN PARTNERSHIP POP-UP ==================== -->
+    <div id="partnerPopupModal"
+        class="fixed inset-0 z-50 bg-navy-950/75 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
+        <div
+            class="bg-white dark:bg-darkblue-900 border-2 border-brand-500/40 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative text-center space-y-5 overflow-hidden">
+
+            <!-- Decorative Sky Glow -->
+            <div class="w-32 h-32 rounded-full bg-brand-500/15 blur-2xl absolute -top-10 -right-10 pointer-events-none">
+            </div>
+
+            <button onclick="closePartnerPopup()"
+                class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white font-black text-lg p-1">✕</button>
+
+            <!-- Celebration Icon Badge -->
+            <div
+                class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-brand-500 to-indigo-600 text-white flex items-center justify-center text-3xl mx-auto shadow-lg shadow-brand-500/25">
+                🎉
+            </div>
+
+            <div class="space-y-2">
+                <span
+                    class="inline-block px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[10px] font-black uppercase tracking-widest">
+                    Global Marketplace Expansion
+                </span>
+                <h3 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                    Congratulations!
+                </h3>
+                <p class="text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-300 leading-relaxed">
+                    <span class="text-brand-600 dark:text-brand-400 font-black">REXORA</span> has officially secured
+                    partnerships with verified foreign companies and international clients! You can now take on remote
+                    contracts, submit deliverables directly from the platform, and earn in USD.
+                </p>
+            </div>
+
+            <div
+                class="p-3.5 rounded-2xl bg-slate-50 dark:bg-darkblue-850 border border-slate-100 dark:border-darkblue-border flex items-center justify-around text-left">
+                <div>
+                    <span class="text-[9px] font-black uppercase text-slate-400 block">Contract Currency</span>
+                    <span class="text-xs font-black text-slate-900 dark:text-white">USD ($) Direct Escrow</span>
+                </div>
+                <div class="h-6 w-px bg-slate-200 dark:bg-darkblue-border"></div>
+                <div>
+                    <span class="text-[9px] font-black uppercase text-slate-400 block">Client Verification</span>
+                    <span class="text-xs font-black text-emerald-600 dark:text-emerald-400">✓ 100% Pre-Funded</span>
+                </div>
+            </div>
+
+            <button onclick="closePartnerPopup()"
+                class="w-full py-3.5 px-6 rounded-2xl bg-brand-500 hover:bg-brand-600 text-white font-black text-xs uppercase tracking-wider shadow-lg shadow-brand-500/25 transition-all transform hover:-translate-y-0.5">
+                Explore Foreign Client Jobs
+            </button>
+        </div>
+    </div>
+
     <!-- ==================== MODAL 1: TASK BRIEF ==================== -->
     <div id="briefModal"
         class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
@@ -560,9 +615,9 @@
 
                 <h4 class="text-[11px] font-black uppercase tracking-wider text-slate-400 pt-1">Deliverable
                     Requirements:</h4>
-                <ul class="list-disc pl-4 space-y-1 text-slate-500 dark:text-slate-400 font-medium">
+                <ul id="briefRequirementsList"
+                    class="list-disc pl-4 space-y-1 text-slate-500 dark:text-slate-400 font-medium">
                     <li>Must be original and complete according to the brief.</li>
-                    <li>High-resolution format (.PNG, .JPG).</li>
                     <li>Funds are released to your balance upon verification.</li>
                 </ul>
             </div>
@@ -581,7 +636,7 @@
         </div>
     </div>
 
-    <!-- ==================== MODAL 2: SUBMIT WORK MODAL ==================== -->
+    <!-- ==================== MODAL 2: DYNAMIC SUBMISSION MODAL (GRAPHICS VS TEXT) ==================== -->
     <div id="submitModal"
         class="fixed inset-0 z-50 bg-navy-950/70 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-4">
         <div
@@ -593,7 +648,7 @@
             <div class="flex items-center gap-2 flex-wrap pr-6">
                 <span id="submitCategoryPill"
                     class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
-                    Graphic Design
+                    Category
                 </span>
                 <span
                     class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
@@ -601,8 +656,9 @@
                 </span>
             </div>
 
-            <h3 class="text-base sm:text-xl font-black text-slate-900 dark:text-white mt-2 tracking-tight">Submit
-                Graphic Design Work</h3>
+            <h3 id="submitModalHeading"
+                class="text-base sm:text-xl font-black text-slate-900 dark:text-white mt-2 tracking-tight">Submit
+                Deliverable</h3>
             <p id="submitJobTitle" class="text-xs font-bold text-slate-500 dark:text-slate-400 mt-0.5 truncate">
                 Job title placeholder...
             </p>
@@ -616,61 +672,79 @@
 
             <form id="deliverableForm" class="space-y-3.5" novalidate>
 
-                <!-- DROPZONE -->
-                <div>
-                    <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
-                        Upload Design Deliverable (.PNG, .JPG)
-                    </label>
+                <!-- ==================== SECTION A: GRAPHIC DESIGN IMAGE UPLOAD ONLY ==================== -->
+                <div id="graphicUploadSection" class="space-y-3.5 hidden">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                            Upload Design Deliverable (.PNG, .JPG)
+                        </label>
 
-                    <div id="dropzoneContainer" onclick="document.getElementById('graphicFileInput').click()"
-                        ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)"
-                        ondrop="handleFileDrop(event)"
-                        class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-brand-500 rounded-2xl p-4 sm:p-6 text-center cursor-pointer transition-all bg-slate-50/50 dark:bg-darkblue-850/50">
-                        <input type="file" id="graphicFileInput" accept="image/png, image/jpeg, image/jpg"
-                            class="hidden" onchange="handleFileSelect(event)" />
+                        <div id="dropzoneContainer" onclick="document.getElementById('graphicFileInput').click()"
+                            ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)"
+                            ondrop="handleFileDrop(event)"
+                            class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-brand-500 rounded-2xl p-4 sm:p-6 text-center cursor-pointer transition-all bg-slate-50/50 dark:bg-darkblue-850/50">
+                            <input type="file" id="graphicFileInput" accept="image/png, image/jpeg, image/jpg"
+                                class="hidden" onchange="handleFileSelect(event)" />
 
-                        <div id="dropzoneDefault">
-                            <div
-                                class="w-10 h-10 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-500 flex items-center justify-center text-lg mx-auto mb-1.5">
-                                🖼️
+                            <div id="dropzoneDefault">
+                                <div
+                                    class="w-10 h-10 rounded-2xl bg-brand-100 dark:bg-brand-950 text-brand-500 flex items-center justify-center text-lg mx-auto mb-1.5">
+                                    🖼️
+                                </div>
+                                <p class="text-xs font-black text-slate-800 dark:text-white">Click to select graphic or
+                                    drag & drop</p>
+                                <p class="text-[10px] font-bold text-slate-400 mt-0.5">No file selected yet (.png, .jpg)
+                                </p>
                             </div>
-                            <p class="text-xs font-black text-slate-800 dark:text-white">Click to select file or drag &
-                                drop</p>
-                            <p class="text-[10px] font-bold text-slate-400 mt-0.5">No file selected yet (.png, .jpg)</p>
-                        </div>
 
-                        <div id="dropzonePreview" class="hidden flex flex-col items-center">
-                            <div
-                                class="relative max-h-36 overflow-hidden rounded-xl border border-slate-200 dark:border-darkblue-border mb-2 shadow-sm">
-                                <img id="previewImage" src="" alt="Preview" class="object-cover max-h-36 rounded-xl" />
+                            <div id="dropzonePreview" class="hidden flex flex-col items-center">
+                                <div
+                                    class="relative max-h-36 overflow-hidden rounded-xl border border-slate-200 dark:border-darkblue-border mb-2 shadow-sm">
+                                    <img id="previewImage" src="" alt="Preview"
+                                        class="object-cover max-h-36 rounded-xl" />
+                                </div>
+                                <span id="previewFilename"
+                                    class="text-xs font-black text-brand-600 dark:text-brand-400 truncate max-w-full"></span>
+                                <button type="button" onclick="removeSelectedFile(event)"
+                                    class="text-[10px] font-bold text-rose-500 hover:underline mt-1">
+                                    ✕ Remove file
+                                </button>
                             </div>
-                            <span id="previewFilename"
-                                class="text-xs font-black text-brand-600 dark:text-brand-400 truncate max-w-full"></span>
-                            <button type="button" onclick="removeSelectedFile(event)"
-                                class="text-[10px] font-bold text-rose-500 hover:underline mt-1">
-                                ✕ Remove file
-                            </button>
                         </div>
+                        <p id="err-file" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
                     </div>
-                    <p id="err-file" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+
+                    <div>
+                        <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                            Design Tool Used
+                        </label>
+                        <input type="text" id="designToolInput"
+                            placeholder="e.g., Canva, Photoshop, Illustrator, Figma, or Phone App"
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500" />
+                        <p id="err-tool" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                    </div>
                 </div>
 
-                <div>
-                    <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
-                        Work Link (Optional: Figma, Canva, Drive)
-                    </label>
-                    <input type="url" id="deliverableUrl" placeholder="https://www.figma.com/file/... or Drive link"
-                        class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500" />
-                </div>
+                <!-- ==================== SECTION B: TEXT DELIVERABLE SECTION (SCRIPTS, RESEARCH, DATA) ==================== -->
+                <div id="textDeliverableSection" class="space-y-3.5 hidden">
+                    <div>
+                        <label id="textDeliverableLabel"
+                            class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                            Write or Paste Your Completed Deliverable
+                        </label>
+                        <textarea id="textDeliverableInput" rows="6"
+                            placeholder="Type or paste your completed video script, research report, or categorized data response here..."
+                            class="w-full px-3.5 py-3 rounded-2xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white leading-relaxed focus:outline-none focus:border-brand-500"></textarea>
+                        <p id="err-text" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                    </div>
 
-                <div>
-                    <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
-                        Design Tool Used
-                    </label>
-                    <input type="text" id="designToolInput"
-                        placeholder="e.g., Canva, Photoshop, Illustrator, Figma, or Phone App"
-                        class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500" />
-                    <p id="err-tool" class="hidden text-[10px] font-bold text-rose-500 mt-1"></p>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1">
+                            External Document Link (Optional: Google Docs, Notion)
+                        </label>
+                        <input type="url" id="deliverableUrl" placeholder="https://docs.google.com/document/d/..."
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-darkblue-850 border border-slate-200 dark:border-darkblue-border text-xs font-bold text-slate-900 dark:text-white focus:outline-none focus:border-brand-500" />
+                    </div>
                 </div>
 
                 <div class="pt-1">
@@ -690,6 +764,7 @@
 
     <!-- ==================== LOGIC ENGINE ==================== -->
     <script>
+        // 1. Theme Initialization
         function initTheme() {
             const savedTheme = localStorage.getItem('rexora_theme');
             if (savedTheme === 'dark') {
@@ -711,6 +786,23 @@
             document.getElementById('mobileDrawer').classList.toggle('hidden');
         }
 
+        // 2. Always-On Foreign Partnership Welcome Pop-Up Logic
+        function openPartnerPopup() {
+            document.getElementById('partnerPopupModal').classList.remove('hidden');
+        }
+
+        function closePartnerPopup() {
+            document.getElementById('partnerPopupModal').classList.add('hidden');
+        }
+
+        // Triggers every single time the user enters, refreshes, or navigates to this page
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                openPartnerPopup();
+            }, 300);
+        });
+
+        // 3. Plan Gating
         let userPlan = 'pro';
         const storedUser = localStorage.getItem('rexora_user');
         if (storedUser) {
@@ -724,6 +816,7 @@
             document.getElementById('starterGateNotice').classList.remove('hidden');
         }
 
+        // 4. Remote Earnings KPI State (Zero Demo Balance Default)
         function getInitialRemoteStats() {
             const savedData = localStorage.getItem('rexora_remote_earnings');
             if (savedData) {
@@ -775,10 +868,11 @@
         }
         renderRemoteCards();
 
+        // 5. Foreign Partner Contracts Data
         const remoteJobs = [
             {
                 id: 1,
-                client: "Claire",
+                client: "Claire (UK Partner)",
                 avatar: "C",
                 avatarBg: "bg-indigo-500",
                 deadline: "⏱ 72h left",
@@ -790,13 +884,13 @@
             },
             {
                 id: 2,
-                client: "Creative Studio",
+                client: "Creative Studio US",
                 avatar: "CS",
                 avatarBg: "bg-brand-500",
                 deadline: "⏱ 24h left",
                 category: "Script Writing",
                 title: "Write 3 Short Video Ad Hooks (Coffee Brand)",
-                objective: "Write 3 conversational script hooks for a TikTok video campaign introducing 'Boost Brew' cold coffee.",
+                objective: "Write 3 conversational 15-second video script hooks for a TikTok campaign introducing 'Boost Brew' cold coffee.",
                 payoutUSD: 18.00,
                 payoutNGN: "₦18,000"
             },
@@ -808,7 +902,7 @@
                 deadline: "⏱ 24h left",
                 category: "Script Writing",
                 title: "Explainer Video Script for Mobile DeFi App",
-                objective: "Draft a 60-second simple video script explaining how everyday users deposit and withdraw USD on mobile wallets.",
+                objective: "Draft a 60-second simple conversational video script explaining how everyday users deposit and withdraw USD on mobile wallets.",
                 payoutUSD: 22.00,
                 payoutNGN: "₦22,000"
             },
@@ -820,25 +914,25 @@
                 deadline: "⏱ 48h left",
                 category: "Research",
                 title: "Competitive Analysis: High-Performance Landing Pages",
-                objective: "Review 5 modern landing pages, document CTA positioning hierarchy, and submit a 1-page summary report.",
+                objective: "Review 5 modern fintech landing pages, document CTA positioning hierarchy, and write a concise summary report.",
                 payoutUSD: 25.00,
                 payoutNGN: "₦25,000"
             },
             {
                 id: 5,
-                client: "Apex AI Labs",
+                client: "Apex AI Labs (EU)",
                 avatar: "AL",
                 avatarBg: "bg-sky-600",
                 deadline: "⏱ 12h left",
                 category: "Data Tasks",
                 title: "AI Response Categorization & Sentiment Tagging",
-                objective: "Categorize 100 customer prompt responses into Technical, Billing, or Usability tags with sentiment markers.",
+                objective: "Categorize customer prompt responses into Technical, Billing, or Usability tags with clear sentiment labels.",
                 payoutUSD: 15.00,
                 payoutNGN: "₦15,000"
             },
             {
                 id: 6,
-                client: "Jone Smith",
+                client: "Jone Smith Studio",
                 avatar: "JS",
                 avatarBg: "bg-amber-600",
                 deadline: "⏱ 36h left",
@@ -854,6 +948,7 @@
         let selectedJob = null;
         let uploadedFile = null;
 
+        // 6. Render Jobs Grid
         function renderJobs() {
             const grid = document.getElementById('jobGrid');
             grid.innerHTML = '';
@@ -875,6 +970,9 @@
                 const card = document.createElement('div');
                 card.className = "p-4 sm:p-6 rounded-3xl bg-white dark:bg-darkblue-900 border border-slate-200/80 dark:border-darkblue-border shadow-sm flex flex-col justify-between min-w-0";
 
+                const isGraphic = job.category === 'Graphic Design';
+                const submissionTypeBadge = isGraphic ? '🖼️ Image Upload' : '📝 Text Deliverable';
+
                 card.innerHTML = `
           <div class="min-w-0">
             <!-- Client Header -->
@@ -888,7 +986,7 @@
                     <span class="text-xs font-black text-slate-900 dark:text-white truncate">${job.client}</span>
                     <span class="text-[10px] text-brand-500 font-black shrink-0">✓</span>
                   </div>
-                  <span class="text-[9px] font-bold text-slate-400 block truncate">Verified Client</span>
+                  <span class="text-[9px] font-bold text-slate-400 block truncate">Verified Foreign Client</span>
                 </div>
               </div>
               <span class="text-[9px] sm:text-[10px] font-black text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-2 py-0.5 rounded-full shrink-0">
@@ -902,7 +1000,7 @@
                 ${job.category}
               </span>
               <span class="text-[9px] font-black uppercase px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 dark:bg-darkblue-800 dark:text-slate-300">
-                📱 Mobile
+                ${submissionTypeBadge}
               </span>
             </div>
 
@@ -958,6 +1056,7 @@
             renderJobs();
         }
 
+        // 7. Task Brief Modal Logic
         function viewBrief(jobId) {
             if (userPlan === 'starter') {
                 alert("Remote-Jobs are strictly unlocked on PRO (₦3,000 / $3.00). Please upgrade.");
@@ -972,6 +1071,21 @@
             document.getElementById('briefPayout').textContent = `$${selectedJob.payoutUSD.toFixed(2)} (${selectedJob.payoutNGN})`;
             document.getElementById('briefObjective').textContent = selectedJob.objective;
 
+            const reqList = document.getElementById('briefRequirementsList');
+            if (selectedJob.category === 'Graphic Design') {
+                reqList.innerHTML = `
+          <li>Must be original and complete according to the design brief.</li>
+          <li>Upload your final graphic file in high resolution (.PNG, .JPG).</li>
+          <li>Funds are released to your balance upon verification.</li>
+        `;
+            } else {
+                reqList.innerHTML = `
+          <li>Must be original, clear, and written directly according to the prompt.</li>
+          <li>Type or paste your completed text deliverable in the submission box.</li>
+          <li>Funds are released to your balance upon verification.</li>
+        `;
+            }
+
             document.getElementById('briefModal').classList.remove('hidden');
         }
 
@@ -984,6 +1098,7 @@
             if (selectedJob) openSubmit(selectedJob.id);
         }
 
+        // 8. Category-Adaptive Submit Modal Logic (Graphics = Image Upload ONLY | Others = Text Input ONLY)
         function openSubmit(jobId) {
             if (userPlan === 'starter') {
                 alert("Remote-Jobs are strictly unlocked on PRO (₦3,000 / $3.00). Please upgrade.");
@@ -992,25 +1107,52 @@
             selectedJob = remoteJobs.find(j => j.id === jobId);
             if (!selectedJob) return;
 
+            const isGraphic = selectedJob.category === 'Graphic Design';
+            const graphicSection = document.getElementById('graphicUploadSection');
+            const textSection = document.getElementById('textDeliverableSection');
+
             document.getElementById('submitCategoryPill').textContent = selectedJob.category;
             document.getElementById('submitJobTitle').textContent = selectedJob.title;
             document.getElementById('submitPayoutRate').textContent = `$${selectedJob.payoutUSD.toFixed(2)} (${selectedJob.payoutNGN})`;
 
-            resetUploadState();
-            clearSubmitErrors();
+            if (isGraphic) {
+                document.getElementById('submitModalHeading').textContent = "Submit Graphic Design Work";
+                graphicSection.classList.remove('hidden');
+                textSection.classList.add('hidden');
+            } else {
+                document.getElementById('submitModalHeading').textContent = `Submit ${selectedJob.category} Work`;
+                graphicSection.classList.add('hidden');
+                textSection.classList.remove('hidden');
 
+                const label = document.getElementById('textDeliverableLabel');
+                const textarea = document.getElementById('textDeliverableInput');
+                if (selectedJob.category === 'Script Writing') {
+                    label.textContent = "Write or Paste Your Video Script";
+                    textarea.placeholder = "Write or paste your full conversational video script and hooks here...";
+                } else if (selectedJob.category === 'Research') {
+                    label.textContent = "Write or Paste Your Research Summary";
+                    textarea.placeholder = "Paste your competitive analysis findings and summary report here...";
+                } else {
+                    label.textContent = "Write or Paste Your Completed Task Response";
+                    textarea.placeholder = "Enter your completed work response here...";
+                }
+            }
+
+            resetSubmissionStates();
+            clearSubmitErrors();
             document.getElementById('submitModal').classList.remove('hidden');
         }
 
         function closeSubmitModal() {
             document.getElementById('submitModal').classList.add('hidden');
-            resetUploadState();
+            resetSubmissionStates();
         }
 
-        function resetUploadState() {
+        function resetSubmissionStates() {
             uploadedFile = null;
             document.getElementById('graphicFileInput').value = '';
             document.getElementById('designToolInput').value = '';
+            document.getElementById('textDeliverableInput').value = '';
             document.getElementById('deliverableUrl').value = '';
             document.getElementById('dropzoneDefault').classList.remove('hidden');
             document.getElementById('dropzonePreview').classList.add('hidden');
@@ -1022,8 +1164,11 @@
             document.getElementById('err-file').classList.add('hidden');
             document.getElementById('designToolInput').classList.remove('border-rose-400', 'bg-rose-50/20');
             document.getElementById('err-tool').classList.add('hidden');
+            document.getElementById('textDeliverableInput').classList.remove('border-rose-400', 'bg-rose-50/20');
+            document.getElementById('err-text').classList.add('hidden');
         }
 
+        // Image Dropzone Handlers (For Graphic Design Only)
         function handleFileSelect(e) {
             const file = e.target.files[0];
             processFile(file);
@@ -1072,31 +1217,47 @@
 
         function removeSelectedFile(e) {
             e.stopPropagation();
-            resetUploadState();
+            uploadedFile = null;
+            document.getElementById('graphicFileInput').value = '';
+            document.getElementById('dropzoneDefault').classList.remove('hidden');
+            document.getElementById('dropzonePreview').classList.add('hidden');
+            document.getElementById('previewImage').src = '';
         }
 
+        // 9. Form Validation Based on Category
         document.getElementById('deliverableForm').addEventListener('submit', (e) => {
             e.preventDefault();
             clearSubmitErrors();
 
             let isValid = true;
-            const workUrl = document.getElementById('deliverableUrl').value.trim();
+            const isGraphic = selectedJob && selectedJob.category === 'Graphic Design';
 
-            if (!uploadedFile && workUrl === '') {
-                document.getElementById('dropzoneContainer').classList.add('border-rose-400', 'bg-rose-50/20');
-                const errFile = document.getElementById('err-file');
-                errFile.textContent = "Upload a file or provide a deliverable link.";
-                errFile.classList.remove('hidden');
-                isValid = false;
-            }
+            if (isGraphic) {
+                if (!uploadedFile) {
+                    document.getElementById('dropzoneContainer').classList.add('border-rose-400', 'bg-rose-50/20');
+                    const errFile = document.getElementById('err-file');
+                    errFile.textContent = "Please upload your graphic design image (.PNG or .JPG).";
+                    errFile.classList.remove('hidden');
+                    isValid = false;
+                }
 
-            const toolInput = document.getElementById('designToolInput');
-            if (toolInput.value.trim() === '') {
-                toolInput.classList.add('border-rose-400', 'bg-rose-50/20');
-                const errTool = document.getElementById('err-tool');
-                errTool.textContent = "Specify the design tool used.";
-                errTool.classList.remove('hidden');
-                isValid = false;
+                const toolInput = document.getElementById('designToolInput');
+                if (toolInput.value.trim() === '') {
+                    toolInput.classList.add('border-rose-400', 'bg-rose-50/20');
+                    const errTool = document.getElementById('err-tool');
+                    errTool.textContent = "Specify the design tool used (e.g., Canva, Figma, Photoshop).";
+                    errTool.classList.remove('hidden');
+                    isValid = false;
+                }
+            } else {
+                const textInput = document.getElementById('textDeliverableInput');
+                if (textInput.value.trim() === '') {
+                    textInput.classList.add('border-rose-400', 'bg-rose-50/20');
+                    const errText = document.getElementById('err-text');
+                    errText.textContent = "Please write or paste your completed work in the text box above.";
+                    errText.classList.remove('hidden');
+                    isValid = false;
+                }
             }
 
             if (!isValid) return;
